@@ -18,7 +18,7 @@
 @property (nonatomic, strong) UILabel *firstFilterLabel;
 @property (nonatomic, strong) UILabel *secondFilterLabel;
 
-@property (nonatomic, strong) UIButton *processButton;
+@property (nonatomic, strong) UIButton *cleanButton;
 
 @property (nonatomic, strong) GPUImagePicture *originPicture;
 @property (nonatomic, strong) UIImageView *originImageView;
@@ -42,7 +42,7 @@
     [self.view addSubview:self.secondTableView];
     [self.view addSubview:self.firstFilterLabel];
     [self.view addSubview:self.secondFilterLabel];
-    [self.view addSubview:self.processButton];
+    [self.view addSubview:self.cleanButton];
     [self.view addSubview:self.originImageView];
     [self.view addSubview:self.processedImageView];
     [self.view addSubview:self.activityIndicator];
@@ -71,14 +71,14 @@
     [self.secondFilterLabel top:5 FromView:self.firstFilterLabel];
     [self.secondFilterLabel leftEqualToView:self.firstFilterLabel];
     
-    self.processButton.size = CGSizeMake(80, 45);
-    [self.processButton right:10 FromView:self.firstFilterLabel];
-    [self.processButton topEqualToView:self.firstFilterLabel];
+    self.cleanButton.size = CGSizeMake(80, 45);
+    [self.cleanButton right:10 FromView:self.firstFilterLabel];
+    [self.cleanButton topEqualToView:self.firstFilterLabel];
     
-    CGFloat tableViewHeight = (self.view.height - self.processButton.bottom - 30.0f) / 2.0f;
+    CGFloat tableViewHeight = (self.view.height - self.cleanButton.bottom - 30.0f) / 2.0f;
     
     self.firstTableView.size = CGSizeMake(self.view.width - 20, tableViewHeight);
-    [self.firstTableView top:10 FromView:self.processButton];
+    [self.firstTableView top:10 FromView:self.cleanButton];
     [self.firstTableView centerXEqualToView:self.view];
     
     self.secondTableView.size = CGSizeMake(self.view.width - 20, tableViewHeight);
@@ -90,7 +90,14 @@
 }
 
 #pragma mark - event response
-- (void)didTappedProcessButton:(UIButton *)button
+- (void)didTappedCleanButton:(UIButton *)button
+{
+    self.processedImageView.image = [UIImage imageNamed:@"image"];
+    [self.firstTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [self.secondTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+}
+
+- (void)process
 {
     NSString *firstFilterName = self.firstFilterLabel.text;
     NSString *secondFilterName = self.secondFilterLabel.text;
@@ -168,6 +175,7 @@
     } else {
         self.secondFilterLabel.text = filterName;
     }
+    [self process];
 }
 
 #pragma mark - getters and setters
@@ -204,14 +212,14 @@
     return _processedImageView;
 }
 
-- (UIButton *)processButton
+- (UIButton *)cleanButton
 {
-    if (_processButton == nil) {
-        _processButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_processButton setTitle:@"process" forState:UIControlStateNormal];
-        [_processButton addTarget:self action:@selector(didTappedProcessButton:) forControlEvents:UIControlEventTouchUpInside];
+    if (_cleanButton == nil) {
+        _cleanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_cleanButton setTitle:@"clean" forState:UIControlStateNormal];
+        [_cleanButton addTarget:self action:@selector(didTappedCleanButton:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _processButton;
+    return _cleanButton;
 }
 
 - (UILabel *)firstFilterLabel
