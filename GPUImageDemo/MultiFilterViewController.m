@@ -10,7 +10,10 @@
 #import "UIView+LayoutMethods.h"
 #import <GPUImage/GPUImage.h>
 
-@interface MultiFilterViewController () <UITableViewDataSource, UITableViewDelegate>
+#import <ImageIO/ImageIO.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+
+@interface MultiFilterViewController () <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UITableView *firstTableView;
 @property (nonatomic, strong) UITableView *secondTableView;
@@ -19,6 +22,7 @@
 @property (nonatomic, strong) UILabel *secondFilterLabel;
 
 @property (nonatomic, strong) UIButton *cleanButton;
+@property (nonatomic, strong) UIButton *takeImageButton;
 
 @property (nonatomic, strong) GPUImagePicture *originPicture;
 @property (nonatomic, strong) UIImageView *originImageView;
@@ -46,6 +50,7 @@
     [self.view addSubview:self.originImageView];
     [self.view addSubview:self.processedImageView];
     [self.view addSubview:self.activityIndicator];
+    [self.view addSubview:self.takeImageButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -55,7 +60,7 @@
     CGFloat width = (self.view.width - 30) / 2.0f;
     
     self.originImageView.size = CGSizeMake(width, width);
-    [self.originImageView topInContainer:20 shouldResize:NO];
+    [self.originImageView topInContainer:70 shouldResize:NO];
     [self.originImageView leftInContainer:10 shouldResize:NO];
     
     self.processedImageView.size = CGSizeMake(width, width);
@@ -71,14 +76,20 @@
     [self.secondFilterLabel top:5 FromView:self.firstFilterLabel];
     [self.secondFilterLabel leftEqualToView:self.firstFilterLabel];
     
-    self.cleanButton.size = CGSizeMake(80, 45);
+    self.cleanButton.width = 80;
+    [self.cleanButton heightEqualToView:self.firstFilterLabel];
     [self.cleanButton right:10 FromView:self.firstFilterLabel];
     [self.cleanButton topEqualToView:self.firstFilterLabel];
     
-    CGFloat tableViewHeight = (self.view.height - self.cleanButton.bottom - 30.0f) / 2.0f;
+    self.takeImageButton.width = 80;
+    [self.takeImageButton heightEqualToView:self.secondFilterLabel];
+    [self.takeImageButton right:10 FromView:self.secondFilterLabel];
+    [self.takeImageButton topEqualToView:self.secondFilterLabel];
+    
+    CGFloat tableViewHeight = (self.view.height - self.secondFilterLabel.bottom - 30.0f) / 2.0f;
     
     self.firstTableView.size = CGSizeMake(self.view.width - 20, tableViewHeight);
-    [self.firstTableView top:10 FromView:self.cleanButton];
+    [self.firstTableView top:10 FromView:self.secondFilterLabel];
     [self.firstTableView centerXEqualToView:self.view];
     
     self.secondTableView.size = CGSizeMake(self.view.width - 20, tableViewHeight);
@@ -97,6 +108,15 @@
     [self.secondTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
 }
 
+- (void)didTappedTakeImageButton:(UIButton *)button
+{
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    pickerController.delegate = self;
+    pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+#pragma mark - private methods
 - (void)process
 {
     NSString *firstFilterName = self.firstFilterLabel.text;
@@ -150,6 +170,87 @@
     [self.activityIndicator stopAnimating];
 }
 
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library assetForURL:[info objectForKey:UIImagePickerControllerReferenceURL]
+             resultBlock:^(ALAsset *asset) {
+                 
+                 ALAssetRepresentation *image_representation = [asset defaultRepresentation];
+                 
+                 // create a buffer to hold image data
+                 uint8_t *buffer = (Byte*)malloc(image_representation.size);
+                 NSUInteger length = [image_representation getBytes:buffer fromOffset: 0.0  length:image_representation.size error:nil];
+                 
+                 if (length != 0)  {
+                     
+                     // buffer -> NSData object; free buffer afterwards
+                     NSData *adata = [[NSData alloc] initWithBytesNoCopy:buffer length:image_representation.size freeWhenDone:YES];
+                     
+                     // identify image type (jpeg, png, RAW file, ...) using UTI hint
+                     NSDictionary* sourceOptionsDict = [NSDictionary dictionaryWithObjectsAndKeys:(id)[image_representation UTI] ,kCGImageSourceTypeIdentifierHint,nil];
+                     
+                     // create CGImageSource with NSData
+                     CGImageSourceRef sourceRef = CGImageSourceCreateWithData((__bridge CFDataRef) adata,  (__bridge CFDictionaryRef) sourceOptionsDict);
+                     
+                     // get imagePropertiesDictionary
+                     CFDictionaryRef imagePropertiesDictionary;
+                     imagePropertiesDictionary = CGImageSourceCopyPropertiesAtIndex(sourceRef,0, NULL);
+                     
+                     // get exif data
+                     CFDictionaryRef exif = (CFDictionaryRef)CFDictionaryGetValue(imagePropertiesDictionary, kCGImagePropertyExifDictionary);
+                     NSDictionary *exif_dict = (__bridge NSDictionary*)exif;
+                     NSLog(@"exif_dict: %@",exif_dict);
+                     
+                     // save image WITH meta data
+                     NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+                     NSURL *fileURL = nil;
+                     CGImageRef imageRef = CGImageSourceCreateImageAtIndex(sourceRef, 0, imagePropertiesDictionary);
+                     
+                     if (![[sourceOptionsDict objectForKey:@"kCGImageSourceTypeIdentifierHint"] isEqualToString:@"public.tiff"])
+                     {
+                         fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@.%@",
+                                                           documentsDirectory,
+                                                           @"myimage",
+                                                           [[[sourceOptionsDict objectForKey:@"kCGImageSourceTypeIdentifierHint"] componentsSeparatedByString:@"."] objectAtIndex:1]
+                                                           ]];
+                         
+                         CGImageDestinationRef dr = CGImageDestinationCreateWithURL ((__bridge CFURLRef)fileURL,
+                                                                                     (__bridge CFStringRef)[sourceOptionsDict objectForKey:@"kCGImageSourceTypeIdentifierHint"],
+                                                                                     1,
+                                                                                     NULL
+                                                                                     );
+                         CGImageDestinationAddImage(dr, imageRef, imagePropertiesDictionary);
+                         CGImageDestinationFinalize(dr);
+                         CFRelease(dr);
+                     }
+                     else
+                     {
+                         NSLog(@"no valid kCGImageSourceTypeIdentifierHint found …");
+                     }
+                     
+                     // clean up
+                     CFRelease(imageRef);
+                     CFRelease(imagePropertiesDictionary);
+                     CFRelease(sourceRef);
+                 }
+                 else {
+                     NSLog(@"image_representation buffer length == 0");
+                 }
+             }
+            failureBlock:^(NSError *error) {
+                NSLog(@"couldn't get asset: %@", error);
+            }
+     ];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -179,6 +280,16 @@
 }
 
 #pragma mark - getters and setters
+- (UIButton *)takeImageButton
+{
+    if (_takeImageButton == nil) {
+        _takeImageButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_takeImageButton setTitle:@"take image" forState:UIControlStateNormal];
+        [_takeImageButton addTarget:self action:@selector(didTappedTakeImageButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _takeImageButton;
+}
+
 - (UIActivityIndicatorView *)activityIndicator
 {
     if (_activityIndicator == nil) {
