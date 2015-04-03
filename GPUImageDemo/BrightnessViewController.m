@@ -8,6 +8,7 @@
 
 #import "BrightnessViewController.h"
 #import "UIView+LayoutMethods.h"
+#import "ImageAnalyzer.h"
 
 @interface BrightnessViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -15,6 +16,8 @@
 @property (nonatomic, strong) UILabel *brightnessLabel;
 @property (nonatomic, strong) UIButton *fetchImageButton;
 @property (nonatomic, strong) UIActionSheet *actionSheet;
+
+@property (nonatomic, strong) ImageAnalyzer *imageAnalyzer;
 
 @end
 
@@ -89,6 +92,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     self.imageView.image = info[UIImagePickerControllerOriginalImage];
+    CGFloat brightness = [self.imageAnalyzer brightnessOfImage:self.imageView.image];
+    NSLog(@"%f", brightness);
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -125,6 +130,14 @@
         _actionSheet = [[UIActionSheet alloc] initWithTitle:@"fetch image" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"camera", @"library", nil];
     }
     return _actionSheet;
+}
+
+- (ImageAnalyzer *)imageAnalyzer
+{
+    if (_imageAnalyzer == nil) {
+        _imageAnalyzer = [[ImageAnalyzer alloc] init];
+    }
+    return _imageAnalyzer;
 }
 
 @end
