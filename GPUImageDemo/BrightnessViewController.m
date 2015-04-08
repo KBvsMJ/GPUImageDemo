@@ -18,32 +18,37 @@
 @property (nonatomic, strong) UIButton *fetchImageButton;
 @property (nonatomic, strong) UIActionSheet *actionSheet;
 
+@property (nonatomic, strong) UILabel *brightnessLabel;
 @property (nonatomic, strong) UISlider *brightnessSlider;
+@property (nonatomic, strong) UILabel *brightnessSliderLabel;
 @property (nonatomic, strong) GPUImageBrightnessFilter *brightnessFilter;
 
+@property (nonatomic, strong) UILabel *saturationLabel;
 @property (nonatomic, strong) UISlider *saturationSlider;
+@property (nonatomic, strong) UILabel *saturationSliderLabel;
 @property (nonatomic, strong) GPUImageSaturationFilter *saturationFilter;
 
-@property (nonatomic, strong) UISlider *blurSizeSlider;
-@property (nonatomic, strong) UISlider *blurCenterXSlider;
-@property (nonatomic, strong) UISlider *blurCenterYSlider;
+@property (nonatomic, strong) UISlider *excludeCircleRadiusSlider;
+@property (nonatomic, strong) UILabel *excludeCircleRadiusSliderLabel;
+
+@property (nonatomic, strong) UISlider *excludeBlurSizeSlider;
+@property (nonatomic, strong) UILabel *excludeBlurSizeSliderLabel;
+
+@property (nonatomic, strong) UISlider *aspectRatioSlider;
+@property (nonatomic, strong) UILabel *aspectRatioSliderLabel;
+
 @property (nonatomic, strong) UISlider *blurRadiusSlider;
-@property (nonatomic, strong) GPUImageGaussianBlurPositionFilter *blurFilter;
+@property (nonatomic, strong) UILabel *blurRadiusSliderLabel;
+
+@property (nonatomic, strong) GPUImageGaussianSelectiveBlurFilter *blurFilter;
+
+@property (nonatomic, strong) UILabel *sharpnessSliderLabel;
+@property (nonatomic, strong) UISlider *sharpnessSlider;
+@property (nonatomic, strong) GPUImageSharpenFilter *sharpenFilter;
 
 @property (nonatomic, strong) GPUImagePicture *originPicture;
 
 @property (nonatomic, strong) ImageAnalyzer *imageAnalyzer;
-
-@property (nonatomic, strong) UILabel *brightnessLabel;
-@property (nonatomic, strong) UILabel *saturationLabel;
-
-@property (nonatomic, strong) UILabel *brightnessSliderLabel;
-@property (nonatomic, strong) UILabel *saturationSliderLabel;
-
-@property (nonatomic, strong) UILabel *blurSizeSliderLabel;
-@property (nonatomic, strong) UILabel *blurCenterXSliderLabel;
-@property (nonatomic, strong) UILabel *blurCenterYSliderLabel;
-@property (nonatomic, strong) UILabel *blurRadiusSliderLabel;
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 
@@ -68,16 +73,19 @@
     [self.view addSubview:self.saturationLabel];
     [self.view addSubview:self.brightnessSliderLabel];
     [self.view addSubview:self.saturationSliderLabel];
-    
+
     [self.view addSubview:self.blurRadiusSlider];
     [self.view addSubview:self.blurRadiusSliderLabel];
-    [self.view addSubview:self.blurCenterXSlider];
-    [self.view addSubview:self.blurCenterXSliderLabel];
-    [self.view addSubview:self.blurCenterYSlider];
-    [self.view addSubview:self.blurCenterYSliderLabel];
-    [self.view addSubview:self.blurSizeSlider];
-    [self.view addSubview:self.blurSizeSliderLabel];
+    [self.view addSubview:self.excludeCircleRadiusSlider];
+    [self.view addSubview:self.excludeCircleRadiusSliderLabel];
+    [self.view addSubview:self.excludeBlurSizeSlider];
+    [self.view addSubview:self.excludeBlurSizeSliderLabel];
+    [self.view addSubview:self.aspectRatioSlider];
+    [self.view addSubview:self.aspectRatioSliderLabel];
     
+    [self.view addSubview:self.sharpnessSlider];
+    [self.view addSubview:self.sharpnessSliderLabel];
+
     [self.view addSubview:self.activityIndicator];
 }
 
@@ -129,42 +137,43 @@
     [self.saturationSlider right:10 FromView:self.brightnessSliderLabel];
     [self.saturationSlider rightInContainer:10 shouldResize:YES];
     
-    self.blurSizeSliderLabel.size = CGSizeMake(120.0f, 20.0f);
-    [self.blurSizeSliderLabel top:10 FromView:self.saturationSlider];
-    [self.blurSizeSliderLabel leftInContainer:10 shouldResize:NO];
-    [self.blurSizeSlider top:10 FromView:self.saturationSlider];
-    [self.blurSizeSlider right:10 FromView:self.brightnessSliderLabel];
-    [self.blurSizeSlider rightInContainer:10 shouldResize:YES];
+    self.excludeCircleRadiusSliderLabel.size = CGSizeMake(120.0f, 20.0f);
+    [self.excludeCircleRadiusSliderLabel top:10 FromView:self.saturationSlider];
+    [self.excludeCircleRadiusSliderLabel leftInContainer:10 shouldResize:NO];
+    [self.excludeCircleRadiusSlider top:10 FromView:self.saturationSlider];
+    [self.excludeCircleRadiusSlider right:10 FromView:self.brightnessSliderLabel];
+    [self.excludeCircleRadiusSlider rightInContainer:10 shouldResize:YES];
     
-    self.blurCenterXSliderLabel.size = CGSizeMake(120, 20);
-    [self.blurCenterXSliderLabel top:10 FromView:self.blurSizeSlider];
-    [self.blurCenterXSliderLabel leftInContainer:10 shouldResize:NO];
-    [self.blurCenterXSlider top:10 FromView:self.blurSizeSlider];
-    [self.blurCenterXSlider right:10 FromView:self.brightnessSliderLabel];
-    [self.blurCenterXSlider rightInContainer:10 shouldResize:YES];
+    self.excludeBlurSizeSliderLabel.size = CGSizeMake(120, 20);
+    [self.excludeBlurSizeSliderLabel top:10 FromView:self.excludeCircleRadiusSlider];
+    [self.excludeBlurSizeSliderLabel leftInContainer:10 shouldResize:NO];
+    [self.excludeBlurSizeSlider top:10 FromView:self.excludeCircleRadiusSlider];
+    [self.excludeBlurSizeSlider right:10 FromView:self.brightnessSliderLabel];
+    [self.excludeBlurSizeSlider rightInContainer:10 shouldResize:YES];
     
-    self.blurCenterYSliderLabel.size = CGSizeMake(120, 20);
-    [self.blurCenterYSliderLabel top:10 FromView:self.blurCenterXSlider];
-    [self.blurCenterYSliderLabel leftInContainer:10 shouldResize:NO];
-    [self.blurCenterYSlider top:10 FromView:self.blurCenterXSlider];
-    [self.blurCenterYSlider right:10 FromView:self.brightnessSliderLabel];
-    [self.blurCenterYSlider rightInContainer:10 shouldResize:YES];
+    self.aspectRatioSliderLabel.size = CGSizeMake(120, 20);
+    [self.aspectRatioSliderLabel top:10 FromView:self.excludeBlurSizeSlider];
+    [self.aspectRatioSliderLabel leftInContainer:10 shouldResize:NO];
+    [self.aspectRatioSlider top:10 FromView:self.excludeBlurSizeSlider];
+    [self.aspectRatioSlider right:10 FromView:self.brightnessSliderLabel];
+    [self.aspectRatioSlider rightInContainer:10 shouldResize:YES];
     
     self.blurRadiusSliderLabel.size = CGSizeMake(120, 20);
-    [self.blurRadiusSliderLabel top:10 FromView:self.blurCenterYSlider];
+    [self.blurRadiusSliderLabel top:10 FromView:self.aspectRatioSlider];
     [self.blurRadiusSliderLabel leftInContainer:10 shouldResize:NO];
-    [self.blurRadiusSlider top:10 FromView:self.blurCenterYSlider];
+    [self.blurRadiusSlider top:10 FromView:self.aspectRatioSlider];
     [self.blurRadiusSlider right:10 FromView:self.brightnessSliderLabel];
     [self.blurRadiusSlider rightInContainer:10 shouldResize:YES];
     
+    self.sharpnessSliderLabel.size = CGSizeMake(120, 20);
+    [self.sharpnessSliderLabel top:10 FromView:self.blurRadiusSlider];
+    [self.sharpnessSliderLabel leftInContainer:10 shouldResize:NO];
+    [self.sharpnessSlider top:10 FromView:self.blurRadiusSlider];
+    [self.sharpnessSlider right:10 FromView:self.brightnessSliderLabel];
+    [self.sharpnessSlider rightInContainer:10 shouldResize:YES];
+    
     [self.activityIndicator centerXEqualToView:self.view];
     [self.activityIndicator centerYEqualToView:self.view];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
 }
 
 #pragma mark - event response
@@ -187,35 +196,38 @@
     [self processImage];
 }
 
-- (void)blurSizeChanged:(UISlider *)blurSizeSlider
+- (void)excludeCircleRadiusChanged:(UISlider *)excludeCircleRadiusSlider
 {
-    self.blurSizeSliderLabel.text = [NSString stringWithFormat:@"s：%f", blurSizeSlider.value];
-    self.blurFilter.blurSize = blurSizeSlider.value;
+    self.excludeCircleRadiusSliderLabel.text = [NSString stringWithFormat:@"cr：%f", excludeCircleRadiusSlider.value];
+    self.blurFilter.excludeCircleRadius = excludeCircleRadiusSlider.value;
     [self processImage];
 }
 
 - (void)blurRadiusChanged:(UISlider *)blurRadiusSlider
 {
-    self.blurRadiusSliderLabel.text = [NSString stringWithFormat:@"r：%f", blurRadiusSlider.value];
-    self.blurFilter.blurRadius = blurRadiusSlider.value;
+    self.blurRadiusSliderLabel.text = [NSString stringWithFormat:@"br：%f", blurRadiusSlider.value];
+    self.blurFilter.blurRadiusInPixels = blurRadiusSlider.value;
     [self processImage];
 }
 
-- (void)blurCenterXChanged:(UISlider *)blurCenterXSlider
+- (void)excludeBlurSizeChanged:(UISlider *)excludeBlurSizeSlider
 {
-    self.blurCenterXSliderLabel.text = [NSString stringWithFormat:@"X：%f", blurCenterXSlider.value];
-    CGPoint center = self.blurFilter.blurCenter;
-    center.x = blurCenterXSlider.value;
-    self.blurFilter.blurCenter = center;
+    self.excludeBlurSizeSliderLabel.text = [NSString stringWithFormat:@"bs：%f", excludeBlurSizeSlider.value];
+    self.blurFilter.excludeBlurSize = excludeBlurSizeSlider.value;
     [self processImage];
 }
 
-- (void)blurCenterYChanged:(UISlider *)blurCenterYSlider
+- (void)aspectRatioChanged:(UISlider *)aspectRatioSlider
 {
-    self.blurCenterYSliderLabel.text = [NSString stringWithFormat:@"Y：%f", blurCenterYSlider.value];
-    CGPoint center = self.blurFilter.blurCenter;
-    center.y = blurCenterYSlider.value;
-    self.blurFilter.blurCenter = center;
+    self.aspectRatioSliderLabel.text = [NSString stringWithFormat:@"ar：%f", aspectRatioSlider.value];
+    self.blurFilter.aspectRatio = aspectRatioSlider.value;
+    [self processImage];
+}
+
+- (void)sharpnessChanged:(UISlider *)sharpnessSlider
+{
+    self.sharpnessSliderLabel.text = [NSString stringWithFormat:@"sh：%f", sharpnessSlider.value];
+    self.sharpenFilter.sharpness = sharpnessSlider.value;
     [self processImage];
 }
 
@@ -223,9 +235,11 @@
 - (void)processImage
 {
     [self.originPicture removeAllTargets];
+    
     [self.originPicture addTarget:self.brightnessFilter];
     [self.brightnessFilter addTarget:self.saturationFilter];
-    [self.saturationFilter addTarget:self.blurFilter];
+    [self.saturationFilter addTarget:self.sharpenFilter];
+    [self.sharpenFilter addTarget:self.blurFilter];
     
     [self.blurFilter useNextFrameForImageCapture];
     [self.originPicture processImage];
@@ -397,31 +411,11 @@
     return _saturationSliderLabel;
 }
 
-- (UISlider *)blurSizeSlider
-{
-    if (_blurSizeSlider == nil) {
-        _blurSizeSlider = [[UISlider alloc] init];
-        [_blurSizeSlider addTarget:self action:@selector(blurSizeChanged:) forControlEvents:UIControlEventValueChanged];
-        _blurSizeSlider.minimumValue = 0.0f;
-        _blurSizeSlider.maximumValue = 10.0f;
-    }
-    return _blurSizeSlider;
-}
-
-- (UILabel *)blurSizeSliderLabel
-{
-    if (_blurSizeSliderLabel == nil) {
-        _blurSizeSliderLabel = [[UILabel alloc] init];
-        _blurSizeSliderLabel.text = @"s：";
-    }
-    return _blurSizeSliderLabel;
-}
-
 - (UILabel *)blurRadiusSliderLabel
 {
     if (_blurRadiusSliderLabel == nil) {
         _blurRadiusSliderLabel = [[UILabel alloc] init];
-        _blurRadiusSliderLabel.text = @"r：";
+        _blurRadiusSliderLabel.text = @"br：";
     }
     return _blurRadiusSliderLabel;
 }
@@ -432,61 +426,107 @@
         _blurRadiusSlider = [[UISlider alloc] init];
         [_blurRadiusSlider addTarget:self action:@selector(blurRadiusChanged:) forControlEvents:UIControlEventValueChanged];
         _blurRadiusSlider.minimumValue = 0.0f;
-        _blurRadiusSlider.maximumValue = 1.0f;
+        _blurRadiusSlider.maximumValue = 30.0f;
     }
     return _blurRadiusSlider;
 }
 
-- (UILabel *)blurCenterXSliderLabel
+- (UISlider *)excludeCircleRadiusSlider
 {
-    if (_blurCenterXSliderLabel == nil) {
-        _blurCenterXSliderLabel = [[UILabel alloc] init];
-        _blurCenterXSliderLabel.text = @"X：";
+    if (_excludeCircleRadiusSlider == nil) {
+        _excludeCircleRadiusSlider = [[UISlider alloc] init];
+        [_excludeCircleRadiusSlider addTarget:self action:@selector(excludeCircleRadiusChanged:) forControlEvents:UIControlEventValueChanged];
     }
-    return _blurCenterXSliderLabel;
+    return _excludeCircleRadiusSlider;
 }
 
-- (UISlider *)blurCenterXSlider
+- (UILabel *)excludeCircleRadiusSliderLabel
 {
-    if (_blurCenterXSlider == nil) {
-        _blurCenterXSlider = [[UISlider alloc] init];
-        [_blurCenterXSlider addTarget:self action:@selector(blurCenterXChanged:) forControlEvents:UIControlEventValueChanged];
-        _blurCenterXSlider.minimumValue = 0.0f;
-        _blurCenterXSlider.maximumValue = 1.0f;
-        _blurCenterXSlider.value = 0.5f;
+    if (_excludeCircleRadiusSliderLabel == nil) {
+        _excludeCircleRadiusSliderLabel = [[UILabel alloc] init];
+        _excludeCircleRadiusSliderLabel.text = @"cr：";
     }
-    return _blurCenterXSlider;
+    return _excludeCircleRadiusSliderLabel;
 }
 
-- (UILabel *)blurCenterYSliderLabel
+- (UISlider *)excludeBlurSizeSlider
 {
-    if (_blurCenterYSliderLabel == nil) {
-        _blurCenterYSliderLabel = [[UILabel alloc] init];
-        _blurCenterYSliderLabel.text = @"Y：";
+    if (_excludeBlurSizeSlider == nil) {
+        _excludeBlurSizeSlider = [[UISlider alloc] init];
+        [_excludeBlurSizeSlider addTarget:self action:@selector(excludeBlurSizeChanged:) forControlEvents:UIControlEventValueChanged];
     }
-    return _blurCenterYSliderLabel;
+    return _excludeBlurSizeSlider;
 }
 
-- (UISlider *)blurCenterYSlider
+- (UILabel *)excludeBlurSizeSliderLabel
 {
-    if (_blurCenterYSlider == nil) {
-        _blurCenterYSlider = [[UISlider alloc] init];
-        [_blurCenterYSlider addTarget:self action:@selector(blurCenterYChanged:) forControlEvents:UIControlEventValueChanged];
-        _blurCenterYSlider.minimumValue = 0.0f;
-        _blurCenterYSlider.maximumValue = 1.0f;
-        _blurCenterYSlider.value = 0.5f;
+    if (_excludeBlurSizeSliderLabel == nil) {
+        _excludeBlurSizeSliderLabel = [[UILabel alloc] init];
+        _excludeBlurSizeSliderLabel.text = @"bs：";
     }
-    return _blurCenterYSlider;
+    return _excludeBlurSizeSliderLabel;
 }
 
-- (GPUImageGaussianBlurPositionFilter *)blurFilter
+- (UISlider *)aspectRatioSlider
+{
+    if (_aspectRatioSlider == nil) {
+        _aspectRatioSlider = [[UISlider alloc] init];
+        [_aspectRatioSlider addTarget:self action:@selector(aspectRatioChanged:) forControlEvents:UIControlEventValueChanged];
+        _aspectRatioSlider.minimumValue = 0;
+        _aspectRatioSlider.maximumValue = 2;
+    }
+    return _aspectRatioSlider;
+}
+
+- (UILabel *)aspectRatioSliderLabel
+{
+    if (_aspectRatioSliderLabel == nil) {
+        _aspectRatioSliderLabel = [[UILabel alloc] init];
+        _aspectRatioSliderLabel.text = @"ar：";
+    }
+    return _aspectRatioSliderLabel;
+}
+
+- (GPUImageGaussianSelectiveBlurFilter *)blurFilter
 {
     if (_blurFilter == nil) {
-        _blurFilter = [[GPUImageGaussianBlurPositionFilter alloc] init];
-        _blurFilter.blurSize = 0;
-        _blurFilter.blurRadius = 0;
+        _blurFilter = [[GPUImageGaussianSelectiveBlurFilter alloc] init];
+        _blurFilter.excludeBlurSize = 0;
+        _blurFilter.excludeCircleRadius = 0;
+        _blurFilter.aspectRatio = 0;
+        _blurFilter.blurRadiusInPixels = 0;
     }
     return _blurFilter;
+}
+
+- (GPUImageSharpenFilter *)sharpenFilter
+{
+    if (_sharpenFilter == nil) {
+        _sharpenFilter = [[GPUImageSharpenFilter alloc] init];
+        _sharpenFilter.sharpness = 0;
+    }
+    return _sharpenFilter;
+}
+
+- (UISlider *)sharpnessSlider
+{
+    if (_sharpnessSlider == nil) {
+        _sharpnessSlider = [[UISlider alloc] init];
+        [_sharpnessSlider addTarget:self action:@selector(sharpnessChanged:) forControlEvents:UIControlEventValueChanged];
+        _sharpnessSlider.minimumValue = -4.0f;
+        _sharpnessSlider.maximumValue = 4.0f;
+        _sharpnessSlider.value = 0.0f;
+    }
+    return _sharpnessSlider;
+}
+
+- (UILabel *)sharpnessSliderLabel
+{
+    if (_sharpnessSliderLabel == nil) {
+        _sharpnessSliderLabel = [[UILabel alloc] init];
+        _sharpnessSliderLabel.text = @"sh:0.0";
+    }
+    return _sharpnessSliderLabel;
 }
 
 - (UIActivityIndicatorView *)activityIndicator
