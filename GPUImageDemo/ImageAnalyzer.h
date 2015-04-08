@@ -11,7 +11,6 @@
 
 @interface ImageAnalyzer : NSObject
 
-- (CGFloat)brightnessOfImage:(UIImage *)image;
-- (CGFloat)saturationOfImage:(UIImage *)image;
+- (NSDictionary *)analyzeImage:(UIImage *)image;
 
 @end
