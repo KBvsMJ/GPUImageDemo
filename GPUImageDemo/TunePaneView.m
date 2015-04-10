@@ -40,6 +40,14 @@
 @property (nonatomic, strong) UISlider *sharpnessSlider;
 @property (nonatomic, strong) GPUImageSharpenFilter *sharpenFilter;
 
+@property (nonatomic, strong) UILabel *whiteBalanceTemparatureSliderLabel;
+@property (nonatomic, strong) UISlider *whiteBalanceTemparatureSlider;
+
+@property (nonatomic, strong) UILabel *whiteBalanceTiltSliderLabel;
+@property (nonatomic, strong) UISlider *whiteBalanceTitleSlider;
+
+@property (nonatomic, strong) GPUImageWhiteBalanceFilter *whiteBalanceFilter;
+
 @end
 
 @implementation TunePaneView
@@ -387,6 +395,32 @@
         _sharpnessSliderLabel.textColor = [UIColor redColor];
     }
     return _sharpnessSliderLabel;
+}
+
+/*
+ @property (nonatomic, strong) UILabel *whiteBalanceTemparatureSliderLabel;
+ @property (nonatomic, strong) UISlider *whiteBalanceTemparatureSlider;
+ 
+ @property (nonatomic, strong) UILabel *whiteBalanceTiltSliderLabel;
+ @property (nonatomic, strong) UISlider *whiteBalanceTitleSlider;
+ 
+ @property (nonatomic, strong) GPUImageWhiteBalanceFilter *whiteBalanceFilter;
+ */
+
+- (UISlider *)whiteBalanceTemparatureSlider
+{
+    if (_whiteBalanceTemparatureSlider == nil) {
+        _whiteBalanceTemparatureSlider = [[UISlider alloc] init];
+    }
+    return _whiteBalanceTemparatureSlider;
+}
+
+- (GPUImageWhiteBalanceFilter *)whiteBalanceFilter
+{
+    if (_whiteBalanceFilter == nil) {
+        _whiteBalanceFilter = [[GPUImageWhiteBalanceFilter alloc] init];
+    }
+    return _whiteBalanceFilter;
 }
 
 @end
