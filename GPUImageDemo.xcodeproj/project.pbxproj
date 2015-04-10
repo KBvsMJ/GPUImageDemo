@@ -68,7 +68,7 @@
 		4AB5E7B01AD66AD300A5CA51 /* UIBezierPath-Points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath-Points.h"; sourceTree = "<group>"; };
 		4AB5E7B11AD66AD300A5CA51 /* UIBezierPath-Points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath-Points.m"; sourceTree = "<group>"; };
 		4AF255041ACB7EF500480BE7 /* GPUImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AF255081ACB7EF500480BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AF255081ACB7EF500480BE7 /* GPUImageDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GPUImageDemo-Info.plist"; sourceTree = "<group>"; };
 		4AF255091ACB7EF500480BE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4AF2550B1ACB7EF500480BE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4AF2550C1ACB7EF500480BE7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 		4AF255071ACB7EF500480BE7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4AF255081ACB7EF500480BE7 /* Info.plist */,
+				4AF255081ACB7EF500480BE7 /* GPUImageDemo-Info.plist */,
 				4AF255091ACB7EF500480BE7 /* main.m */,
 			);
 			name = "Supporting Files";
