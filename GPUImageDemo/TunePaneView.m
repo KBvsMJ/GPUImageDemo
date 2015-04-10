@@ -1,29 +1,23 @@
 //
-//  BrightnessViewController.m
+//  TunePaneView.m
 //  GPUImageDemo
 //
-//  Created by casa on 4/3/15.
+//  Created by casa on 4/9/15.
 //  Copyright (c) 2015 alibaba. All rights reserved.
 //
 
-#import "BrightnessViewController.h"
-#import "UIView+LayoutMethods.h"
-#import "ImageAnalyzer.h"
+#import "TunePaneView.h"
 #import <GPUImage/GPUImage.h>
+#import "UIView+LayoutMethods.h"
 
-@interface BrightnessViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface TunePaneView ()
 
-@property (nonatomic, strong) UIImageView *originImageView;
-@property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) UIButton *fetchImageButton;
-@property (nonatomic, strong) UIActionSheet *actionSheet;
+@property (nonatomic, strong) GPUImagePicture *originPicture;
 
-@property (nonatomic, strong) UILabel *brightnessLabel;
 @property (nonatomic, strong) UISlider *brightnessSlider;
 @property (nonatomic, strong) UILabel *brightnessSliderLabel;
 @property (nonatomic, strong) GPUImageBrightnessFilter *brightnessFilter;
 
-@property (nonatomic, strong) UILabel *saturationLabel;
 @property (nonatomic, strong) UISlider *saturationSlider;
 @property (nonatomic, strong) UILabel *saturationSliderLabel;
 @property (nonatomic, strong) GPUImageSaturationFilter *saturationFilter;
@@ -46,85 +40,49 @@
 @property (nonatomic, strong) UISlider *sharpnessSlider;
 @property (nonatomic, strong) GPUImageSharpenFilter *sharpenFilter;
 
-@property (nonatomic, strong) GPUImagePicture *originPicture;
-
-@property (nonatomic, strong) ImageAnalyzer *imageAnalyzer;
-
-@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
-
 @end
 
-@implementation BrightnessViewController
+@implementation TunePaneView
 
 #pragma mark - life cycle
-- (void)viewDidLoad
+- (instancetype)init
 {
-    [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.imageView];
-    [self.view addSubview:self.originImageView];
-    [self.view addSubview:self.fetchImageButton];
-    [self.view addSubview:self.actionSheet];
-    [self.view addSubview:self.brightnessSlider];
-    [self.view addSubview:self.saturationSlider];
-    
-    [self.view addSubview:self.brightnessLabel];
-    [self.view addSubview:self.saturationLabel];
-    [self.view addSubview:self.brightnessSliderLabel];
-    [self.view addSubview:self.saturationSliderLabel];
-
-    [self.view addSubview:self.blurRadiusSlider];
-    [self.view addSubview:self.blurRadiusSliderLabel];
-    [self.view addSubview:self.excludeCircleRadiusSlider];
-    [self.view addSubview:self.excludeCircleRadiusSliderLabel];
-    [self.view addSubview:self.excludeBlurSizeSlider];
-    [self.view addSubview:self.excludeBlurSizeSliderLabel];
-    [self.view addSubview:self.aspectRatioSlider];
-    [self.view addSubview:self.aspectRatioSliderLabel];
-    
-    [self.view addSubview:self.sharpnessSlider];
-    [self.view addSubview:self.sharpnessSliderLabel];
-
-    [self.view addSubview:self.activityIndicator];
+    self = [super init];
+    if (self) {
+        [self addSubview:self.brightnessSlider];
+        [self addSubview:self.brightnessSliderLabel];
+        
+        [self addSubview:self.saturationSlider];
+        [self addSubview:self.saturationSliderLabel];
+        
+        [self addSubview:self.blurRadiusSlider];
+        [self addSubview:self.blurRadiusSliderLabel];
+        
+        [self addSubview:self.excludeCircleRadiusSlider];
+        [self addSubview:self.excludeCircleRadiusSliderLabel];
+        
+        [self addSubview:self.excludeBlurSizeSlider];
+        [self addSubview:self.excludeBlurSizeSliderLabel];
+        
+        [self addSubview:self.aspectRatioSlider];
+        [self addSubview:self.aspectRatioSliderLabel];
+        
+        [self addSubview:self.sharpnessSlider];
+        [self addSubview:self.sharpnessSliderLabel];
+    }
+    return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)layoutSubviews
 {
-    [super viewWillAppear:animated];
-    
-    [self.imageView leftInContainer:100 shouldResize:YES];
-    [self.imageView rightInContainer:100 shouldResize:YES];
-    self.imageView.height = self.imageView.width;
-    [self.imageView topInContainer:70 shouldResize:NO];
-    
-    [self.originImageView sizeEqualToView:self.imageView];
-    [self.originImageView centerYEqualToView:self.imageView];
-    
-    self.originImageView.centerX = self.view.width / 4.0f;
-    self.imageView.centerX = self.view.width / 4.0f * 3;
-    
-    CGFloat labelWidth = (self.view.width - 30.0f) / 2.0f;
-    self.brightnessLabel.width = labelWidth;
-    self.brightnessLabel.height = 20;
-    [self.brightnessLabel top:10 FromView:self.imageView];
-    
-    self.saturationLabel.width = labelWidth;
-    self.saturationLabel.height = 20;
-    [self.saturationLabel centerYEqualToView:self.brightnessLabel];
-    [self.saturationLabel right:10 FromView:self.brightnessLabel];
-    
-    [self.fetchImageButton leftInContainer:10 shouldResize:YES];
-    [self.fetchImageButton rightInContainer:10 shouldResize:YES];
-    self.fetchImageButton.height = 60;
-    [self.fetchImageButton top:10 FromView:self.brightnessLabel];
+    [super layoutSubviews];
     
     self.brightnessSliderLabel.width = 80.0f;
     self.brightnessSliderLabel.height = 20.0f;
     [self.brightnessSliderLabel leftInContainer:10 shouldResize:NO];
-    [self.brightnessSliderLabel top:10 FromView:self.fetchImageButton];
+    [self.brightnessSliderLabel topInContainer:10 shouldResize:NO];
     
-    [self.brightnessSlider top:10 FromView:self.fetchImageButton];
+    [self.brightnessSlider topInContainer:10 shouldResize:NO];
     [self.brightnessSlider right:10 FromView:self.brightnessSliderLabel];
     [self.brightnessSlider rightInContainer:10 shouldResize:YES];
     
@@ -171,17 +129,9 @@
     [self.sharpnessSlider top:10 FromView:self.blurRadiusSlider];
     [self.sharpnessSlider right:10 FromView:self.brightnessSliderLabel];
     [self.sharpnessSlider rightInContainer:10 shouldResize:YES];
-    
-    [self.activityIndicator centerXEqualToView:self.view];
-    [self.activityIndicator centerYEqualToView:self.view];
 }
 
 #pragma mark - event response
-- (void)didTappedFetchImageButton:(UIButton *)button
-{
-    [self.actionSheet showInView:self.view];
-}
-
 - (void)brightnessChanged:(UISlider *)brightnessSlider
 {
     self.brightnessSliderLabel.text = [NSString stringWithFormat:@"%f", brightnessSlider.value];
@@ -244,93 +194,14 @@
     [self.blurFilter useNextFrameForImageCapture];
     [self.originPicture processImage];
     
-    self.imageView.image = [self.blurFilter imageFromCurrentFramebufferWithOrientation:self.imageView.image.imageOrientation];
-}
-
-#pragma mark - UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 2) {
-        return;
-    }
-    
-    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
-    pickerController.delegate = self;
-    
-    if (buttonIndex == 0) {
-        pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }
-    
-    if (buttonIndex == 1) {
-        pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
-    
-    [self presentViewController:pickerController animated:YES completion:nil];
-}
-#pragma mark - UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    self.imageView.image = info[UIImagePickerControllerOriginalImage];
-    self.originImageView.image = info[UIImagePickerControllerOriginalImage];
-    self.originPicture = [[GPUImagePicture alloc] initWithImage:self.imageView.image];
-    [self.activityIndicator startAnimating];
-    
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        NSDictionary *imageInfo = [strongSelf.imageAnalyzer analyzeImage:strongSelf.imageView.image];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            strongSelf.brightnessLabel.text = [NSString stringWithFormat:@"%@", imageInfo[@"brightness"]];
-            strongSelf.saturationLabel.text = [NSString stringWithFormat:@"sat：%@", imageInfo[@"saturation"]];
-            [strongSelf.activityIndicator stopAnimating];
-        });
-    });
+    [self.delegate tunePaneView:self didProcessedImage:[self.blurFilter imageFromCurrentFramebufferWithOrientation:self.originImage.imageOrientation]];
 }
 
 #pragma mark - getters and setters
-- (UIImageView *)imageView
+- (void)setOriginImage:(UIImage *)originImage
 {
-    if (_imageView == nil) {
-        _imageView = [[UIImageView alloc] init];
-        _imageView.contentMode = UIViewContentModeScaleAspectFit;
-    }
-    return _imageView;
-}
-
-- (UIImageView *)originImageView
-{
-    if (_originImageView == nil) {
-        _originImageView = [[UIImageView alloc] init];
-        _originImageView.contentMode = UIViewContentModeScaleAspectFit;
-    }
-    return _originImageView;
-}
-
-- (UIButton *)fetchImageButton
-{
-    if (_fetchImageButton == nil) {
-        _fetchImageButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_fetchImageButton addTarget:self action:@selector(didTappedFetchImageButton:) forControlEvents:UIControlEventTouchUpInside];
-        [_fetchImageButton setTitle:@"fetch image" forState:UIControlStateNormal];
-    }
-    return _fetchImageButton;
-}
-
-- (UIActionSheet *)actionSheet
-{
-    if (_actionSheet == nil) {
-        _actionSheet = [[UIActionSheet alloc] initWithTitle:@"fetch image" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"camera", @"library", nil];
-    }
-    return _actionSheet;
-}
-
-- (ImageAnalyzer *)imageAnalyzer
-{
-    if (_imageAnalyzer == nil) {
-        _imageAnalyzer = [[ImageAnalyzer alloc] init];
-    }
-    return _imageAnalyzer;
+    _originImage = originImage;
+    self.originPicture = [[GPUImagePicture alloc] initWithImage:originImage];
 }
 
 - (UISlider *)brightnessSlider
@@ -375,29 +246,12 @@
     return _saturationFilter;
 }
 
-- (UILabel *)brightnessLabel
-{
-    if (_brightnessLabel == nil) {
-        _brightnessLabel = [[UILabel alloc] init];
-        _brightnessLabel.text = @"亮度：";
-    }
-    return _brightnessLabel;
-}
-
-- (UILabel *)saturationLabel
-{
-    if (_saturationLabel == nil) {
-        _saturationLabel = [[UILabel alloc] init];
-        _saturationLabel.text = @"sat：";
-    }
-    return _saturationLabel;
-}
-
 - (UILabel *)brightnessSliderLabel
 {
     if (_brightnessSliderLabel == nil) {
         _brightnessSliderLabel = [[UILabel alloc] init];
         _brightnessSliderLabel.text = @"0.0";
+        _brightnessSliderLabel.textColor = [UIColor redColor];
     }
     return _brightnessSliderLabel;
 }
@@ -407,6 +261,7 @@
     if (_saturationSliderLabel == nil) {
         _saturationSliderLabel = [[UILabel alloc] init];
         _saturationSliderLabel.text = @"sat：1.0";
+        _saturationSliderLabel.textColor = [UIColor redColor];
     }
     return _saturationSliderLabel;
 }
@@ -416,6 +271,7 @@
     if (_blurRadiusSliderLabel == nil) {
         _blurRadiusSliderLabel = [[UILabel alloc] init];
         _blurRadiusSliderLabel.text = @"br：";
+        _blurRadiusSliderLabel.textColor = [UIColor redColor];
     }
     return _blurRadiusSliderLabel;
 }
@@ -445,6 +301,7 @@
     if (_excludeCircleRadiusSliderLabel == nil) {
         _excludeCircleRadiusSliderLabel = [[UILabel alloc] init];
         _excludeCircleRadiusSliderLabel.text = @"cr：";
+        _excludeCircleRadiusSliderLabel.textColor = [UIColor redColor];
     }
     return _excludeCircleRadiusSliderLabel;
 }
@@ -463,6 +320,7 @@
     if (_excludeBlurSizeSliderLabel == nil) {
         _excludeBlurSizeSliderLabel = [[UILabel alloc] init];
         _excludeBlurSizeSliderLabel.text = @"bs：";
+        _excludeBlurSizeSliderLabel.textColor = [UIColor redColor];
     }
     return _excludeBlurSizeSliderLabel;
 }
@@ -483,6 +341,7 @@
     if (_aspectRatioSliderLabel == nil) {
         _aspectRatioSliderLabel = [[UILabel alloc] init];
         _aspectRatioSliderLabel.text = @"ar：";
+        _aspectRatioSliderLabel.textColor = [UIColor redColor];
     }
     return _aspectRatioSliderLabel;
 }
@@ -525,16 +384,9 @@
     if (_sharpnessSliderLabel == nil) {
         _sharpnessSliderLabel = [[UILabel alloc] init];
         _sharpnessSliderLabel.text = @"sh:0.0";
+        _sharpnessSliderLabel.textColor = [UIColor redColor];
     }
     return _sharpnessSliderLabel;
-}
-
-- (UIActivityIndicatorView *)activityIndicator
-{
-    if (_activityIndicator == nil) {
-        _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    }
-    return _activityIndicator;
 }
 
 @end

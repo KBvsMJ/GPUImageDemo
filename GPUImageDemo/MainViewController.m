@@ -9,12 +9,14 @@
 #import "MainViewController.h"
 #import "UIView+LayoutMethods.h"
 #import "MultiFilterViewController.h"
-#import "BrightnessViewController.h"
+#import "ImageSeperaterViewController.h"
+#import "FilterTuneViewController.h"
 
 @interface MainViewController ()
 
 @property (nonatomic, strong) UIButton *multiFilterButton;
 @property (nonatomic, strong) UIButton *brightnessButton;
+@property (nonatomic, strong) UIButton *seperatorButton;
 
 @end
 
@@ -27,6 +29,7 @@
     
     [self.view addSubview:self.multiFilterButton];
     [self.view addSubview:self.brightnessButton];
+    [self.view addSubview:self.seperatorButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -40,6 +43,10 @@
     [self.brightnessButton sizeEqualToView:self.multiFilterButton];
     [self.brightnessButton topEqualToView:self.multiFilterButton];
     [self.brightnessButton right:10 FromView:self.multiFilterButton];
+    
+    [self.seperatorButton sizeEqualToView:self.multiFilterButton];
+    [self.seperatorButton topEqualToView:self.multiFilterButton];
+    [self.seperatorButton right:10 FromView:self.brightnessButton];
 }
 
 #pragma mark - event response
@@ -51,7 +58,13 @@
 
 - (void)didTappedBrightnessButton:(UIButton *)button
 {
-    BrightnessViewController *viewController = [[BrightnessViewController alloc] init];
+    FilterTuneViewController *viewController = [[FilterTuneViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)didTappedSeperaterButton:(UIButton *)button
+{
+    ImageSeperaterViewController *viewController = [[ImageSeperaterViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -59,9 +72,9 @@
 - (UIButton *)multiFilterButton
 {
     if (_multiFilterButton == nil) {
-        _multiFilterButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _multiFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_multiFilterButton addTarget:self action:@selector(didTappedMultiFilterButton:) forControlEvents:UIControlEventTouchUpInside];
-        [_multiFilterButton setTitle:@"Multi Filter" forState:UIControlStateNormal];
+        [_multiFilterButton setTitle:@"探索" forState:UIControlStateNormal];
     }
     return _multiFilterButton;
 }
@@ -69,11 +82,21 @@
 - (UIButton *)brightnessButton
 {
     if (_brightnessButton == nil) {
-        _brightnessButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _brightnessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_brightnessButton addTarget:self action:@selector(didTappedBrightnessButton:) forControlEvents:UIControlEventTouchUpInside];
-        [_brightnessButton setTitle:@"Brightness" forState:UIControlStateNormal];
+        [_brightnessButton setTitle:@"调滤镜" forState:UIControlStateNormal];
     }
     return _brightnessButton;
+}
+
+- (UIButton *)seperatorButton
+{
+    if (_seperatorButton == nil) {
+        _seperatorButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_seperatorButton addTarget:self action:@selector(didTappedSeperaterButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_seperatorButton setTitle:@"切图" forState:UIControlStateNormal];
+    }
+    return _seperatorButton;
 }
 
 @end
