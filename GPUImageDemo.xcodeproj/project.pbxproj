@@ -12,17 +12,15 @@
 		4A1D929B1ACCE91F00645FC5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D929A1ACCE91F00645FC5 /* ImageIO.framework */; };
 		4A1D929E1ACE6E5300645FC5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D929D1ACE6E5300645FC5 /* MainViewController.m */; };
 		4A1D92A41ACE7EEB00645FC5 /* ImageAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D92A31ACE7EEB00645FC5 /* ImageAnalyzer.m */; };
-		4A53EE591AD760AC000AABC6 /* IQStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A53EE581AD760AC000AABC6 /* IQStickerView.m */; };
+		4A53EE601AD76A21000AABC6 /* SPGripViewBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A53EE5C1AD76A21000AABC6 /* SPGripViewBorderView.m */; };
+		4A53EE621AD76A21000AABC6 /* ZDStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A53EE5F1AD76A21000AABC6 /* ZDStickerView.m */; };
 		4A6D00A31ACB9D9900D0BA86 /* UIView+LayoutMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D00A21ACB9D9900D0BA86 /* UIView+LayoutMethods.m */; };
 		4A6D00A61ACBCA0700D0BA86 /* MultiFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D00A51ACBCA0700D0BA86 /* MultiFilterViewController.m */; };
 		4AB5E7921AD60DAF00A5CA51 /* ImageSeperaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7911AD60DAF00A5CA51 /* ImageSeperaterViewController.m */; };
-		4AB5E79E1AD61C1300A5CA51 /* JBCroppableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E79B1AD61C1300A5CA51 /* JBCroppableImageView.m */; };
-		4AB5E79F1AD61C1300A5CA51 /* JBCroppableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E79D1AD61C1300A5CA51 /* JBCroppableLayer.m */; };
 		4AB5E7A21AD620E400A5CA51 /* FilterTuneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7A11AD620E400A5CA51 /* FilterTuneViewController.m */; };
 		4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7A41AD62C3000A5CA51 /* TunePaneView.m */; };
 		4AB5E7B21AD66AD300A5CA51 /* MZCroppableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7AF1AD66AD300A5CA51 /* MZCroppableView.m */; };
 		4AB5E7B31AD66AD300A5CA51 /* UIBezierPath-Points.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7B11AD66AD300A5CA51 /* UIBezierPath-Points.m */; };
-		4AB5E7B71AD672D700A5CA51 /* CTCroppableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7B61AD672D700A5CA51 /* CTCroppableView.m */; };
 		4AF2550A1ACB7EF500480BE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF255091ACB7EF500480BE7 /* main.m */; };
 		4AF2550D1ACB7EF500480BE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2550C1ACB7EF500480BE7 /* AppDelegate.m */; };
 		4AF255131ACB7EF500480BE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF255111ACB7EF500480BE7 /* Main.storyboard */; };
@@ -51,18 +49,16 @@
 		4A1D929D1ACE6E5300645FC5 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		4A1D92A21ACE7EEB00645FC5 /* ImageAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAnalyzer.h; sourceTree = "<group>"; };
 		4A1D92A31ACE7EEB00645FC5 /* ImageAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAnalyzer.m; sourceTree = "<group>"; };
-		4A53EE571AD760AC000AABC6 /* IQStickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQStickerView.h; sourceTree = "<group>"; };
-		4A53EE581AD760AC000AABC6 /* IQStickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQStickerView.m; sourceTree = "<group>"; };
+		4A53EE5B1AD76A21000AABC6 /* SPGripViewBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGripViewBorderView.h; sourceTree = "<group>"; };
+		4A53EE5C1AD76A21000AABC6 /* SPGripViewBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGripViewBorderView.m; sourceTree = "<group>"; };
+		4A53EE5E1AD76A21000AABC6 /* ZDStickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDStickerView.h; sourceTree = "<group>"; };
+		4A53EE5F1AD76A21000AABC6 /* ZDStickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDStickerView.m; sourceTree = "<group>"; };
 		4A6D00A11ACB9D9900D0BA86 /* UIView+LayoutMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayoutMethods.h"; sourceTree = "<group>"; };
 		4A6D00A21ACB9D9900D0BA86 /* UIView+LayoutMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutMethods.m"; sourceTree = "<group>"; };
 		4A6D00A41ACBCA0700D0BA86 /* MultiFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiFilterViewController.h; sourceTree = "<group>"; };
 		4A6D00A51ACBCA0700D0BA86 /* MultiFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiFilterViewController.m; sourceTree = "<group>"; };
 		4AB5E7901AD60DAF00A5CA51 /* ImageSeperaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSeperaterViewController.h; sourceTree = "<group>"; };
 		4AB5E7911AD60DAF00A5CA51 /* ImageSeperaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSeperaterViewController.m; sourceTree = "<group>"; };
-		4AB5E79A1AD61C1300A5CA51 /* JBCroppableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBCroppableImageView.h; sourceTree = "<group>"; };
-		4AB5E79B1AD61C1300A5CA51 /* JBCroppableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBCroppableImageView.m; sourceTree = "<group>"; };
-		4AB5E79C1AD61C1300A5CA51 /* JBCroppableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBCroppableLayer.h; sourceTree = "<group>"; };
-		4AB5E79D1AD61C1300A5CA51 /* JBCroppableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBCroppableLayer.m; sourceTree = "<group>"; };
 		4AB5E7A01AD620E400A5CA51 /* FilterTuneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTuneViewController.h; sourceTree = "<group>"; };
 		4AB5E7A11AD620E400A5CA51 /* FilterTuneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTuneViewController.m; sourceTree = "<group>"; };
 		4AB5E7A31AD62C3000A5CA51 /* TunePaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TunePaneView.h; sourceTree = "<group>"; };
@@ -71,8 +67,6 @@
 		4AB5E7AF1AD66AD300A5CA51 /* MZCroppableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCroppableView.m; sourceTree = "<group>"; };
 		4AB5E7B01AD66AD300A5CA51 /* UIBezierPath-Points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath-Points.h"; sourceTree = "<group>"; };
 		4AB5E7B11AD66AD300A5CA51 /* UIBezierPath-Points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath-Points.m"; sourceTree = "<group>"; };
-		4AB5E7B51AD672D700A5CA51 /* CTCroppableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCroppableView.h; sourceTree = "<group>"; };
-		4AB5E7B61AD672D700A5CA51 /* CTCroppableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCroppableView.m; sourceTree = "<group>"; };
 		4AF255041ACB7EF500480BE7 /* GPUImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF255081ACB7EF500480BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AF255091ACB7EF500480BE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,24 +113,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4A53EE561AD760AC000AABC6 /* IQStickerView */ = {
+		4A53EE5A1AD76A21000AABC6 /* ZDStickerView */ = {
 			isa = PBXGroup;
 			children = (
-				4A53EE571AD760AC000AABC6 /* IQStickerView.h */,
-				4A53EE581AD760AC000AABC6 /* IQStickerView.m */,
+				4A53EE5B1AD76A21000AABC6 /* SPGripViewBorderView.h */,
+				4A53EE5C1AD76A21000AABC6 /* SPGripViewBorderView.m */,
+				4A53EE5E1AD76A21000AABC6 /* ZDStickerView.h */,
+				4A53EE5F1AD76A21000AABC6 /* ZDStickerView.m */,
 			);
-			path = IQStickerView;
-			sourceTree = "<group>";
-		};
-		4AB5E7991AD61C1300A5CA51 /* JBCroppableImageView */ = {
-			isa = PBXGroup;
-			children = (
-				4AB5E79A1AD61C1300A5CA51 /* JBCroppableImageView.h */,
-				4AB5E79B1AD61C1300A5CA51 /* JBCroppableImageView.m */,
-				4AB5E79C1AD61C1300A5CA51 /* JBCroppableLayer.h */,
-				4AB5E79D1AD61C1300A5CA51 /* JBCroppableLayer.m */,
-			);
-			path = JBCroppableImageView;
+			path = ZDStickerView;
 			sourceTree = "<group>";
 		};
 		4AB5E7AA1AD66AB500A5CA51 /* MZCroppableView */ = {
@@ -148,15 +133,6 @@
 				4AB5E7B11AD66AD300A5CA51 /* UIBezierPath-Points.m */,
 			);
 			path = MZCroppableView;
-			sourceTree = "<group>";
-		};
-		4AB5E7B41AD6706300A5CA51 /* CTCroppableView */ = {
-			isa = PBXGroup;
-			children = (
-				4AB5E7B51AD672D700A5CA51 /* CTCroppableView.h */,
-				4AB5E7B61AD672D700A5CA51 /* CTCroppableView.m */,
-			);
-			path = CTCroppableView;
 			sourceTree = "<group>";
 		};
 		4AF254FB1ACB7EF500480BE7 = {
@@ -182,10 +158,8 @@
 		4AF255061ACB7EF500480BE7 /* GPUImageDemo */ = {
 			isa = PBXGroup;
 			children = (
-				4A53EE561AD760AC000AABC6 /* IQStickerView */,
-				4AB5E7B41AD6706300A5CA51 /* CTCroppableView */,
+				4A53EE5A1AD76A21000AABC6 /* ZDStickerView */,
 				4AB5E7AA1AD66AB500A5CA51 /* MZCroppableView */,
-				4AB5E7991AD61C1300A5CA51 /* JBCroppableImageView */,
 				4A6D00A11ACB9D9900D0BA86 /* UIView+LayoutMethods.h */,
 				4A6D00A21ACB9D9900D0BA86 /* UIView+LayoutMethods.m */,
 				4AF2550B1ACB7EF500480BE7 /* AppDelegate.h */,
@@ -375,19 +349,17 @@
 			files = (
 				4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */,
 				4A1D92971ACCE27B00645FC5 /* EXIFReader.m in Sources */,
-				4AB5E79F1AD61C1300A5CA51 /* JBCroppableLayer.m in Sources */,
 				4AB5E7A21AD620E400A5CA51 /* FilterTuneViewController.m in Sources */,
-				4A53EE591AD760AC000AABC6 /* IQStickerView.m in Sources */,
-				4AB5E7B71AD672D700A5CA51 /* CTCroppableView.m in Sources */,
 				4AB5E7921AD60DAF00A5CA51 /* ImageSeperaterViewController.m in Sources */,
 				4A1D929E1ACE6E5300645FC5 /* MainViewController.m in Sources */,
 				4A1D92A41ACE7EEB00645FC5 /* ImageAnalyzer.m in Sources */,
-				4AB5E79E1AD61C1300A5CA51 /* JBCroppableImageView.m in Sources */,
 				4AB5E7B31AD66AD300A5CA51 /* UIBezierPath-Points.m in Sources */,
 				4A6D00A31ACB9D9900D0BA86 /* UIView+LayoutMethods.m in Sources */,
 				4AB5E7B21AD66AD300A5CA51 /* MZCroppableView.m in Sources */,
+				4A53EE601AD76A21000AABC6 /* SPGripViewBorderView.m in Sources */,
 				4AF2550D1ACB7EF500480BE7 /* AppDelegate.m in Sources */,
 				4A6D00A61ACBCA0700D0BA86 /* MultiFilterViewController.m in Sources */,
+				4A53EE621AD76A21000AABC6 /* ZDStickerView.m in Sources */,
 				4AF2550A1ACB7EF500480BE7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
