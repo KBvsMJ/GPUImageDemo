@@ -484,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Shi Jie Qin (FSAP8479L6)";
-				INFOPLIST_FILE = GPUImageDemo/Info.plist;
+				INFOPLIST_FILE = "GPUImageDemo/GPUImageDemo-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -496,7 +496,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Shi Jie Qin (FSAP8479L6)";
-				INFOPLIST_FILE = GPUImageDemo/Info.plist;
+				INFOPLIST_FILE = "GPUImageDemo/GPUImageDemo-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
