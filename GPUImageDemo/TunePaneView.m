@@ -43,9 +43,6 @@
 @property (nonatomic, strong) UILabel *whiteBalanceTemparatureSliderLabel;
 @property (nonatomic, strong) UISlider *whiteBalanceTemparatureSlider;
 
-@property (nonatomic, strong) UILabel *whiteBalanceTiltSliderLabel;
-@property (nonatomic, strong) UISlider *whiteBalanceTitleSlider;
-
 @property (nonatomic, strong) GPUImageWhiteBalanceFilter *whiteBalanceFilter;
 
 @end
@@ -77,6 +74,9 @@
         
         [self addSubview:self.sharpnessSlider];
         [self addSubview:self.sharpnessSliderLabel];
+        
+        [self addSubview:self.whiteBalanceTemparatureSliderLabel];
+        [self addSubview:self.whiteBalanceTemparatureSlider];
     }
     return self;
 }
@@ -137,6 +137,13 @@
     [self.sharpnessSlider top:10 FromView:self.blurRadiusSlider];
     [self.sharpnessSlider right:10 FromView:self.brightnessSliderLabel];
     [self.sharpnessSlider rightInContainer:10 shouldResize:YES];
+    
+    self.whiteBalanceTemparatureSliderLabel.size = CGSizeMake(120, 20);
+    [self.whiteBalanceTemparatureSliderLabel top:10 FromView:self.sharpnessSlider];
+    [self.whiteBalanceTemparatureSliderLabel leftInContainer:10 shouldResize:NO];
+    [self.whiteBalanceTemparatureSlider top:10 FromView:self.sharpnessSlider];
+    [self.whiteBalanceTemparatureSlider right:10 FromView:self.brightnessSliderLabel];
+    [self.whiteBalanceTemparatureSlider rightInContainer:10 shouldResize:YES];
 }
 
 #pragma mark - event response
@@ -189,19 +196,27 @@
     [self processImage];
 }
 
+- (void)temperatureChanged:(UISlider *)temperatureSlider
+{
+    self.whiteBalanceTemparatureSliderLabel.text = [NSString stringWithFormat:@"t:%f", temperatureSlider.value];
+    self.whiteBalanceFilter.temperature = temperatureSlider.value;
+    [self processImage];
+}
+
 #pragma mark - private methods
 - (void)processImage
 {
     [self.originPicture removeAllTargets];
-    
+
     [self.originPicture addTarget:self.brightnessFilter];
     [self.brightnessFilter addTarget:self.saturationFilter];
-    [self.saturationFilter addTarget:self.sharpenFilter];
+    [self.saturationFilter addTarget:self.whiteBalanceFilter];
+    [self.whiteBalanceFilter addTarget:self.sharpenFilter];
     [self.sharpenFilter addTarget:self.blurFilter];
-    
+
     [self.blurFilter useNextFrameForImageCapture];
     [self.originPicture processImage];
-    
+
     [self.delegate tunePaneView:self didProcessedImage:[self.blurFilter imageFromCurrentFramebufferWithOrientation:self.originImage.imageOrientation]];
 }
 
@@ -397,22 +412,25 @@
     return _sharpnessSliderLabel;
 }
 
-/*
- @property (nonatomic, strong) UILabel *whiteBalanceTemparatureSliderLabel;
- @property (nonatomic, strong) UISlider *whiteBalanceTemparatureSlider;
- 
- @property (nonatomic, strong) UILabel *whiteBalanceTiltSliderLabel;
- @property (nonatomic, strong) UISlider *whiteBalanceTitleSlider;
- 
- @property (nonatomic, strong) GPUImageWhiteBalanceFilter *whiteBalanceFilter;
- */
-
 - (UISlider *)whiteBalanceTemparatureSlider
 {
     if (_whiteBalanceTemparatureSlider == nil) {
         _whiteBalanceTemparatureSlider = [[UISlider alloc] init];
+        _whiteBalanceTemparatureSlider.minimumValue = 1700;
+        _whiteBalanceTemparatureSlider.maximumValue = 15000;
+        [_whiteBalanceTemparatureSlider addTarget:self action:@selector(temperatureChanged:) forControlEvents:UIControlEventValueChanged];
     }
     return _whiteBalanceTemparatureSlider;
+}
+
+- (UILabel *)whiteBalanceTemparatureSliderLabel
+{
+    if (_whiteBalanceTemparatureSliderLabel == nil) {
+        _whiteBalanceTemparatureSliderLabel = [[UILabel alloc] init];
+        _whiteBalanceTemparatureSliderLabel.textColor = [UIColor redColor];
+        _whiteBalanceTemparatureSliderLabel.text = @"t:";
+    }
+    return _whiteBalanceTemparatureSliderLabel;
 }
 
 - (GPUImageWhiteBalanceFilter *)whiteBalanceFilter
