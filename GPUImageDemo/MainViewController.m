@@ -11,12 +11,14 @@
 #import "MultiFilterViewController.h"
 #import "ImageSeperaterViewController.h"
 #import "FilterTuneViewController.h"
+#import "BSAssortSelectImageViewController.h"
 
 @interface MainViewController ()
 
 @property (nonatomic, strong) UIButton *multiFilterButton;
 @property (nonatomic, strong) UIButton *brightnessButton;
 @property (nonatomic, strong) UIButton *seperatorButton;
+@property (nonatomic, strong) UIButton *assortButton;
 
 @end
 
@@ -30,6 +32,7 @@
     [self.view addSubview:self.multiFilterButton];
     [self.view addSubview:self.brightnessButton];
     [self.view addSubview:self.seperatorButton];
+    [self.view addSubview:self.assortButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -47,6 +50,10 @@
     [self.seperatorButton sizeEqualToView:self.multiFilterButton];
     [self.seperatorButton topEqualToView:self.multiFilterButton];
     [self.seperatorButton right:10 FromView:self.brightnessButton];
+    
+    [self.assortButton sizeEqualToView:self.seperatorButton];
+    [self.assortButton topEqualToView:self.multiFilterButton];
+    [self.assortButton right:10 FromView:self.seperatorButton];
 }
 
 #pragma mark - event response
@@ -68,7 +75,23 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+- (void)didTappedAssortButton:(UIButton *)button
+{
+    BSAssortSelectImageViewController *viewController = [[BSAssortSelectImageViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 #pragma mark - getters and setters
+- (UIButton *)assortButton
+{
+    if (_assortButton == nil) {
+        _assortButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_assortButton addTarget:self action:@selector(didTappedAssortButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_assortButton setTitle:@"搭配" forState:UIControlStateNormal];
+    }
+    return _assortButton;
+}
+
 - (UIButton *)multiFilterButton
 {
     if (_multiFilterButton == nil) {

@@ -16,6 +16,10 @@
 		4A53EE621AD76A21000AABC6 /* ZDStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A53EE5F1AD76A21000AABC6 /* ZDStickerView.m */; };
 		4A6D00A31ACB9D9900D0BA86 /* UIView+LayoutMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D00A21ACB9D9900D0BA86 /* UIView+LayoutMethods.m */; };
 		4A6D00A61ACBCA0700D0BA86 /* MultiFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D00A51ACBCA0700D0BA86 /* MultiFilterViewController.m */; };
+		4A6E0C4C1ADB7CF4005171B7 /* BSAssortSelectImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0C4B1ADB7CF4005171B7 /* BSAssortSelectImageViewController.m */; };
+		4A6E0C501ADB7E78005171B7 /* BSAssortTakeImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0C4F1ADB7E78005171B7 /* BSAssortTakeImageButton.m */; };
+		4A6E0C531ADB97DC005171B7 /* ImageCanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0C521ADB97DC005171B7 /* ImageCanvasViewController.m */; };
+		4A6E0C571ADBAC45005171B7 /* BSAssortCanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0C561ADBAC45005171B7 /* BSAssortCanvasView.m */; };
 		4AB5E7921AD60DAF00A5CA51 /* ImageSeperaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7911AD60DAF00A5CA51 /* ImageSeperaterViewController.m */; };
 		4AB5E7A21AD620E400A5CA51 /* FilterTuneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7A11AD620E400A5CA51 /* FilterTuneViewController.m */; };
 		4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7A41AD62C3000A5CA51 /* TunePaneView.m */; };
@@ -57,6 +61,14 @@
 		4A6D00A21ACB9D9900D0BA86 /* UIView+LayoutMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutMethods.m"; sourceTree = "<group>"; };
 		4A6D00A41ACBCA0700D0BA86 /* MultiFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiFilterViewController.h; sourceTree = "<group>"; };
 		4A6D00A51ACBCA0700D0BA86 /* MultiFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiFilterViewController.m; sourceTree = "<group>"; };
+		4A6E0C4A1ADB7CF4005171B7 /* BSAssortSelectImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAssortSelectImageViewController.h; sourceTree = "<group>"; };
+		4A6E0C4B1ADB7CF4005171B7 /* BSAssortSelectImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSAssortSelectImageViewController.m; sourceTree = "<group>"; };
+		4A6E0C4E1ADB7E78005171B7 /* BSAssortTakeImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAssortTakeImageButton.h; sourceTree = "<group>"; };
+		4A6E0C4F1ADB7E78005171B7 /* BSAssortTakeImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSAssortTakeImageButton.m; sourceTree = "<group>"; };
+		4A6E0C511ADB97DC005171B7 /* ImageCanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCanvasViewController.h; sourceTree = "<group>"; };
+		4A6E0C521ADB97DC005171B7 /* ImageCanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCanvasViewController.m; sourceTree = "<group>"; };
+		4A6E0C551ADBAC45005171B7 /* BSAssortCanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAssortCanvasView.h; sourceTree = "<group>"; };
+		4A6E0C561ADBAC45005171B7 /* BSAssortCanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSAssortCanvasView.m; sourceTree = "<group>"; };
 		4AB5E7901AD60DAF00A5CA51 /* ImageSeperaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSeperaterViewController.h; sourceTree = "<group>"; };
 		4AB5E7911AD60DAF00A5CA51 /* ImageSeperaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSeperaterViewController.m; sourceTree = "<group>"; };
 		4AB5E7A01AD620E400A5CA51 /* FilterTuneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTuneViewController.h; sourceTree = "<group>"; };
@@ -124,6 +136,34 @@
 			path = ZDStickerView;
 			sourceTree = "<group>";
 		};
+		4A6E0C491ADB7CD1005171B7 /* AssortViews */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E0C4D1ADB7E3C005171B7 /* Views */,
+				4A6E0C4A1ADB7CF4005171B7 /* BSAssortSelectImageViewController.h */,
+				4A6E0C4B1ADB7CF4005171B7 /* BSAssortSelectImageViewController.m */,
+			);
+			path = AssortViews;
+			sourceTree = "<group>";
+		};
+		4A6E0C4D1ADB7E3C005171B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E0C4E1ADB7E78005171B7 /* BSAssortTakeImageButton.h */,
+				4A6E0C4F1ADB7E78005171B7 /* BSAssortTakeImageButton.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4A6E0C541ADBAC28005171B7 /* BSAssortCanvas */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E0C551ADBAC45005171B7 /* BSAssortCanvasView.h */,
+				4A6E0C561ADBAC45005171B7 /* BSAssortCanvasView.m */,
+			);
+			path = BSAssortCanvas;
+			sourceTree = "<group>";
+		};
 		4AB5E7AA1AD66AB500A5CA51 /* MZCroppableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +198,8 @@
 		4AF255061ACB7EF500480BE7 /* GPUImageDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4A6E0C541ADBAC28005171B7 /* BSAssortCanvas */,
+				4A6E0C491ADB7CD1005171B7 /* AssortViews */,
 				4A53EE5A1AD76A21000AABC6 /* ZDStickerView */,
 				4AB5E7AA1AD66AB500A5CA51 /* MZCroppableView */,
 				4A6D00A11ACB9D9900D0BA86 /* UIView+LayoutMethods.h */,
@@ -172,6 +214,8 @@
 				4AB5E7A11AD620E400A5CA51 /* FilterTuneViewController.m */,
 				4AB5E7901AD60DAF00A5CA51 /* ImageSeperaterViewController.h */,
 				4AB5E7911AD60DAF00A5CA51 /* ImageSeperaterViewController.m */,
+				4A6E0C511ADB97DC005171B7 /* ImageCanvasViewController.h */,
+				4A6E0C521ADB97DC005171B7 /* ImageCanvasViewController.m */,
 				4A1D92A21ACE7EEB00645FC5 /* ImageAnalyzer.h */,
 				4A1D92A31ACE7EEB00645FC5 /* ImageAnalyzer.m */,
 				4A1D92951ACCE27B00645FC5 /* EXIFReader.h */,
@@ -356,9 +400,13 @@
 				4AB5E7B31AD66AD300A5CA51 /* UIBezierPath-Points.m in Sources */,
 				4A6D00A31ACB9D9900D0BA86 /* UIView+LayoutMethods.m in Sources */,
 				4AB5E7B21AD66AD300A5CA51 /* MZCroppableView.m in Sources */,
+				4A6E0C501ADB7E78005171B7 /* BSAssortTakeImageButton.m in Sources */,
 				4A53EE601AD76A21000AABC6 /* SPGripViewBorderView.m in Sources */,
+				4A6E0C531ADB97DC005171B7 /* ImageCanvasViewController.m in Sources */,
+				4A6E0C4C1ADB7CF4005171B7 /* BSAssortSelectImageViewController.m in Sources */,
 				4AF2550D1ACB7EF500480BE7 /* AppDelegate.m in Sources */,
 				4A6D00A61ACBCA0700D0BA86 /* MultiFilterViewController.m in Sources */,
+				4A6E0C571ADBAC45005171B7 /* BSAssortCanvasView.m in Sources */,
 				4A53EE621AD76A21000AABC6 /* ZDStickerView.m in Sources */,
 				4AF2550A1ACB7EF500480BE7 /* main.m in Sources */,
 			);
