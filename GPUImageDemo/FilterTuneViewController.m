@@ -237,6 +237,7 @@
 {
     if (_brightnessLabel == nil) {
         _brightnessLabel = [[UILabel alloc] init];
+        _brightnessLabel.textColor = [UIColor redColor];
     }
     return _brightnessLabel;
 }
@@ -245,6 +246,7 @@
 {
     if (_saturationLabel == nil) {
         _saturationLabel = [[UILabel alloc] init];
+        _saturationLabel.textColor = [UIColor redColor];
     }
     return _saturationLabel;
 }
@@ -253,6 +255,7 @@
 {
     if (_temperatureLabel == nil) {
         _temperatureLabel = [[UILabel alloc] init];
+        _temperatureLabel.textColor = [UIColor redColor];
     }
     return _temperatureLabel;
 }
