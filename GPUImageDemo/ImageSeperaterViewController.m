@@ -9,6 +9,7 @@
 #import "ImageSeperaterViewController.h"
 #import "MZCroppableView.h"
 #import "UIView+LayoutMethods.h"
+#import "ImageCanvasViewController.h"
 
 @interface ImageSeperaterViewController ()
 
@@ -18,6 +19,7 @@
 
 @property (nonatomic, strong) UIButton *cropButton;
 @property (nonatomic, strong) UIButton *resetButton;
+@property (nonatomic, strong) UIButton *canvasButton;
 
 @end
 
@@ -34,6 +36,7 @@
     [self.view addSubview:self.croppedImageView];
     [self.view addSubview:self.cropButton];
     [self.view addSubview:self.resetButton];
+    [self.view addSubview:self.canvasButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -60,11 +63,15 @@
     
     self.cropButton.size = CGSizeMake(80, 40);
     [self.cropButton right:10 FromView:self.croppedImageView];
-    [self.cropButton centerYEqualToView:self.croppedImageView];
+    [self.cropButton top:20 FromView:self.imageView];
     
     [self.resetButton sizeEqualToView:self.cropButton];
     [self.resetButton leftEqualToView:self.cropButton];
     [self.resetButton top:20 FromView:self.cropButton];
+    
+    [self.canvasButton sizeEqualToView:self.resetButton];
+    [self.canvasButton leftEqualToView:self.resetButton];
+    [self.canvasButton top:20 FromView:self.resetButton];
 }
 
 #pragma mark - event response
@@ -78,6 +85,13 @@
     [self.croppableView removeFromSuperview];
     self.croppableView = [[MZCroppableView alloc] initWithImageView:self.imageView];
     [self.view addSubview:self.croppableView];
+}
+
+- (void)didTappedCanvasButton:(UIButton *)button
+{
+    ImageCanvasViewController *viewController = [[ImageCanvasViewController alloc] init];
+    viewController.croppedImage = self.croppedImageView.image;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - getters and setters
@@ -117,6 +131,16 @@
         [_resetButton addTarget:self action:@selector(didTappedResetButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _resetButton;
+}
+
+- (UIButton *)canvasButton
+{
+    if (_canvasButton == nil) {
+        _canvasButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_canvasButton setTitle:@"canvas" forState:UIControlStateNormal];
+        [_canvasButton addTarget:self action:@selector(didTappedCanvasButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _canvasButton;
 }
 
 @end
