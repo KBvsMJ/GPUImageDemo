@@ -26,6 +26,7 @@
 
 @property (nonatomic, strong) UILabel *brightnessLabel;
 @property (nonatomic, strong) UILabel *saturationLabel;
+@property (nonatomic, strong) UILabel *temperatureLabel;
 
 @property (nonatomic, strong) ImageAnalyzer *imageAnalyzer;
 
@@ -48,6 +49,7 @@
     
     [self.originImageView addSubview:self.brightnessLabel];
     [self.originImageView addSubview:self.saturationLabel];
+    [self.originImageView addSubview:self.temperatureLabel];
     
     self.navigationItem.rightBarButtonItems = @[self.fetchImageButton, self.tunePaneButton];
 }
@@ -83,6 +85,10 @@
     [self.saturationLabel sizeEqualToView:self.brightnessLabel];
     [self.saturationLabel top:0 FromView:self.brightnessLabel];
     [self.saturationLabel leftInContainer:0 shouldResize:NO];
+    
+    [self.temperatureLabel sizeEqualToView:self.brightnessLabel];
+    [self.temperatureLabel top:0 FromView:self.saturationLabel];
+    [self.temperatureLabel leftInContainer:0 shouldResize:NO];
     
     self.scrollView.contentSize = CGSizeMake(self.view.width * 2, self.scrollView.height);
     self.scrollView.contentOffset = CGPointMake(self.view.width, 0);
@@ -130,6 +136,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             strongSelf.brightnessLabel.text = [NSString stringWithFormat:@"brt:%@", imageInfo[@"brightness"]];
             strongSelf.saturationLabel.text = [NSString stringWithFormat:@"sat:%@", imageInfo[@"saturation"]];
+            strongSelf.temperatureLabel.text = [NSString stringWithFormat:@"tmp:%@", imageInfo[@"temperature"]];
         });
     });
 }
@@ -240,5 +247,13 @@
         _saturationLabel = [[UILabel alloc] init];
     }
     return _saturationLabel;
+}
+
+- (UILabel *)temperatureLabel
+{
+    if (_temperatureLabel == nil) {
+        _temperatureLabel = [[UILabel alloc] init];
+    }
+    return _temperatureLabel;
 }
 @end

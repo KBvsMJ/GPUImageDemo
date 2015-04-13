@@ -42,6 +42,9 @@
     
     NSInteger index = 0;
     
+    CGFloat totalRed = 0;
+    CGFloat totalBlue = 0;
+    
     UInt32 * currentPixel = pixels;
     for (NSUInteger j = 0; j < height; j++) {
         for (NSUInteger i = 0; i < width; i++) {
@@ -50,6 +53,8 @@
             CGFloat red = R(color), green = G(color), blue = B(color);
             [self red:red green:green blue:blue ToHue:&hue saturate:&saturation value:&brightness];
             
+            totalRed += red;
+            totalBlue += blue;
             index = (NSInteger)(saturation * 100);
             saturationList[index]++;
             index = brightness / 5;
@@ -85,8 +90,11 @@
         totalBrightness += (i * 5 * rate);
     }
     
+    CGFloat temperature = totalRed / totalBlue * 10000;
+    
     return @{
              @"brightness":@(totalBrightness),
+             @"temperature":@(temperature),
              @"saturation":@(totalSaturation)
              };
 }
