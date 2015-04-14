@@ -25,6 +25,10 @@
 		4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7A41AD62C3000A5CA51 /* TunePaneView.m */; };
 		4AB5E7B21AD66AD300A5CA51 /* MZCroppableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7AF1AD66AD300A5CA51 /* MZCroppableView.m */; };
 		4AB5E7B31AD66AD300A5CA51 /* UIBezierPath-Points.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7B11AD66AD300A5CA51 /* UIBezierPath-Points.m */; };
+		4AEEEE6C1ADC9E3B00831B6D /* AssortMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEEEE6B1ADC9E3B00831B6D /* AssortMainViewController.m */; };
+		4AEEEE6F1ADCA5D100831B6D /* AssortStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEEEE6E1ADCA5D100831B6D /* AssortStoreViewController.m */; };
+		4AEEEE721ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEEEE711ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.m */; };
+		4AEEEE751ADCBD5100831B6D /* AssortCropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEEEE741ADCBD5100831B6D /* AssortCropImageViewController.m */; };
 		4AF2550A1ACB7EF500480BE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF255091ACB7EF500480BE7 /* main.m */; };
 		4AF2550D1ACB7EF500480BE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2550C1ACB7EF500480BE7 /* AppDelegate.m */; };
 		4AF255131ACB7EF500480BE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF255111ACB7EF500480BE7 /* Main.storyboard */; };
@@ -79,6 +83,14 @@
 		4AB5E7AF1AD66AD300A5CA51 /* MZCroppableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCroppableView.m; sourceTree = "<group>"; };
 		4AB5E7B01AD66AD300A5CA51 /* UIBezierPath-Points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath-Points.h"; sourceTree = "<group>"; };
 		4AB5E7B11AD66AD300A5CA51 /* UIBezierPath-Points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath-Points.m"; sourceTree = "<group>"; };
+		4AEEEE6A1ADC9E3B00831B6D /* AssortMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortMainViewController.h; sourceTree = "<group>"; };
+		4AEEEE6B1ADC9E3B00831B6D /* AssortMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortMainViewController.m; sourceTree = "<group>"; };
+		4AEEEE6D1ADCA5D100831B6D /* AssortStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortStoreViewController.h; sourceTree = "<group>"; };
+		4AEEEE6E1ADCA5D100831B6D /* AssortStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortStoreViewController.m; sourceTree = "<group>"; };
+		4AEEEE701ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortStoreItemCollectionViewCell.h; sourceTree = "<group>"; };
+		4AEEEE711ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortStoreItemCollectionViewCell.m; sourceTree = "<group>"; };
+		4AEEEE731ADCBD5100831B6D /* AssortCropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortCropImageViewController.h; sourceTree = "<group>"; };
+		4AEEEE741ADCBD5100831B6D /* AssortCropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortCropImageViewController.m; sourceTree = "<group>"; };
 		4AF255041ACB7EF500480BE7 /* GPUImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF255081ACB7EF500480BE7 /* GPUImageDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GPUImageDemo-Info.plist"; sourceTree = "<group>"; };
 		4AF255091ACB7EF500480BE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -175,6 +187,21 @@
 			path = MZCroppableView;
 			sourceTree = "<group>";
 		};
+		4AEEEE691ADC9E1F00831B6D /* Assort */ = {
+			isa = PBXGroup;
+			children = (
+				4AEEEE6A1ADC9E3B00831B6D /* AssortMainViewController.h */,
+				4AEEEE6B1ADC9E3B00831B6D /* AssortMainViewController.m */,
+				4AEEEE6D1ADCA5D100831B6D /* AssortStoreViewController.h */,
+				4AEEEE6E1ADCA5D100831B6D /* AssortStoreViewController.m */,
+				4AEEEE701ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.h */,
+				4AEEEE711ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.m */,
+				4AEEEE731ADCBD5100831B6D /* AssortCropImageViewController.h */,
+				4AEEEE741ADCBD5100831B6D /* AssortCropImageViewController.m */,
+			);
+			path = Assort;
+			sourceTree = "<group>";
+		};
 		4AF254FB1ACB7EF500480BE7 = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +225,7 @@
 		4AF255061ACB7EF500480BE7 /* GPUImageDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4AEEEE691ADC9E1F00831B6D /* Assort */,
 				4A6E0C541ADBAC28005171B7 /* BSAssortCanvas */,
 				4A6E0C491ADB7CD1005171B7 /* AssortViews */,
 				4A53EE5A1AD76A21000AABC6 /* ZDStickerView */,
@@ -392,18 +420,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */,
+				4AEEEE721ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.m in Sources */,
 				4A1D92971ACCE27B00645FC5 /* EXIFReader.m in Sources */,
+				4AEEEE6F1ADCA5D100831B6D /* AssortStoreViewController.m in Sources */,
 				4AB5E7A21AD620E400A5CA51 /* FilterTuneViewController.m in Sources */,
 				4AB5E7921AD60DAF00A5CA51 /* ImageSeperaterViewController.m in Sources */,
 				4A1D929E1ACE6E5300645FC5 /* MainViewController.m in Sources */,
 				4A1D92A41ACE7EEB00645FC5 /* ImageAnalyzer.m in Sources */,
 				4AB5E7B31AD66AD300A5CA51 /* UIBezierPath-Points.m in Sources */,
+				4AEEEE6C1ADC9E3B00831B6D /* AssortMainViewController.m in Sources */,
 				4A6D00A31ACB9D9900D0BA86 /* UIView+LayoutMethods.m in Sources */,
 				4AB5E7B21AD66AD300A5CA51 /* MZCroppableView.m in Sources */,
 				4A6E0C501ADB7E78005171B7 /* BSAssortTakeImageButton.m in Sources */,
 				4A53EE601AD76A21000AABC6 /* SPGripViewBorderView.m in Sources */,
 				4A6E0C531ADB97DC005171B7 /* ImageCanvasViewController.m in Sources */,
 				4A6E0C4C1ADB7CF4005171B7 /* BSAssortSelectImageViewController.m in Sources */,
+				4AEEEE751ADCBD5100831B6D /* AssortCropImageViewController.m in Sources */,
 				4AF2550D1ACB7EF500480BE7 /* AppDelegate.m in Sources */,
 				4A6D00A61ACBCA0700D0BA86 /* MultiFilterViewController.m in Sources */,
 				4A6E0C571ADBAC45005171B7 /* BSAssortCanvasView.m in Sources */,

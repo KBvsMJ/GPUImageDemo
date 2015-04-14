@@ -11,7 +11,7 @@
 #import "MultiFilterViewController.h"
 #import "ImageSeperaterViewController.h"
 #import "FilterTuneViewController.h"
-#import "BSAssortSelectImageViewController.h"
+#import "AssortMainViewController.h"
 
 @interface MainViewController ()
 
@@ -77,7 +77,7 @@
 
 - (void)didTappedAssortButton:(UIButton *)button
 {
-    BSAssortSelectImageViewController *viewController = [[BSAssortSelectImageViewController alloc] init];
+    AssortMainViewController *viewController = [[AssortMainViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
