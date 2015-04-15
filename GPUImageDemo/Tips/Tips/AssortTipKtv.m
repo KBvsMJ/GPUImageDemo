@@ -58,21 +58,15 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     if (textField == self.lyricLine1TextField) {
+        if (textField.text.length > 4) {
+            textField.text = [textField.text substringWithRange:NSMakeRange(0, 4)];
+        }
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:textField.text];
         [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:255.0f/255.0f green:192.0f/255.0f blue:55.0f/255.0f alpha:1.0f] range:NSMakeRange(0, 2)];
         [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(2, textField.text.length - 2)];
         self.lyricLine1TextField.attributedText = attributedString;
     }
-}
-
-#pragma mark - event response
-- (void)textChanged:(UITextField *)textField
-{
-    if (textField == self.lyricLine1TextField) {
-        if (textField.text.length > 4) {
-            textField.text = [textField.text substringWithRange:NSMakeRange(0, 4)];
-        }
-    }
+    
     if (textField == self.lyricLine2TextField) {
         if (textField.text.length > 20) {
             textField.text = [textField.text substringWithRange:NSMakeRange(0, 20)];
@@ -80,6 +74,7 @@
     }
 }
 
+#pragma mark - event response
 - (void)didTappedTextField:(UITextField *)textField
 {
     [textField becomeFirstResponder];
@@ -90,7 +85,6 @@
 {
     if (_lyricLine1TextField == nil) {
         _lyricLine1TextField = [[UITextField alloc] init];
-        [_lyricLine1TextField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
         [_lyricLine1TextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _lyricLine1TextField.textAlignment = NSTextAlignmentLeft;
         _lyricLine1TextField.userInteractionEnabled = YES;
@@ -109,7 +103,6 @@
 {
     if (_lyricLine2TextField == nil) {
         _lyricLine2TextField = [[UITextField alloc] init];
-        [_lyricLine2TextField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
         [_lyricLine2TextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _lyricLine2TextField.textAlignment = NSTextAlignmentRight;
         _lyricLine2TextField.text = @"背到现在还没烂";
