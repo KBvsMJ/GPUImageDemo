@@ -9,7 +9,7 @@
 #import "AssortTipMagazine.h"
 #import "UIView+LayoutMethods.h"
 
-@interface AssortTipMagazine ()
+@interface AssortTipMagazine () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UITextField *firstLineTextField;
@@ -45,23 +45,31 @@
     [self.secondLineTextField leftInContainer:10 shouldResize:YES];
     [self.secondLineTextField rightInContainer:10 shouldResize:YES];
     self.secondLineTextField.height = 15;
-    [self.secondLineTextField bottomInContainer:42 shouldResize:NO];
+    [self.secondLineTextField bottomInContainer:35 shouldResize:NO];
     
-    [self.thirdLineTextField leftInContainer:10 shouldResize:YES];
-    [self.thirdLineTextField rightInContainer:10 shouldResize:YES];
-    self.thirdLineTextField.height = 15;
-    [self.thirdLineTextField bottomInContainer:30 shouldResize:NO];
+    [self resetThirdTextField];
+}
+
+- (void)resetThirdTextField
+{
+    [self.thirdLineTextField sizeToFit];
+    [self.thirdLineTextField centerXEqualToView:self];
+    [self.thirdLineTextField bottomInContainer:19 shouldResize:NO];
 }
 
 #pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    if (textField == self.thirdLineTextField) {
+        [self resetThirdTextField];
+    }
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
 }
 
 #pragma mark - event response
@@ -71,5 +79,56 @@
 }
 
 #pragma mark - getters and setters
+- (UIImageView *)imageView
+{
+    if (_imageView == nil) {
+        _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AssortMagazine"]];
+        _imageView.contentMode = UIViewContentModeScaleToFill;
+    }
+    return _imageView;
+}
+
+- (UITextField *)firstLineTextField
+{
+    if (_firstLineTextField == nil) {
+        _firstLineTextField = [[UITextField alloc] init];
+        _firstLineTextField.delegate = self;
+        [_firstLineTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
+        _firstLineTextField.textColor = [UIColor whiteColor];
+        _firstLineTextField.font = [UIFont systemFontOfSize:70];
+        _firstLineTextField.text = @"NiuBility";
+        _firstLineTextField.textAlignment = NSTextAlignmentCenter;
+    }
+    return _firstLineTextField;
+}
+
+- (UITextField *)secondLineTextField
+{
+    if (_secondLineTextField == nil) {
+        _secondLineTextField = [[UITextField alloc] init];
+        _secondLineTextField.delegate = self;
+        [_secondLineTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
+        _secondLineTextField.textColor = [UIColor whiteColor];
+        _secondLineTextField.font = [UIFont systemFontOfSize:12];
+        _secondLineTextField.text = @"Life is real, life is earnest, just love it.";
+        _secondLineTextField.textAlignment = NSTextAlignmentCenter;
+    }
+    return _secondLineTextField;
+}
+
+- (UITextField *)thirdLineTextField
+{
+    if (_thirdLineTextField == nil) {
+        _thirdLineTextField = [[UITextField alloc] init];
+        _thirdLineTextField.delegate = self;
+        [_thirdLineTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
+        _thirdLineTextField.textColor = [UIColor whiteColor];
+        _thirdLineTextField.font = [UIFont systemFontOfSize:14];
+        _thirdLineTextField.text = @"HANGZHOU";
+        _thirdLineTextField.backgroundColor = [UIColor redColor];
+        _thirdLineTextField.textAlignment = NSTextAlignmentCenter;
+    }
+    return _thirdLineTextField;
+}
 
 @end

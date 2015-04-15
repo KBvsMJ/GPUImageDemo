@@ -50,7 +50,7 @@
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 9;
+    return 3;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -66,9 +66,13 @@
     if (self.tipView && self.tipView.superview) {
         [self.tipView removeFromSuperview];
     }
-    self.tipView = [self.tipsFactory tipOfType:AssortTipsTypeKTV];
-    [self.imageView addSubview:self.tipView];
-    [self.tipView fill];
+    
+    self.tipView = [self.tipsFactory tipOfType:indexPath.row];
+    
+    if (self.tipView) {
+        [self.imageView addSubview:self.tipView];
+        [self.tipView fill];
+    }
 }
 
 #pragma mark - getters and setters

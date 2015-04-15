@@ -7,7 +7,9 @@
 //
 
 #import "AssortTipsFactory.h"
+
 #import "AssortTipKtv.h"
+#import "AssortTipMagazine.h"
 
 @interface AssortTipsFactory ()
 
@@ -37,6 +39,7 @@
             break;
             
         case AssortTipsTypeMagazine:
+            tipView = [[AssortTipMagazine alloc] init];
             break;
             
         case AssortTipsTypeMagazineFashionBaby:

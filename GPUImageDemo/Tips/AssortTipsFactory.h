@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, AssortTipsType)
+typedef NS_ENUM(NSInteger, AssortTipsType)
 {
+    AssortTipsTypeKTV = 1,
+    AssortTipsTypeMagazine = 2,
     AssortTipsTypeNewsPerson,
     AssortTipsTypeNewsBar,
-    AssortTipsTypeKTV,
     AssortTipsTypeTimes,
-    AssortTipsTypeMagazine,
     AssortTipsTypeMagazineRound,
     AssortTipsTypeMagazineNanRenZhuang,
     AssortTipsTypeMagazineFashionBaby
