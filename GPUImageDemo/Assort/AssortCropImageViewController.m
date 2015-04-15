@@ -33,6 +33,7 @@
     self = [super init];
     if (self) {
         self.originImage = image;
+        self.imageView.image = image;
     }
     return self;
 }
@@ -109,7 +110,7 @@
 - (UIImageView *)imageView
 {
     if (_imageView == nil) {
-        _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image"]];
+        _imageView = [[UIImageView alloc] init];
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _imageView;
