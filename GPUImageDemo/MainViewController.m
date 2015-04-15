@@ -12,6 +12,7 @@
 #import "ImageSeperaterViewController.h"
 #import "FilterTuneViewController.h"
 #import "AssortMainViewController.h"
+#import "AssortTipsMainViewController.h"
 
 @interface MainViewController ()
 
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) UIButton *brightnessButton;
 @property (nonatomic, strong) UIButton *seperatorButton;
 @property (nonatomic, strong) UIButton *assortButton;
+@property (nonatomic, strong) UIButton *tipsButton;
 
 @end
 
@@ -28,35 +30,47 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [self.view addSubview:self.multiFilterButton];
     [self.view addSubview:self.brightnessButton];
     [self.view addSubview:self.seperatorButton];
     [self.view addSubview:self.assortButton];
+    [self.view addSubview:self.tipsButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     self.multiFilterButton.size = CGSizeMake(80, 40);
     [self.multiFilterButton topInContainer:70 shouldResize:NO];
     [self.multiFilterButton leftInContainer:10 shouldResize:NO];
-    
+
     [self.brightnessButton sizeEqualToView:self.multiFilterButton];
     [self.brightnessButton topEqualToView:self.multiFilterButton];
     [self.brightnessButton right:10 FromView:self.multiFilterButton];
-    
+
     [self.seperatorButton sizeEqualToView:self.multiFilterButton];
     [self.seperatorButton topEqualToView:self.multiFilterButton];
     [self.seperatorButton right:10 FromView:self.brightnessButton];
-    
+
     [self.assortButton sizeEqualToView:self.seperatorButton];
     [self.assortButton topEqualToView:self.multiFilterButton];
     [self.assortButton right:10 FromView:self.seperatorButton];
+    
+    // 第二行
+    [self.tipsButton sizeEqualToView:self.multiFilterButton];
+    [self.tipsButton top:10 FromView:self.multiFilterButton];
+    [self.tipsButton leftEqualToView:self.multiFilterButton];
 }
 
 #pragma mark - event response
+- (void)didTappedTipsButton:(UIButton *)button
+{
+    AssortTipsMainViewController *viewController = [[AssortTipsMainViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 - (void)didTappedMultiFilterButton:(UIButton *)button
 {
     MultiFilterViewController *viewController = [[MultiFilterViewController alloc] init];
@@ -82,6 +96,16 @@
 }
 
 #pragma mark - getters and setters
+- (UIButton *)tipsButton
+{
+    if (_tipsButton == nil) {
+        _tipsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_tipsButton addTarget:self action:@selector(didTappedTipsButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_tipsButton setTitle:@"tips" forState:UIControlStateNormal];
+    }
+    return _tipsButton;
+}
+
 - (UIButton *)assortButton
 {
     if (_assortButton == nil) {
