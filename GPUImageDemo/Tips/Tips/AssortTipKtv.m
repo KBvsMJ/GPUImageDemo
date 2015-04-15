@@ -91,7 +91,7 @@
         _lyricLine1TextField.delegate = self;
         _lyricLine1TextField.enabled = YES;
         
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"你的背包"];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"爱在迷迷糊糊盘古初开便开始"];
         [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:255.0f/255.0f green:192.0f/255.0f blue:55.0f/255.0f alpha:1.0f] range:NSMakeRange(0, 2)];
         [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(2, attributedString.length - 2)];
         _lyricLine1TextField.attributedText = attributedString;
@@ -105,7 +105,7 @@
         _lyricLine2TextField = [[UITextField alloc] init];
         [_lyricLine2TextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _lyricLine2TextField.textAlignment = NSTextAlignmentRight;
-        _lyricLine2TextField.text = @"背到现在还没烂";
+        _lyricLine2TextField.text = @"这浪浪漫满旧故事";
         _lyricLine2TextField.userInteractionEnabled = YES;
         _lyricLine2TextField.delegate = self;
         _lyricLine2TextField.enabled = YES;
