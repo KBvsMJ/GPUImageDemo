@@ -4,5 +4,6 @@
 target "GPUImageDemo" do
 
 pod 'GPUImage'
+pod 'IQKeyboardManager'
 
 end
