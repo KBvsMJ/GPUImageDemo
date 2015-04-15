@@ -105,7 +105,7 @@
         _lyricLine2TextField = [[UITextField alloc] init];
         [_lyricLine2TextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _lyricLine2TextField.textAlignment = NSTextAlignmentRight;
-        _lyricLine2TextField.text = @"这浪浪漫满旧故事";
+        _lyricLine2TextField.text = @"这浪浪漫漫旧故事";
         _lyricLine2TextField.userInteractionEnabled = YES;
         _lyricLine2TextField.delegate = self;
         _lyricLine2TextField.enabled = YES;
