@@ -58,7 +58,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     if (textField == self.lyricLine1TextField) {
-        if (textField.text.length > 4) {
+        if (textField.text.length > 15) {
             textField.text = [textField.text substringWithRange:NSMakeRange(0, 4)];
         }
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:textField.text];
@@ -68,7 +68,7 @@
     }
     
     if (textField == self.lyricLine2TextField) {
-        if (textField.text.length > 20) {
+        if (textField.text.length > 15) {
             textField.text = [textField.text substringWithRange:NSMakeRange(0, 20)];
         }
     }
