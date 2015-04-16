@@ -50,7 +50,7 @@
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -80,9 +80,10 @@
 {
     if (_imageView == nil) {
         _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image"]];
-        _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
         _imageView.backgroundColor = [UIColor grayColor];
         _imageView.userInteractionEnabled = YES;
+        _imageView.clipsToBounds = YES;
     }
     return _imageView;
 }
