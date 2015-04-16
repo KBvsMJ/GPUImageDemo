@@ -24,6 +24,9 @@
 {
     self = [super init];
     if (self) {
+        
+        self.backgroundColor = [UIColor clearColor];
+        
         [self addSubview:self.lyricLine1TextField];
         [self addSubview:self.lyricLine2TextField];
         [self addSubview:self.imageView];
@@ -90,6 +93,7 @@
         _lyricLine1TextField.userInteractionEnabled = YES;
         _lyricLine1TextField.delegate = self;
         _lyricLine1TextField.enabled = YES;
+        _lyricLine1TextField.backgroundColor = [UIColor clearColor];
         
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"爱在迷迷糊糊盘古初开便开始"];
         [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:255.0f/255.0f green:192.0f/255.0f blue:55.0f/255.0f alpha:1.0f] range:NSMakeRange(0, 2)];
@@ -110,6 +114,7 @@
         _lyricLine2TextField.delegate = self;
         _lyricLine2TextField.enabled = YES;
         _lyricLine2TextField.textColor = [UIColor whiteColor];
+        _lyricLine2TextField.backgroundColor = [UIColor clearColor];
     }
     return _lyricLine2TextField;
 }

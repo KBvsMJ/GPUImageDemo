@@ -25,6 +25,9 @@
 {
     self = [super init];
     if (self) {
+        
+        self.backgroundColor = [UIColor clearColor];
+        
         [self addSubview:self.imageView];
         [self addSubview:self.firstLineTextField];
         [self addSubview:self.secondLineTextField];
@@ -98,6 +101,7 @@
         _firstLineTextField.font = [UIFont systemFontOfSize:70];
         _firstLineTextField.text = @"NiuBility";
         _firstLineTextField.textAlignment = NSTextAlignmentCenter;
+        _firstLineTextField.backgroundColor = [UIColor clearColor];
     }
     return _firstLineTextField;
 }
@@ -112,6 +116,7 @@
         _secondLineTextField.font = [UIFont systemFontOfSize:12];
         _secondLineTextField.text = @"Life is real, life is earnest, just love it.";
         _secondLineTextField.textAlignment = NSTextAlignmentCenter;
+        _secondLineTextField.backgroundColor = [UIColor clearColor];
     }
     return _secondLineTextField;
 }
@@ -127,6 +132,7 @@
         _thirdLineTextField.text = @"HANGZHOU";
         _thirdLineTextField.backgroundColor = [UIColor redColor];
         _thirdLineTextField.textAlignment = NSTextAlignmentCenter;
+        _thirdLineTextField.backgroundColor = [UIColor clearColor];
     }
     return _thirdLineTextField;
 }

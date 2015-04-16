@@ -27,6 +27,7 @@
 		4AA0ED411ADE518B006DB4D5 /* AssortTipMagazine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED401ADE518B006DB4D5 /* AssortTipMagazine.m */; };
 		4AA0ED441ADF5451006DB4D5 /* AssortTipNewsPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED431ADF5451006DB4D5 /* AssortTipNewsPerson.m */; };
 		4AA0ED471ADF60D9006DB4D5 /* AssortTipNewsBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED461ADF60D9006DB4D5 /* AssortTipNewsBar.m */; };
+		4AA0ED4A1ADF7F96006DB4D5 /* AssortTipTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED491ADF7F96006DB4D5 /* AssortTipTimes.m */; };
 		4AB5E7921AD60DAF00A5CA51 /* ImageSeperaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7911AD60DAF00A5CA51 /* ImageSeperaterViewController.m */; };
 		4AB5E7A21AD620E400A5CA51 /* FilterTuneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7A11AD620E400A5CA51 /* FilterTuneViewController.m */; };
 		4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7A41AD62C3000A5CA51 /* TunePaneView.m */; };
@@ -94,6 +95,8 @@
 		4AA0ED431ADF5451006DB4D5 /* AssortTipNewsPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipNewsPerson.m; sourceTree = "<group>"; };
 		4AA0ED451ADF60D9006DB4D5 /* AssortTipNewsBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipNewsBar.h; sourceTree = "<group>"; };
 		4AA0ED461ADF60D9006DB4D5 /* AssortTipNewsBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipNewsBar.m; sourceTree = "<group>"; };
+		4AA0ED481ADF7F96006DB4D5 /* AssortTipTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipTimes.h; sourceTree = "<group>"; };
+		4AA0ED491ADF7F96006DB4D5 /* AssortTipTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipTimes.m; sourceTree = "<group>"; };
 		4AB5E7901AD60DAF00A5CA51 /* ImageSeperaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSeperaterViewController.h; sourceTree = "<group>"; };
 		4AB5E7911AD60DAF00A5CA51 /* ImageSeperaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSeperaterViewController.m; sourceTree = "<group>"; };
 		4AB5E7A01AD620E400A5CA51 /* FilterTuneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTuneViewController.h; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				4AA0ED431ADF5451006DB4D5 /* AssortTipNewsPerson.m */,
 				4AA0ED451ADF60D9006DB4D5 /* AssortTipNewsBar.h */,
 				4AA0ED461ADF60D9006DB4D5 /* AssortTipNewsBar.m */,
+				4AA0ED481ADF7F96006DB4D5 /* AssortTipTimes.h */,
+				4AA0ED491ADF7F96006DB4D5 /* AssortTipTimes.m */,
 			);
 			path = Tips;
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 				4A6D00A31ACB9D9900D0BA86 /* UIView+LayoutMethods.m in Sources */,
 				4AB5E7B21AD66AD300A5CA51 /* MZCroppableView.m in Sources */,
 				4A6E0C501ADB7E78005171B7 /* BSAssortTakeImageButton.m in Sources */,
+				4AA0ED4A1ADF7F96006DB4D5 /* AssortTipTimes.m in Sources */,
 				4A53EE601AD76A21000AABC6 /* SPGripViewBorderView.m in Sources */,
 				4A6E0C531ADB97DC005171B7 /* ImageCanvasViewController.m in Sources */,
 				4A6E0C4C1ADB7CF4005171B7 /* BSAssortSelectImageViewController.m in Sources */,

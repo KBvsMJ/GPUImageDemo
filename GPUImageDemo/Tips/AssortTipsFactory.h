@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, AssortTipsType)
     AssortTipsTypeMagazine = 2,
     AssortTipsTypeNewsPerson = 3,
     AssortTipsTypeNewsBar = 4,
-    AssortTipsTypeTimes,
+    AssortTipsTypeTimes = 5,
     AssortTipsTypeMagazineRound,
     AssortTipsTypeMagazineNanRenZhuang,
     AssortTipsTypeMagazineFashionBaby

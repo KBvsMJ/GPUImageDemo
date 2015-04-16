@@ -27,6 +27,9 @@
 {
     self = [super init];
     if (self) {
+        
+        self.backgroundColor = [UIColor clearColor];
+        
         [self addSubview:self.blueLable];
         [self addSubview:self.redLabel];
         [self addSubview:self.contentBackgroundView];
@@ -139,6 +142,7 @@
         _newsTitleTextField.delegate = self;
         [_newsTitleTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _newsTitleTextField.text = @"土豪120万买电子表为哪般";
+        _newsTitleTextField.backgroundColor = [UIColor clearColor];
     }
     return _newsTitleTextField;
 }
@@ -152,6 +156,7 @@
         _subtitleTextField.delegate = self;
         [_subtitleTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _subtitleTextField.text = @"杭州 晴 9~15摄氏度 广大市民请注意天气变化";
+        _subtitleTextField.backgroundColor = [UIColor clearColor];
     }
     return _subtitleTextField;
 }

@@ -27,6 +27,9 @@
 {
     self = [super init];
     if (self) {
+        
+        self.backgroundColor = [UIColor clearColor];
+        
         [self addSubview:self.iconImageView];
         [self addSubview:self.labelGroundImageView];
         [self.labelGroundImageView addSubview:self.nameTextField];
@@ -113,6 +116,7 @@
         _labelGroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AssortTipNewsPersonLabelBackground"]];
         _labelGroundImageView.contentMode = UIViewContentModeScaleAspectFit;
         _labelGroundImageView.userInteractionEnabled = YES;
+        _labelGroundImageView.backgroundColor = [UIColor clearColor];
     }
     return _labelGroundImageView;
 }
@@ -127,6 +131,7 @@
         _nameTextField.textAlignment = NSTextAlignmentLeft;
         _nameTextField.font = [UIFont systemFontOfSize:24];
         _nameTextField.text = @"JackMa";
+        _nameTextField.backgroundColor = [UIColor clearColor];
     }
     return _nameTextField;
 }
@@ -141,6 +146,7 @@
         _titleTextField.textAlignment = NSTextAlignmentLeft;
         _titleTextField.font = [UIFont systemFontOfSize:13];
         _titleTextField.text = @"阿里巴巴董事局主席";
+        _titleTextField.backgroundColor = [UIColor clearColor];
     }
     return _titleTextField;
 }
@@ -155,6 +161,7 @@
         _speakTextField.textAlignment = NSTextAlignmentLeft;
         _speakTextField.font = [UIFont systemFontOfSize:20];
         _speakTextField.text = @"很轻松 很有意思 很Duang~";
+        _speakTextField.backgroundColor = [UIColor clearColor];
     }
     return _speakTextField;
 }
