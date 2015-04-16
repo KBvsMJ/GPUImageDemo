@@ -25,6 +25,8 @@
 		4AA0ED3A1ADE02EB006DB4D5 /* AssortTipsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED391ADE02EB006DB4D5 /* AssortTipsCollectionViewCell.m */; };
 		4AA0ED3E1ADE30CC006DB4D5 /* AssortTipKtv.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED3D1ADE30CC006DB4D5 /* AssortTipKtv.m */; };
 		4AA0ED411ADE518B006DB4D5 /* AssortTipMagazine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED401ADE518B006DB4D5 /* AssortTipMagazine.m */; };
+		4AA0ED441ADF5451006DB4D5 /* AssortTipNewsPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED431ADF5451006DB4D5 /* AssortTipNewsPerson.m */; };
+		4AA0ED471ADF60D9006DB4D5 /* AssortTipNewsBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED461ADF60D9006DB4D5 /* AssortTipNewsBar.m */; };
 		4AB5E7921AD60DAF00A5CA51 /* ImageSeperaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7911AD60DAF00A5CA51 /* ImageSeperaterViewController.m */; };
 		4AB5E7A21AD620E400A5CA51 /* FilterTuneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7A11AD620E400A5CA51 /* FilterTuneViewController.m */; };
 		4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7A41AD62C3000A5CA51 /* TunePaneView.m */; };
@@ -88,6 +90,10 @@
 		4AA0ED3D1ADE30CC006DB4D5 /* AssortTipKtv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipKtv.m; sourceTree = "<group>"; };
 		4AA0ED3F1ADE518B006DB4D5 /* AssortTipMagazine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipMagazine.h; sourceTree = "<group>"; };
 		4AA0ED401ADE518B006DB4D5 /* AssortTipMagazine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipMagazine.m; sourceTree = "<group>"; };
+		4AA0ED421ADF5451006DB4D5 /* AssortTipNewsPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipNewsPerson.h; sourceTree = "<group>"; };
+		4AA0ED431ADF5451006DB4D5 /* AssortTipNewsPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipNewsPerson.m; sourceTree = "<group>"; };
+		4AA0ED451ADF60D9006DB4D5 /* AssortTipNewsBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipNewsBar.h; sourceTree = "<group>"; };
+		4AA0ED461ADF60D9006DB4D5 /* AssortTipNewsBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipNewsBar.m; sourceTree = "<group>"; };
 		4AB5E7901AD60DAF00A5CA51 /* ImageSeperaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSeperaterViewController.h; sourceTree = "<group>"; };
 		4AB5E7911AD60DAF00A5CA51 /* ImageSeperaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSeperaterViewController.m; sourceTree = "<group>"; };
 		4AB5E7A01AD620E400A5CA51 /* FilterTuneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTuneViewController.h; sourceTree = "<group>"; };
@@ -212,6 +218,10 @@
 				4AA0ED3D1ADE30CC006DB4D5 /* AssortTipKtv.m */,
 				4AA0ED3F1ADE518B006DB4D5 /* AssortTipMagazine.h */,
 				4AA0ED401ADE518B006DB4D5 /* AssortTipMagazine.m */,
+				4AA0ED421ADF5451006DB4D5 /* AssortTipNewsPerson.h */,
+				4AA0ED431ADF5451006DB4D5 /* AssortTipNewsPerson.m */,
+				4AA0ED451ADF60D9006DB4D5 /* AssortTipNewsBar.h */,
+				4AA0ED461ADF60D9006DB4D5 /* AssortTipNewsBar.m */,
 			);
 			path = Tips;
 			sourceTree = "<group>";
@@ -461,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */,
+				4AA0ED441ADF5451006DB4D5 /* AssortTipNewsPerson.m in Sources */,
 				4AEEEE721ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.m in Sources */,
 				4A1D92971ACCE27B00645FC5 /* EXIFReader.m in Sources */,
 				4AEEEE6F1ADCA5D100831B6D /* AssortStoreViewController.m in Sources */,
@@ -469,6 +480,7 @@
 				4AB5E7921AD60DAF00A5CA51 /* ImageSeperaterViewController.m in Sources */,
 				4A1D929E1ACE6E5300645FC5 /* MainViewController.m in Sources */,
 				4A1D92A41ACE7EEB00645FC5 /* ImageAnalyzer.m in Sources */,
+				4AA0ED471ADF60D9006DB4D5 /* AssortTipNewsBar.m in Sources */,
 				4AA0ED3E1ADE30CC006DB4D5 /* AssortTipKtv.m in Sources */,
 				4AB5E7B31AD66AD300A5CA51 /* UIBezierPath-Points.m in Sources */,
 				4AEEEE6C1ADC9E3B00831B6D /* AssortMainViewController.m in Sources */,

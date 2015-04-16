@@ -13,8 +13,8 @@ typedef NS_ENUM(NSInteger, AssortTipsType)
 {
     AssortTipsTypeKTV = 1,
     AssortTipsTypeMagazine = 2,
-    AssortTipsTypeNewsPerson,
-    AssortTipsTypeNewsBar,
+    AssortTipsTypeNewsPerson = 3,
+    AssortTipsTypeNewsBar = 4,
     AssortTipsTypeTimes,
     AssortTipsTypeMagazineRound,
     AssortTipsTypeMagazineNanRenZhuang,
