@@ -20,6 +20,7 @@
 		4A6E0C501ADB7E78005171B7 /* BSAssortTakeImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0C4F1ADB7E78005171B7 /* BSAssortTakeImageButton.m */; };
 		4A6E0C531ADB97DC005171B7 /* ImageCanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0C521ADB97DC005171B7 /* ImageCanvasViewController.m */; };
 		4A6E0C571ADBAC45005171B7 /* BSAssortCanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0C561ADBAC45005171B7 /* BSAssortCanvasView.m */; };
+		4A95185C1AE09D6300920CC7 /* AssortTipFashionBaby.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A95185B1AE09D6300920CC7 /* AssortTipFashionBaby.m */; };
 		4AA0ED341ADE01C4006DB4D5 /* AssortTipsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED331ADE01C4006DB4D5 /* AssortTipsMainViewController.m */; };
 		4AA0ED371ADE02B0006DB4D5 /* AssortTipsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED361ADE02B0006DB4D5 /* AssortTipsFactory.m */; };
 		4AA0ED3A1ADE02EB006DB4D5 /* AssortTipsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED391ADE02EB006DB4D5 /* AssortTipsCollectionViewCell.m */; };
@@ -81,6 +82,8 @@
 		4A6E0C521ADB97DC005171B7 /* ImageCanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCanvasViewController.m; sourceTree = "<group>"; };
 		4A6E0C551ADBAC45005171B7 /* BSAssortCanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAssortCanvasView.h; sourceTree = "<group>"; };
 		4A6E0C561ADBAC45005171B7 /* BSAssortCanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSAssortCanvasView.m; sourceTree = "<group>"; };
+		4A95185A1AE09D6300920CC7 /* AssortTipFashionBaby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipFashionBaby.h; sourceTree = "<group>"; };
+		4A95185B1AE09D6300920CC7 /* AssortTipFashionBaby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipFashionBaby.m; sourceTree = "<group>"; };
 		4AA0ED321ADE01C4006DB4D5 /* AssortTipsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipsMainViewController.h; sourceTree = "<group>"; };
 		4AA0ED331ADE01C4006DB4D5 /* AssortTipsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipsMainViewController.m; sourceTree = "<group>"; };
 		4AA0ED351ADE02B0006DB4D5 /* AssortTipsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipsFactory.h; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				4AA0ED461ADF60D9006DB4D5 /* AssortTipNewsBar.m */,
 				4AA0ED481ADF7F96006DB4D5 /* AssortTipTimes.h */,
 				4AA0ED491ADF7F96006DB4D5 /* AssortTipTimes.m */,
+				4A95185A1AE09D6300920CC7 /* AssortTipFashionBaby.h */,
+				4A95185B1AE09D6300920CC7 /* AssortTipFashionBaby.m */,
 			);
 			path = Tips;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 				4A6D00A61ACBCA0700D0BA86 /* MultiFilterViewController.m in Sources */,
 				4A6E0C571ADBAC45005171B7 /* BSAssortCanvasView.m in Sources */,
 				4A53EE621AD76A21000AABC6 /* ZDStickerView.m in Sources */,
+				4A95185C1AE09D6300920CC7 /* AssortTipFashionBaby.m in Sources */,
 				4AF2550A1ACB7EF500480BE7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

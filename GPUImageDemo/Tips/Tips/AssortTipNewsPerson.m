@@ -105,7 +105,7 @@
 {
     if (_iconImageView == nil) {
         _iconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AssortTipNewsPersonIcon"]];
-        _iconImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _iconImageView.contentMode = UIViewContentModeScaleToFill;
     }
     return _iconImageView;
 }

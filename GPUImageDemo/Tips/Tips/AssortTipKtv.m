@@ -123,7 +123,7 @@
 {
     if (_imageView == nil) {
         _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AssortKtv"]];
-        _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _imageView.contentMode = UIViewContentModeScaleToFill;
     }
     return _imageView;
 }
