@@ -202,7 +202,7 @@
         _titleTextField.delegate = self;
         [_titleTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _titleTextField.textAlignment = NSTextAlignmentLeft;
-        _titleTextField.font = [UIFont fontWithName:@"STHeitiSC-Medium" size:30];
+        _titleTextField.font = [UIFont fontWithName:@"FZLanTingHeiS-R-GB" size:30];
         _titleTextField.text = @"跨时代";
         _titleTextField.textColor = [UIColor whiteColor];
     }
@@ -216,7 +216,7 @@
         _subtitleTextField.delegate = self;
         [_subtitleTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _subtitleTextField.textAlignment = NSTextAlignmentLeft;
-        _subtitleTextField.font = [UIFont fontWithName:@"STHeitiSC-Medium" size:30];
+        _subtitleTextField.font = [UIFont fontWithName:@"FZLanTingHeiS-R-GB" size:30];
         _subtitleTextField.text = @"伟大发明";
         _subtitleTextField.textColor = [UIColor whiteColor];
     }

@@ -9,12 +9,12 @@
 #import "AssortTipFashionBaby.h"
 #import "UIView+LayoutMethods.h"
 
-@interface AssortTipFashionBaby () <UITextFieldDelegate>
+@interface AssortTipFashionBaby () <UITextFieldDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UIImageView *barCodeImageView;
 @property (nonatomic, strong) UITextField *titleTextField;
-@property (nonatomic, strong) UITextField *detailTextField;
+@property (nonatomic, strong) UITextView *detailTextView;
 
 @end
 
@@ -28,7 +28,7 @@
         [self addSubview:self.iconImageView];
         [self addSubview:self.barCodeImageView];
         [self addSubview:self.titleTextField];
-        [self addSubview:self.detailTextField];
+        [self addSubview:self.detailTextView];
     }
     return self;
 }
@@ -39,19 +39,19 @@
     [self.iconImageView topInContainer:18 shouldResize:NO];
     [self.iconImageView rightInContainer:18 shouldResize:NO];
     
-    self.barCodeImageView.size = CGSizeMake(35, 20);
-    [self.barCodeImageView bottomInContainer:18 shouldResize:NO];
-    [self.barCodeImageView rightInContainer:24 shouldResize:NO];
-    
     self.titleTextField.height = 27;
     [self.titleTextField bottomInContainer:38 shouldResize:NO];
     [self.titleTextField leftInContainer:0 shouldResize:YES];
     [self.titleTextField rightInContainer:0 shouldResize:YES];
     
-    self.detailTextField.height = 8;
-    [self.detailTextField bottomInContainer:18 shouldResize:NO];
-    [self.detailTextField leftInContainer:0 shouldResize:YES];
-    [self.detailTextField rightInContainer:100 shouldResize:YES];
+    self.detailTextView.height = 30;
+    [self.detailTextView top:3 FromView:self.titleTextField];
+    [self.detailTextView leftInContainer:18 shouldResize:YES];
+    [self.detailTextView rightInContainer:100 shouldResize:YES];
+    
+    self.barCodeImageView.size = CGSizeMake(35, 20);
+    [self.barCodeImageView rightInContainer:24 shouldResize:NO];
+    [self.barCodeImageView centerYEqualToView:self.detailTextView];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -68,16 +68,21 @@
             textField.text = [textField.text substringWithRange:NSMakeRange(0, 10)];
         }
     }
-    
-    if (textField == self.detailTextField) {
-        if (textField.text.length > 40) {
-            textField.text = [textField.text substringWithRange:NSMakeRange(0, 40)];
+}
+
+#pragma mark - UITextViewDelegate
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    [textView scrollRangeToVisible:NSMakeRange(0, 0)];
+    if (textView == self.detailTextView) {
+        if (textView.text.length > 60) {
+            textView.text = [textView.text substringWithRange:NSMakeRange(0, 60)];
         }
     }
 }
 
 #pragma mark - event response
-- (void)didTappedTextField:(UITextField *)textField
+- (void)didTappedTextField:(UIView *)textField
 {
     [textField becomeFirstResponder];
 }
@@ -110,24 +115,23 @@
         _titleTextField.backgroundColor = [UIColor clearColor];
         _titleTextField.text = @"我的滑板鞋时尚最时尚";
         _titleTextField.textColor = [UIColor whiteColor];
-        _titleTextField.font = [UIFont fontWithName:@"STHeitiSC-Light" size:27.0f];
+        _titleTextField.font = [UIFont fontWithName:@"FZLanTingHeiS-R-GB" size:27.0f];
         _titleTextField.textAlignment = NSTextAlignmentCenter;
     }
     return _titleTextField;
 }
 
-- (UITextField *)detailTextField
+- (UITextView *)detailTextView
 {
-    if (_detailTextField == nil) {
-        _detailTextField = [[UITextField alloc] init];
-        _detailTextField.delegate = self;
-        [_detailTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
-        _detailTextField.backgroundColor = [UIColor clearColor];
-        _detailTextField.text = @"My skateboard shoes is the most fashion in the world.";
-        _detailTextField.textColor = [UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f];
-        _detailTextField.font = [UIFont fontWithName:@"HelveticaNeue" size:11.0f];
+    if (_detailTextView == nil) {
+        _detailTextView = [[UITextView alloc] init];
+        _detailTextView.delegate = self;
+        _detailTextView.backgroundColor = [UIColor clearColor];
+        _detailTextView.text = @"My skateboard shoes is the most fashion in the world.";
+        _detailTextView.textColor = [UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f];
+        _detailTextView.font = [UIFont fontWithName:@"HelveticaNeue" size:11.0f];
     }
-    return _detailTextField;
+    return _detailTextView;
 }
 
 @end

@@ -66,7 +66,7 @@
 #pragma mark - event response
 - (void)didTappedAddButton:(UIButton *)button
 {
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image"]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DemoImage"]];
     [self.canvasView addView:imageView width:imageView.image.size.width height:imageView.image.size.height];
 }
 

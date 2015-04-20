@@ -55,7 +55,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     AssortStoreItemCollectionViewCell *cell = (AssortStoreItemCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.itemImageView.image = [UIImage imageNamed:@"image"];
+    cell.itemImageView.image = [UIImage imageNamed:@"DemoImage"];
     return cell;
 }
 

@@ -103,7 +103,7 @@
 #pragma mark - event response
 - (void)didTappedCleanButton:(UIButton *)button
 {
-    self.processedImageView.image = [UIImage imageNamed:@"image"];
+    self.processedImageView.image = [UIImage imageNamed:@"DemoImage"];
     [self.firstTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
     [self.secondTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
 }
@@ -130,7 +130,7 @@
     if (firstFilterName == nil || firstFilterName.length == 0 || [firstFilterName isEqualToString:@"empty"]) {
         if (secondFilterName == nil || secondFilterName.length == 0 || [secondFilterName isEqualToString:@"empty"]) {
             // n1, n2
-            self.processedImageView.image = [UIImage imageNamed:@"image"];
+            self.processedImageView.image = [UIImage imageNamed:@"DemoImage"];
             return;
         } else {
             // n1, y2
@@ -302,7 +302,7 @@
 - (GPUImagePicture *)originPicture
 {
     if (_originPicture == nil) {
-        _originPicture = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:@"image"]];
+        _originPicture = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:@"DemoImage"]];
     }
     return _originPicture;
 }
@@ -310,7 +310,7 @@
 - (UIImageView *)originImageView
 {
     if (_originImageView == nil) {
-        _originImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image"]];
+        _originImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DemoImage"]];
     }
     return _originImageView;
 }
@@ -318,7 +318,7 @@
 - (UIImageView *)processedImageView
 {
     if (_processedImageView == nil) {
-        _processedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image"]];
+        _processedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DemoImage"]];
     }
     return _processedImageView;
 }

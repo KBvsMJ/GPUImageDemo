@@ -98,7 +98,7 @@
 - (UIImageView *)imageView
 {
     if (_imageView == nil) {
-        _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image"]];
+        _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DemoImage"]];
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _imageView;
