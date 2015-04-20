@@ -14,6 +14,8 @@
 #import "AssortTipNewsBar.h"
 #import "AssortTipTimes.h"
 #import "AssortTipFashionBaby.h"
+#import "AssortTipNanRenZhuang.h"
+#import "AssortTipRound.h"
 
 @interface AssortTipsFactory ()
 
@@ -63,9 +65,11 @@
             break;
             
         case AssortTipsTypeMagazineNanRenZhuang:
+            tipView = [[AssortTipNanRenZhuang alloc] init];
             break;
             
         case AssortTipsTypeMagazineRound:
+            tipView = [[AssortTipRound alloc] init];
             break;
             
         default:

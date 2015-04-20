@@ -17,8 +17,8 @@ typedef NS_ENUM(NSInteger, AssortTipsType)
     AssortTipsTypeNewsBar = 4,
     AssortTipsTypeTimes = 5,
     AssortTipsTypeMagazineFashionBaby = 6,
-    AssortTipsTypeMagazineNanRenZhuang,
-    AssortTipsTypeMagazineRound
+    AssortTipsTypeMagazineNanRenZhuang = 7,
+    AssortTipsTypeMagazineRound = 8
 };
 
 @interface AssortTipsFactory : NSObject

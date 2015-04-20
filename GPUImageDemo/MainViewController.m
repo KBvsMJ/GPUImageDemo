@@ -85,8 +85,8 @@
 
 - (void)didTappedSeperaterButton:(UIButton *)button
 {
-    ImageSeperaterViewController *viewController = [[ImageSeperaterViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
+//    ImageSeperaterViewController *viewController = [[ImageSeperaterViewController alloc] init];
+//    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)didTappedAssortButton:(UIButton *)button

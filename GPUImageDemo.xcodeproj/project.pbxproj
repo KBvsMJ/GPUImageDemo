@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A04AA631AE499BD00A115E4 /* AssortTipRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A04AA621AE499BD00A115E4 /* AssortTipRound.m */; };
 		4A1D92971ACCE27B00645FC5 /* EXIFReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D92961ACCE27B00645FC5 /* EXIFReader.m */; };
 		4A1D92991ACCE91500645FC5 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D92981ACCE91500645FC5 /* AssetsLibrary.framework */; };
 		4A1D929B1ACCE91F00645FC5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D929A1ACCE91F00645FC5 /* ImageIO.framework */; };
@@ -21,6 +22,7 @@
 		4A6E0C531ADB97DC005171B7 /* ImageCanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0C521ADB97DC005171B7 /* ImageCanvasViewController.m */; };
 		4A6E0C571ADBAC45005171B7 /* BSAssortCanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0C561ADBAC45005171B7 /* BSAssortCanvasView.m */; };
 		4A95185C1AE09D6300920CC7 /* AssortTipFashionBaby.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A95185B1AE09D6300920CC7 /* AssortTipFashionBaby.m */; };
+		4A95185F1AE0C41A00920CC7 /* AssortTipNanRenZhuang.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A95185E1AE0C41A00920CC7 /* AssortTipNanRenZhuang.m */; };
 		4AA0ED341ADE01C4006DB4D5 /* AssortTipsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED331ADE01C4006DB4D5 /* AssortTipsMainViewController.m */; };
 		4AA0ED371ADE02B0006DB4D5 /* AssortTipsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED361ADE02B0006DB4D5 /* AssortTipsFactory.m */; };
 		4AA0ED3A1ADE02EB006DB4D5 /* AssortTipsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0ED391ADE02EB006DB4D5 /* AssortTipsCollectionViewCell.m */; };
@@ -58,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A04AA611AE499BD00A115E4 /* AssortTipRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipRound.h; sourceTree = "<group>"; };
+		4A04AA621AE499BD00A115E4 /* AssortTipRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipRound.m; sourceTree = "<group>"; };
 		4A1D92951ACCE27B00645FC5 /* EXIFReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXIFReader.h; sourceTree = "<group>"; };
 		4A1D92961ACCE27B00645FC5 /* EXIFReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXIFReader.m; sourceTree = "<group>"; };
 		4A1D92981ACCE91500645FC5 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -84,6 +88,8 @@
 		4A6E0C561ADBAC45005171B7 /* BSAssortCanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSAssortCanvasView.m; sourceTree = "<group>"; };
 		4A95185A1AE09D6300920CC7 /* AssortTipFashionBaby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipFashionBaby.h; sourceTree = "<group>"; };
 		4A95185B1AE09D6300920CC7 /* AssortTipFashionBaby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipFashionBaby.m; sourceTree = "<group>"; };
+		4A95185D1AE0C41A00920CC7 /* AssortTipNanRenZhuang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipNanRenZhuang.h; sourceTree = "<group>"; };
+		4A95185E1AE0C41A00920CC7 /* AssortTipNanRenZhuang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipNanRenZhuang.m; sourceTree = "<group>"; };
 		4AA0ED321ADE01C4006DB4D5 /* AssortTipsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipsMainViewController.h; sourceTree = "<group>"; };
 		4AA0ED331ADE01C4006DB4D5 /* AssortTipsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipsMainViewController.m; sourceTree = "<group>"; };
 		4AA0ED351ADE02B0006DB4D5 /* AssortTipsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipsFactory.h; sourceTree = "<group>"; };
@@ -232,6 +238,10 @@
 				4AA0ED491ADF7F96006DB4D5 /* AssortTipTimes.m */,
 				4A95185A1AE09D6300920CC7 /* AssortTipFashionBaby.h */,
 				4A95185B1AE09D6300920CC7 /* AssortTipFashionBaby.m */,
+				4A95185D1AE0C41A00920CC7 /* AssortTipNanRenZhuang.h */,
+				4A95185E1AE0C41A00920CC7 /* AssortTipNanRenZhuang.m */,
+				4A04AA611AE499BD00A115E4 /* AssortTipRound.h */,
+				4A04AA621AE499BD00A115E4 /* AssortTipRound.m */,
 			);
 			path = Tips;
 			sourceTree = "<group>";
@@ -480,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A04AA631AE499BD00A115E4 /* AssortTipRound.m in Sources */,
 				4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */,
 				4AA0ED441ADF5451006DB4D5 /* AssortTipNewsPerson.m in Sources */,
 				4AEEEE721ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.m in Sources */,
@@ -490,6 +501,7 @@
 				4AB5E7921AD60DAF00A5CA51 /* ImageSeperaterViewController.m in Sources */,
 				4A1D929E1ACE6E5300645FC5 /* MainViewController.m in Sources */,
 				4A1D92A41ACE7EEB00645FC5 /* ImageAnalyzer.m in Sources */,
+				4A95185F1AE0C41A00920CC7 /* AssortTipNanRenZhuang.m in Sources */,
 				4AA0ED471ADF60D9006DB4D5 /* AssortTipNewsBar.m in Sources */,
 				4AA0ED3E1ADE30CC006DB4D5 /* AssortTipKtv.m in Sources */,
 				4AB5E7B31AD66AD300A5CA51 /* UIBezierPath-Points.m in Sources */,
@@ -635,6 +647,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Shi Jie Qin (FSAP8479L6)";
 				INFOPLIST_FILE = "GPUImageDemo/GPUImageDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -647,6 +660,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Shi Jie Qin (FSAP8479L6)";
 				INFOPLIST_FILE = "GPUImageDemo/GPUImageDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
