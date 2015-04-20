@@ -62,7 +62,7 @@
     [self.secondLineTextField rightInContainer:100 shouldResize:YES];
     [self.secondLineTextField top:3 FromView:self.firstLineTextField];
 
-    self.barcodeImageView.size = CGSizeMake(70, 31);
+    self.barcodeImageView.size = CGSizeMake(35, 20);
     [self.barcodeImageView bottomEqualToView:self.secondLineTextField];
     [self.barcodeImageView rightInContainer:18 shouldResize:NO];
 }

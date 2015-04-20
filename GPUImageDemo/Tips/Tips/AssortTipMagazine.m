@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UITextField *firstLineTextField;
 @property (nonatomic, strong) UITextField *secondLineTextField;
-@property (nonatomic, strong) UITextField *thirdLineTextField;
+@property (nonatomic, strong) UILabel *thirdLineTextField;
 
 @end
 
@@ -42,7 +42,7 @@
     
     [self.firstLineTextField leftInContainer:10 shouldResize:YES];
     [self.firstLineTextField rightInContainer:10 shouldResize:YES];
-    self.firstLineTextField.height = 84;
+    self.firstLineTextField.height = 60;
     [self.firstLineTextField bottomInContainer:45 shouldResize:NO];
     
     [self.secondLineTextField leftInContainer:10 shouldResize:YES];
@@ -50,22 +50,21 @@
     self.secondLineTextField.height = 15;
     [self.secondLineTextField bottomInContainer:35 shouldResize:NO];
     
-    [self resetThirdTextField];
+    [self.thirdLineTextField sizeToFit];
+    CGFloat width = self.thirdLineTextField.width;
+    width += 9;
+    self.thirdLineTextField.width = width;
+    [self.thirdLineTextField centerXEqualToView:self];
+    [self.thirdLineTextField bottomInContainer:15 shouldResize:NO];
 }
 
 - (void)resetThirdTextField
 {
-    [self.thirdLineTextField sizeToFit];
-    [self.thirdLineTextField centerXEqualToView:self];
-    [self.thirdLineTextField bottomInContainer:19 shouldResize:NO];
 }
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    if (textField == self.thirdLineTextField) {
-        [self resetThirdTextField];
-    }
     return YES;
 }
 
@@ -98,7 +97,7 @@
         _firstLineTextField.delegate = self;
         [_firstLineTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _firstLineTextField.textColor = [UIColor whiteColor];
-        _firstLineTextField.font = [UIFont systemFontOfSize:70];
+        _firstLineTextField.font = [UIFont systemFontOfSize:50];
         _firstLineTextField.text = @"NiuBility";
         _firstLineTextField.textAlignment = NSTextAlignmentCenter;
         _firstLineTextField.backgroundColor = [UIColor clearColor];
@@ -121,18 +120,15 @@
     return _secondLineTextField;
 }
 
-- (UITextField *)thirdLineTextField
+- (UILabel *)thirdLineTextField
 {
     if (_thirdLineTextField == nil) {
-        _thirdLineTextField = [[UITextField alloc] init];
-        _thirdLineTextField.delegate = self;
-        [_thirdLineTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
+        _thirdLineTextField = [[UILabel alloc] init];
         _thirdLineTextField.textColor = [UIColor whiteColor];
         _thirdLineTextField.font = [UIFont systemFontOfSize:14];
         _thirdLineTextField.text = @"HANGZHOU";
         _thirdLineTextField.backgroundColor = [UIColor redColor];
         _thirdLineTextField.textAlignment = NSTextAlignmentCenter;
-        _thirdLineTextField.backgroundColor = [UIColor clearColor];
     }
     return _thirdLineTextField;
 }

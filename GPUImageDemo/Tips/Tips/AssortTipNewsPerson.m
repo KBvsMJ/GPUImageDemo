@@ -32,8 +32,8 @@
         
         [self addSubview:self.iconImageView];
         [self addSubview:self.labelGroundImageView];
-        [self.labelGroundImageView addSubview:self.nameTextField];
         [self.labelGroundImageView addSubview:self.titleTextField];
+        [self.labelGroundImageView addSubview:self.nameTextField];
         [self addSubview:self.speakTextField];
     }
     return self;
@@ -41,29 +41,28 @@
 
 - (void)layoutSubviews
 {
-    self.iconImageView.size = CGSizeMake(98, 32);
-    [self.iconImageView leftInContainer:0 shouldResize:NO];
-    [self.iconImageView topInContainer:7 shouldResize:NO];
+    self.iconImageView.size = CGSizeMake(75, 29);
+    [self.iconImageView leftInContainer:18 shouldResize:NO];
+    [self.iconImageView topInContainer:18 shouldResize:NO];
     
-    self.labelGroundImageView.height = 40;
-    [self.labelGroundImageView leftInContainer:0 shouldResize:YES];
-    [self.labelGroundImageView rightInContainer:0 shouldResize:YES];
+    self.labelGroundImageView.size = CGSizeMake(278, 35);
+    [self.labelGroundImageView leftInContainer:18 shouldResize:NO];
     [self.labelGroundImageView bottomInContainer:45 shouldResize:NO];
     
-    self.nameTextField.height = 36;
+    self.nameTextField.height = 22;
     [self.nameTextField leftInContainer:37 shouldResize:YES];
-    [self.nameTextField rightInContainer:226 shouldResize:YES];
+    [self.nameTextField rightInContainer:156 shouldResize:YES];
     [self.nameTextField centerYEqualToView:self.labelGroundImageView];
     
     self.titleTextField.height = 14;
-    [self.titleTextField leftInContainer:156 shouldResize:YES];
+    [self.titleTextField leftInContainer:126 shouldResize:YES];
     [self.titleTextField rightInContainer:0 shouldResize:YES];
-    [self.titleTextField bottomInContainer:7 shouldResize:NO];
+    [self.titleTextField bottomEqualToView:self.nameTextField];
     
     self.speakTextField.height = 23;
-    [self.speakTextField leftInContainer:14 shouldResize:YES];
+    [self.speakTextField leftInContainer:18 shouldResize:YES];
     [self.speakTextField rightInContainer:0 shouldResize:YES];
-    [self.speakTextField bottomInContainer:2 shouldResize:NO];
+    [self.speakTextField bottomInContainer:18 shouldResize:NO];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -129,7 +128,7 @@
         [_nameTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _nameTextField.textColor = [UIColor whiteColor];
         _nameTextField.textAlignment = NSTextAlignmentLeft;
-        _nameTextField.font = [UIFont systemFontOfSize:24];
+        _nameTextField.font = [UIFont systemFontOfSize:22];
         _nameTextField.text = @"JackMa";
         _nameTextField.backgroundColor = [UIColor clearColor];
     }
@@ -159,7 +158,7 @@
         [_speakTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _speakTextField.textColor = [UIColor whiteColor];
         _speakTextField.textAlignment = NSTextAlignmentLeft;
-        _speakTextField.font = [UIFont systemFontOfSize:20];
+        _speakTextField.font = [UIFont systemFontOfSize:18];
         _speakTextField.text = @"很轻松 很有意思 很Duang~";
         _speakTextField.backgroundColor = [UIColor clearColor];
     }

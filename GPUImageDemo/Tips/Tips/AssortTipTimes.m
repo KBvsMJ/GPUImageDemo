@@ -93,8 +93,8 @@
     [self.subtitleTextField rightInContainer:20 shouldResize:YES];
     
     self.detailTextField.height = 20;
-    [self.detailTextField leftEqualToView:self.subtitleTextField];
-    [self.detailTextField top:3 FromView:self.subtitleTextField];
+    [self.detailTextField right:11 FromView:self.leftBar];
+    [self.detailTextField top:2 FromView:self.subtitleTextField];
     [self.detailTextField rightInContainer:20 shouldResize:YES];
 }
 
@@ -186,7 +186,7 @@
 {
     if (_itisLabel == nil) {
         _itisLabel = [[UILabel alloc] init];
-        _itisLabel.text = @"IT IS";
+        _itisLabel.text = @"IT'S";
         _itisLabel.font = [UIFont fontWithName:@"Zapf Dingbats" size:40];
         _itisLabel.backgroundColor = [UIColor clearColor];
         _itisLabel.textAlignment = NSTextAlignmentCenter;

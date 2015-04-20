@@ -50,8 +50,8 @@
     [self.secondWordTextField topInContainer:44 shouldResize:NO];
     
     self.fashionBoyImageView.size = CGSizeMake(65, 65);
-    [self.fashionBoyImageView leftInContainer:255 shouldResize:NO];
-    [self.fashionBoyImageView topInContainer:236 shouldResize:NO];
+    [self.fashionBoyImageView leftInContainer:245 shouldResize:NO];
+    [self.fashionBoyImageView topInContainer:222 shouldResize:NO];
     
     self.cityNameLabel.height = 16;
     [self.cityNameLabel topInContainer:320 shouldResize:NO];
@@ -106,7 +106,7 @@
         [_firstWordTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _firstWordTextField.text = @"良";
         _firstWordTextField.textColor = [UIColor blackColor];
-        _firstWordTextField.font = [UIFont fontWithName:@"Mistral" size:75];
+        _firstWordTextField.font = [UIFont systemFontOfSize:75];
     }
     return _firstWordTextField;
 }
@@ -119,7 +119,7 @@
         [_secondWordTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _secondWordTextField.text = @"品";
         _secondWordTextField.textColor = [UIColor blackColor];
-        _secondWordTextField.font = [UIFont fontWithName:@"Mistral" size:75];
+        _secondWordTextField.font = [UIFont systemFontOfSize:75];
     }
     return _secondWordTextField;
 }
@@ -147,7 +147,7 @@
     if (_cityNameLabel == nil) {
         _cityNameLabel = [[UILabel alloc] init];
         _cityNameLabel.textColor = [UIColor blackColor];
-        _cityNameLabel.text = @"hangzhou";
+        _cityNameLabel.text = @"HANGZHOU";
         _cityNameLabel.font = [UIFont systemFontOfSize:15];
         _cityNameLabel.textAlignment = NSTextAlignmentCenter;
     }

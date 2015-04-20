@@ -36,15 +36,15 @@
 
 - (void)layoutSubviews
 {
-    [self.lyricLine1TextField leftInContainer:80 shouldResize:YES];
+    [self.lyricLine1TextField leftInContainer:70 shouldResize:YES];
     [self.lyricLine1TextField rightInContainer:10 shouldResize:YES];
     self.lyricLine1TextField.height = 20;
-    [self.lyricLine1TextField bottomInContainer:25 shouldResize:NO];
+    [self.lyricLine1TextField bottomInContainer:41 shouldResize:NO];
     
     [self.lyricLine2TextField leftInContainer:10 shouldResize:YES];
-    [self.lyricLine2TextField rightInContainer:10 shouldResize:YES];
+    [self.lyricLine2TextField rightInContainer:18 shouldResize:YES];
     self.lyricLine2TextField.height = 20;
-    [self.lyricLine2TextField bottomInContainer:2 shouldResize:NO];
+    [self.lyricLine2TextField bottomInContainer:18 shouldResize:NO];
     
     self.imageView.size = CGSizeMake(35, 14);
     [self.imageView leftInContainer:27 shouldResize:NO];

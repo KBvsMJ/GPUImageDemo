@@ -35,21 +35,21 @@
 
 - (void)layoutSubviews
 {
-    self.iconImageView.size = CGSizeMake(121, 101);
-    [self.iconImageView topInContainer:0 shouldResize:NO];
-    [self.iconImageView rightInContainer:0 shouldResize:NO];
+    self.iconImageView.size = CGSizeMake(90, 90);
+    [self.iconImageView topInContainer:18 shouldResize:NO];
+    [self.iconImageView rightInContainer:18 shouldResize:NO];
     
-    self.barCodeImageView.size = CGSizeMake(47, 23);
-    [self.barCodeImageView bottomInContainer:0 shouldResize:NO];
+    self.barCodeImageView.size = CGSizeMake(35, 20);
+    [self.barCodeImageView bottomInContainer:18 shouldResize:NO];
     [self.barCodeImageView rightInContainer:24 shouldResize:NO];
     
     self.titleTextField.height = 27;
-    [self.titleTextField bottomInContainer:30 shouldResize:NO];
+    [self.titleTextField bottomInContainer:38 shouldResize:NO];
     [self.titleTextField leftInContainer:0 shouldResize:YES];
     [self.titleTextField rightInContainer:0 shouldResize:YES];
     
     self.detailTextField.height = 8;
-    [self.detailTextField bottomInContainer:10 shouldResize:NO];
+    [self.detailTextField bottomInContainer:18 shouldResize:NO];
     [self.detailTextField leftInContainer:0 shouldResize:YES];
     [self.detailTextField rightInContainer:100 shouldResize:YES];
 }
@@ -111,6 +111,7 @@
         _titleTextField.text = @"我的滑板鞋时尚最时尚";
         _titleTextField.textColor = [UIColor whiteColor];
         _titleTextField.font = [UIFont fontWithName:@"STHeitiSC-Light" size:27.0f];
+        _titleTextField.textAlignment = NSTextAlignmentCenter;
     }
     return _titleTextField;
 }
@@ -124,7 +125,7 @@
         _detailTextField.backgroundColor = [UIColor clearColor];
         _detailTextField.text = @"My skateboard shoes is the most fashion in the world.";
         _detailTextField.textColor = [UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f];
-        _detailTextField.font = [UIFont fontWithName:@"HelveticaNeue" size:7.0f];
+        _detailTextField.font = [UIFont fontWithName:@"HelveticaNeue" size:11.0f];
     }
     return _detailTextField;
 }
