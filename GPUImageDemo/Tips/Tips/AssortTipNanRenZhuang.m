@@ -106,7 +106,7 @@
     if (_titleTextField == nil) {
         _titleTextField = [[UITextField alloc] init];
         _titleTextField.text = @"男人装";
-        _titleTextField.font = [UIFont systemFontOfSize:72];
+        _titleTextField.font = [UIFont fontWithName:@"FZDaBiaoSong-B06S" size:72];
         _titleTextField.textColor = [UIColor whiteColor];
         _titleTextField.delegate = self;
         [_titleTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];

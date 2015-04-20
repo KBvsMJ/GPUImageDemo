@@ -8,6 +8,7 @@
 
 #import "AssortTipKtv.h"
 #import "UIView+LayoutMethods.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AssortTipKtv () <UITextFieldDelegate>
 
@@ -30,6 +31,8 @@
         [self addSubview:self.lyricLine1TextField];
         [self addSubview:self.lyricLine2TextField];
         [self addSubview:self.imageView];
+        
+        [self showDashLine];
     }
     return self;
 }
@@ -62,17 +65,22 @@
 {
     if (textField == self.lyricLine1TextField) {
         if (textField.text.length > 15) {
-            textField.text = [textField.text substringWithRange:NSMakeRange(0, 4)];
+            textField.text = [textField.text substringWithRange:NSMakeRange(0, 15)];
         }
+        
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:textField.text];
-        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:255.0f/255.0f green:192.0f/255.0f blue:55.0f/255.0f alpha:1.0f] range:NSMakeRange(0, 2)];
-        [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(2, textField.text.length - 2)];
+        if (textField.text.length > 2) {
+            [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:255.0f/255.0f green:192.0f/255.0f blue:55.0f/255.0f alpha:1.0f] range:NSMakeRange(0, 2)];
+            [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(2, textField.text.length - 2)];
+        } else {
+            [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:255.0f/255.0f green:192.0f/255.0f blue:55.0f/255.0f alpha:1.0f] range:NSMakeRange(0, textField.text.length)];
+        }
         self.lyricLine1TextField.attributedText = attributedString;
     }
     
     if (textField == self.lyricLine2TextField) {
         if (textField.text.length > 15) {
-            textField.text = [textField.text substringWithRange:NSMakeRange(0, 20)];
+            textField.text = [textField.text substringWithRange:NSMakeRange(0, 15)];
         }
     }
 }
@@ -81,6 +89,25 @@
 - (void)didTappedTextField:(UITextField *)textField
 {
     [textField becomeFirstResponder];
+}
+
+#pragma - public methods
+- (void)showDashLine
+{
+    [self.lyricLine1TextField.layer setBorderWidth:2.0];
+    [self.lyricLine1TextField.layer setBorderColor:[[UIColor colorWithPatternImage:[UIImage imageNamed:@"AssortTipDashedLine"]] CGColor]];
+    
+    [self.lyricLine2TextField.layer setBorderWidth:2.0];
+    [self.lyricLine2TextField.layer setBorderColor:[[UIColor colorWithPatternImage:[UIImage imageNamed:@"AssortTipDashedLine"]] CGColor]];
+}
+
+- (void)hideDashLine
+{
+    [self.lyricLine1TextField.layer setBorderWidth:0.0];
+    [self.lyricLine1TextField.layer setBorderColor:[[UIColor clearColor] CGColor]];
+    
+    [self.lyricLine2TextField.layer setBorderWidth:0.0];
+    [self.lyricLine2TextField.layer setBorderColor:[[UIColor clearColor] CGColor]];
 }
 
 #pragma mark - getters and setters

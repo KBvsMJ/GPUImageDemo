@@ -49,9 +49,9 @@
     [self.labelGroundImageView leftInContainer:18 shouldResize:NO];
     [self.labelGroundImageView bottomInContainer:45 shouldResize:NO];
     
-    self.nameTextField.height = 22;
+    self.nameTextField.height = 23;
     [self.nameTextField leftInContainer:37 shouldResize:YES];
-    [self.nameTextField rightInContainer:156 shouldResize:YES];
+    [self.nameTextField rightInContainer:160 shouldResize:YES];
     [self.nameTextField centerYEqualToView:self.labelGroundImageView];
     
     self.titleTextField.height = 14;
@@ -127,7 +127,7 @@
         _nameTextField.delegate = self;
         [_nameTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _nameTextField.textColor = [UIColor whiteColor];
-        _nameTextField.textAlignment = NSTextAlignmentLeft;
+        _nameTextField.textAlignment = NSTextAlignmentCenter;
         _nameTextField.font = [UIFont systemFontOfSize:22];
         _nameTextField.text = @"JackMa";
         _nameTextField.backgroundColor = [UIColor clearColor];
@@ -158,7 +158,7 @@
         [_speakTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _speakTextField.textColor = [UIColor whiteColor];
         _speakTextField.textAlignment = NSTextAlignmentLeft;
-        _speakTextField.font = [UIFont systemFontOfSize:18];
+        _speakTextField.font = [UIFont systemFontOfSize:16];
         _speakTextField.text = @"很轻松 很有意思 很Duang~";
         _speakTextField.backgroundColor = [UIColor clearColor];
     }

@@ -10,4 +10,7 @@
 
 @interface AssortTipKtv : UIView
 
+- (void)hideDashLine;
+- (void)showDashLine;
+
 @end

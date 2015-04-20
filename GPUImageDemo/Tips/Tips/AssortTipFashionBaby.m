@@ -44,14 +44,14 @@
     [self.titleTextField leftInContainer:0 shouldResize:YES];
     [self.titleTextField rightInContainer:0 shouldResize:YES];
     
-    self.detailTextView.height = 30;
-    [self.detailTextView top:3 FromView:self.titleTextField];
-    [self.detailTextView leftInContainer:18 shouldResize:YES];
+    self.detailTextView.height = 27;
+    [self.detailTextView top:0 FromView:self.titleTextField];
+    [self.detailTextView leftInContainer:60 shouldResize:YES];
     [self.detailTextView rightInContainer:100 shouldResize:YES];
     
     self.barCodeImageView.size = CGSizeMake(35, 20);
-    [self.barCodeImageView rightInContainer:24 shouldResize:NO];
-    [self.barCodeImageView centerYEqualToView:self.detailTextView];
+    [self.barCodeImageView rightInContainer:60 shouldResize:NO];
+    [self.barCodeImageView top:5 FromView:self.titleTextField];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -75,7 +75,7 @@
 {
     [textView scrollRangeToVisible:NSMakeRange(0, 0)];
     if (textView == self.detailTextView) {
-        if (textView.text.length > 60) {
+        if (textView.text.length > 100) {
             textView.text = [textView.text substringWithRange:NSMakeRange(0, 60)];
         }
     }
@@ -115,7 +115,7 @@
         _titleTextField.backgroundColor = [UIColor clearColor];
         _titleTextField.text = @"我的滑板鞋时尚最时尚";
         _titleTextField.textColor = [UIColor whiteColor];
-        _titleTextField.font = [UIFont fontWithName:@"FZLanTingHeiS-R-GB" size:27.0f];
+        _titleTextField.font = [UIFont fontWithName:@"FZLanTingHeiS-R-GB" size:23.0f];
         _titleTextField.textAlignment = NSTextAlignmentCenter;
     }
     return _titleTextField;

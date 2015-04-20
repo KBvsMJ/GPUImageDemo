@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A02C7971AE4A77C000AD5B5 /* FZLanTingHeiS_R_GB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A02C7921AE4A77C000AD5B5 /* FZLanTingHeiS_R_GB.ttf */; };
-		4A02C7981AE4A77C000AD5B5 /* FZLanTingSong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A02C7931AE4A77C000AD5B5 /* FZLanTingSong.ttf */; };
 		4A02C7991AE4A77C000AD5B5 /* FZQiTi_S14T.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A02C7941AE4A77C000AD5B5 /* FZQiTi_S14T.ttf */; };
+		4A02C79D1AE4CA40000AD5B5 /* FZDaBiaoSong_B06S.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A02C79C1AE4C9A3000AD5B5 /* FZDaBiaoSong_B06S.ttf */; };
 		4A04AA631AE499BD00A115E4 /* AssortTipRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A04AA621AE499BD00A115E4 /* AssortTipRound.m */; };
 		4A1D92971ACCE27B00645FC5 /* EXIFReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D92961ACCE27B00645FC5 /* EXIFReader.m */; };
 		4A1D92991ACCE91500645FC5 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D92981ACCE91500645FC5 /* AssetsLibrary.framework */; };
@@ -64,8 +64,8 @@
 
 /* Begin PBXFileReference section */
 		4A02C7921AE4A77C000AD5B5 /* FZLanTingHeiS_R_GB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FZLanTingHeiS_R_GB.ttf; sourceTree = "<group>"; };
-		4A02C7931AE4A77C000AD5B5 /* FZLanTingSong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FZLanTingSong.ttf; sourceTree = "<group>"; };
 		4A02C7941AE4A77C000AD5B5 /* FZQiTi_S14T.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FZQiTi_S14T.ttf; sourceTree = "<group>"; };
+		4A02C79C1AE4C9A3000AD5B5 /* FZDaBiaoSong_B06S.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FZDaBiaoSong_B06S.ttf; sourceTree = "<group>"; };
 		4A04AA611AE499BD00A115E4 /* AssortTipRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipRound.h; sourceTree = "<group>"; };
 		4A04AA621AE499BD00A115E4 /* AssortTipRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipRound.m; sourceTree = "<group>"; };
 		4A1D92951ACCE27B00645FC5 /* EXIFReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXIFReader.h; sourceTree = "<group>"; };
@@ -179,8 +179,8 @@
 		4A02C7911AE4A77C000AD5B5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				4A02C79C1AE4C9A3000AD5B5 /* FZDaBiaoSong_B06S.ttf */,
 				4A02C7921AE4A77C000AD5B5 /* FZLanTingHeiS_R_GB.ttf */,
-				4A02C7931AE4A77C000AD5B5 /* FZLanTingSong.ttf */,
 				4A02C7941AE4A77C000AD5B5 /* FZQiTi_S14T.ttf */,
 			);
 			path = Fonts;
@@ -456,8 +456,8 @@
 			files = (
 				4AF255131ACB7EF500480BE7 /* Main.storyboard in Resources */,
 				4A02C7971AE4A77C000AD5B5 /* FZLanTingHeiS_R_GB.ttf in Resources */,
-				4A02C7981AE4A77C000AD5B5 /* FZLanTingSong.ttf in Resources */,
 				4A02C7991AE4A77C000AD5B5 /* FZQiTi_S14T.ttf in Resources */,
+				4A02C79D1AE4CA40000AD5B5 /* FZDaBiaoSong_B06S.ttf in Resources */,
 				4AF255181ACB7EF500480BE7 /* LaunchScreen.xib in Resources */,
 				4AF255151ACB7EF500480BE7 /* Images.xcassets in Resources */,
 			);

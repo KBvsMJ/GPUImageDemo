@@ -30,8 +30,9 @@
 	<string>GPUImageDemo</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>FZQiTi_S14T.ttf</string>
 		<string>FZLanTingHeiS_R_GB.ttf</string>
-		<string>FZLanTingSong.ttf</string>
+		<string>FZDaBiaoSong_B06S.ttf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
