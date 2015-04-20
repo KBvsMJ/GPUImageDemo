@@ -106,7 +106,7 @@
         [_firstWordTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _firstWordTextField.text = @"良";
         _firstWordTextField.textColor = [UIColor blackColor];
-        _firstWordTextField.font = [UIFont systemFontOfSize:75];
+        _firstWordTextField.font = [UIFont fontWithName:@"Mistral" size:75];
     }
     return _firstWordTextField;
 }
@@ -119,7 +119,7 @@
         [_secondWordTextField addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
         _secondWordTextField.text = @"品";
         _secondWordTextField.textColor = [UIColor blackColor];
-        _secondWordTextField.font = [UIFont systemFontOfSize:75];
+        _secondWordTextField.font = [UIFont fontWithName:@"Mistral" size:75];
     }
     return _secondWordTextField;
 }
