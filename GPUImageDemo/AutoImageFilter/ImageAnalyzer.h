@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+static NSString * const IABrightness = @"brightness";
+static NSString * const IASaturation = @"saturation";
+static NSString * const IATemperature = @"temperature";
+
 @interface ImageAnalyzer : NSObject
 
 - (NSDictionary *)analyzeImage:(UIImage *)image;

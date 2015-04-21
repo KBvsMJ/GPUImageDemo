@@ -13,6 +13,7 @@
 #import "FilterTuneViewController.h"
 #import "AssortMainViewController.h"
 #import "AssortTipsMainViewController.h"
+#import "ImageAutoFilterViewController.h"
 
 @interface MainViewController ()
 
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) UIButton *seperatorButton;
 @property (nonatomic, strong) UIButton *assortButton;
 @property (nonatomic, strong) UIButton *tipsButton;
+@property (nonatomic, strong) UIButton *optimizeButton;
 
 @end
 
@@ -36,6 +38,7 @@
     [self.view addSubview:self.seperatorButton];
     [self.view addSubview:self.assortButton];
     [self.view addSubview:self.tipsButton];
+    [self.view addSubview:self.optimizeButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -62,9 +65,19 @@
     [self.tipsButton sizeEqualToView:self.multiFilterButton];
     [self.tipsButton top:10 FromView:self.multiFilterButton];
     [self.tipsButton leftEqualToView:self.multiFilterButton];
+    
+    [self.optimizeButton sizeEqualToView:self.multiFilterButton];
+    [self.optimizeButton topEqualToView:self.tipsButton];
+    [self.optimizeButton right:10 FromView:self.tipsButton];
 }
 
 #pragma mark - event response
+- (void)didTappedOptimizeButton:(UIButton *)button
+{
+    ImageAutoFilterViewController *viewController = [[ImageAutoFilterViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 - (void)didTappedTipsButton:(UIButton *)button
 {
     AssortTipsMainViewController *viewController = [[AssortTipsMainViewController alloc] init];
@@ -96,6 +109,16 @@
 }
 
 #pragma mark - getters and setters
+- (UIButton *)optimizeButton
+{
+    if (_optimizeButton == nil) {
+        _optimizeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_optimizeButton setTitle:@"一键优化" forState:UIControlStateNormal];
+        [_optimizeButton addTarget:self action:@selector(didTappedOptimizeButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _optimizeButton;
+}
+
 - (UIButton *)tipsButton
 {
     if (_tipsButton == nil) {
