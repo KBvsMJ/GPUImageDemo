@@ -44,22 +44,24 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    CGFloat width = ( self.view.width - 25 ) / 4.0f;
 
-    self.multiFilterButton.size = CGSizeMake(80, 40);
+    self.multiFilterButton.size = CGSizeMake(width, 40);
     [self.multiFilterButton topInContainer:70 shouldResize:NO];
-    [self.multiFilterButton leftInContainer:10 shouldResize:NO];
+    [self.multiFilterButton leftInContainer:5 shouldResize:NO];
 
     [self.brightnessButton sizeEqualToView:self.multiFilterButton];
     [self.brightnessButton topEqualToView:self.multiFilterButton];
-    [self.brightnessButton right:10 FromView:self.multiFilterButton];
+    [self.brightnessButton right:5 FromView:self.multiFilterButton];
 
     [self.seperatorButton sizeEqualToView:self.multiFilterButton];
     [self.seperatorButton topEqualToView:self.multiFilterButton];
-    [self.seperatorButton right:10 FromView:self.brightnessButton];
+    [self.seperatorButton right:5 FromView:self.brightnessButton];
 
     [self.assortButton sizeEqualToView:self.seperatorButton];
     [self.assortButton topEqualToView:self.multiFilterButton];
-    [self.assortButton right:10 FromView:self.seperatorButton];
+    [self.assortButton right:5 FromView:self.seperatorButton];
     
     // 第二行
     [self.tipsButton sizeEqualToView:self.multiFilterButton];
@@ -68,7 +70,7 @@
     
     [self.optimizeButton sizeEqualToView:self.multiFilterButton];
     [self.optimizeButton topEqualToView:self.tipsButton];
-    [self.optimizeButton right:10 FromView:self.tipsButton];
+    [self.optimizeButton right:5 FromView:self.tipsButton];
 }
 
 #pragma mark - event response
