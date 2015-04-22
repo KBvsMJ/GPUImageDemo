@@ -15,6 +15,12 @@
 		4A02C7A71AE5F0A0000AD5B5 /* ImageAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A02C7A61AE5F0A0000AD5B5 /* ImageAnalyzer.m */; };
 		4A02C7AA1AE729EF000AD5B5 /* AssortDynamicTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A02C7A91AE729EF000AD5B5 /* AssortDynamicTip.m */; };
 		4A02C7AD1AE73A3C000AD5B5 /* UIColorEX.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A02C7AC1AE73A3C000AD5B5 /* UIColorEX.m */; };
+		4A02C7B31AE74D40000AD5B5 /* DynamicTipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A02C7B21AE74D40000AD5B5 /* DynamicTipViewController.m */; };
+		4A02C7B91AE76767000AD5B5 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A02C7B61AE76767000AD5B5 /* SQLiteManager.m */; };
+		4A02C7BA1AE76767000AD5B5 /* SQLiteMigrater.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A02C7B81AE76767000AD5B5 /* SQLiteMigrater.m */; };
+		4A02C7BD1AE76783000AD5B5 /* AssortLocalStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A02C7BC1AE76783000AD5B5 /* AssortLocalStorageManager.m */; };
+		4A02C7C01AE767E7000AD5B5 /* AssortLocalStorageMigrater.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A02C7BF1AE767E7000AD5B5 /* AssortLocalStorageMigrater.m */; };
+		4A02C7C21AE76CF0000AD5B5 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A02C7C11AE76CF0000AD5B5 /* libsqlite3.0.dylib */; };
 		4A04AA631AE499BD00A115E4 /* AssortTipRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A04AA621AE499BD00A115E4 /* AssortTipRound.m */; };
 		4A1D92971ACCE27B00645FC5 /* EXIFReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D92961ACCE27B00645FC5 /* EXIFReader.m */; };
 		4A1D92991ACCE91500645FC5 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D92981ACCE91500645FC5 /* AssetsLibrary.framework */; };
@@ -80,6 +86,17 @@
 		4A02C7A91AE729EF000AD5B5 /* AssortDynamicTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortDynamicTip.m; sourceTree = "<group>"; };
 		4A02C7AB1AE73A3C000AD5B5 /* UIColorEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorEX.h; sourceTree = "<group>"; };
 		4A02C7AC1AE73A3C000AD5B5 /* UIColorEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorEX.m; sourceTree = "<group>"; };
+		4A02C7B11AE74D40000AD5B5 /* DynamicTipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTipViewController.h; sourceTree = "<group>"; };
+		4A02C7B21AE74D40000AD5B5 /* DynamicTipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTipViewController.m; sourceTree = "<group>"; };
+		4A02C7B51AE76767000AD5B5 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
+		4A02C7B61AE76767000AD5B5 /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
+		4A02C7B71AE76767000AD5B5 /* SQLiteMigrater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteMigrater.h; sourceTree = "<group>"; };
+		4A02C7B81AE76767000AD5B5 /* SQLiteMigrater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteMigrater.m; sourceTree = "<group>"; };
+		4A02C7BB1AE76783000AD5B5 /* AssortLocalStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortLocalStorageManager.h; sourceTree = "<group>"; };
+		4A02C7BC1AE76783000AD5B5 /* AssortLocalStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortLocalStorageManager.m; sourceTree = "<group>"; };
+		4A02C7BE1AE767E7000AD5B5 /* AssortLocalStorageMigrater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortLocalStorageMigrater.h; sourceTree = "<group>"; };
+		4A02C7BF1AE767E7000AD5B5 /* AssortLocalStorageMigrater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortLocalStorageMigrater.m; sourceTree = "<group>"; };
+		4A02C7C11AE76CF0000AD5B5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		4A04AA611AE499BD00A115E4 /* AssortTipRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortTipRound.h; sourceTree = "<group>"; };
 		4A04AA621AE499BD00A115E4 /* AssortTipRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortTipRound.m; sourceTree = "<group>"; };
 		4A1D92951ACCE27B00645FC5 /* EXIFReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXIFReader.h; sourceTree = "<group>"; };
@@ -162,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A02C7C21AE76CF0000AD5B5 /* libsqlite3.0.dylib in Frameworks */,
 				4A1D929B1ACCE91F00645FC5 /* ImageIO.framework in Frameworks */,
 				4A1D92991ACCE91500645FC5 /* AssetsLibrary.framework in Frameworks */,
 				754BF8FEA1D44B5E85C8977E /* libPods-GPUImageDemo.a in Frameworks */,
@@ -181,6 +199,7 @@
 		00691FF586C943CE8BE127A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A02C7C11AE76CF0000AD5B5 /* libsqlite3.0.dylib */,
 				4A1D929A1ACCE91F00645FC5 /* ImageIO.framework */,
 				4A1D92981ACCE91500645FC5 /* AssetsLibrary.framework */,
 				5F50F634435D401B818EE86A /* libPods-GPUImageDemo.a */,
@@ -207,6 +226,21 @@
 				4A02C7A31AE5DB4F000AD5B5 /* BSAutoImageFilter.m */,
 			);
 			path = AutoImageFilter;
+			sourceTree = "<group>";
+		};
+		4A02C7B41AE76767000AD5B5 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				4A02C7B51AE76767000AD5B5 /* SQLiteManager.h */,
+				4A02C7B61AE76767000AD5B5 /* SQLiteManager.m */,
+				4A02C7B71AE76767000AD5B5 /* SQLiteMigrater.h */,
+				4A02C7B81AE76767000AD5B5 /* SQLiteMigrater.m */,
+				4A02C7BE1AE767E7000AD5B5 /* AssortLocalStorageMigrater.h */,
+				4A02C7BF1AE767E7000AD5B5 /* AssortLocalStorageMigrater.m */,
+				4A02C7BB1AE76783000AD5B5 /* AssortLocalStorageManager.h */,
+				4A02C7BC1AE76783000AD5B5 /* AssortLocalStorageManager.m */,
+			);
+			path = LocalStorage;
 			sourceTree = "<group>";
 		};
 		4A53EE5A1AD76A21000AABC6 /* ZDStickerView */ = {
@@ -251,6 +285,7 @@
 		4AA0ED311ADE0100006DB4D5 /* Tips */ = {
 			isa = PBXGroup;
 			children = (
+				4A02C7B41AE76767000AD5B5 /* LocalStorage */,
 				4AA0ED3B1ADE0D64006DB4D5 /* Tips */,
 				4AA0ED321ADE01C4006DB4D5 /* AssortTipsMainViewController.h */,
 				4AA0ED331ADE01C4006DB4D5 /* AssortTipsMainViewController.m */,
@@ -359,6 +394,8 @@
 				4A6E0C521ADB97DC005171B7 /* ImageCanvasViewController.m */,
 				4A02C79E1AE5D9E5000AD5B5 /* ImageAutoFilterViewController.h */,
 				4A02C79F1AE5D9E5000AD5B5 /* ImageAutoFilterViewController.m */,
+				4A02C7B11AE74D40000AD5B5 /* DynamicTipViewController.h */,
+				4A02C7B21AE74D40000AD5B5 /* DynamicTipViewController.m */,
 				4A1D92951ACCE27B00645FC5 /* EXIFReader.h */,
 				4A1D92961ACCE27B00645FC5 /* EXIFReader.m */,
 				4AB5E7A31AD62C3000A5CA51 /* TunePaneView.h */,
@@ -538,6 +575,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A02C7BA1AE76767000AD5B5 /* SQLiteMigrater.m in Sources */,
 				4A04AA631AE499BD00A115E4 /* AssortTipRound.m in Sources */,
 				4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */,
 				4AA0ED441ADF5451006DB4D5 /* AssortTipNewsPerson.m in Sources */,
@@ -549,6 +587,7 @@
 				4AA0ED341ADE01C4006DB4D5 /* AssortTipsMainViewController.m in Sources */,
 				4AB5E7921AD60DAF00A5CA51 /* ImageSeperaterViewController.m in Sources */,
 				4A1D929E1ACE6E5300645FC5 /* MainViewController.m in Sources */,
+				4A02C7B91AE76767000AD5B5 /* SQLiteManager.m in Sources */,
 				4A95185F1AE0C41A00920CC7 /* AssortTipNanRenZhuang.m in Sources */,
 				4AA0ED471ADF60D9006DB4D5 /* AssortTipNewsBar.m in Sources */,
 				4AA0ED3E1ADE30CC006DB4D5 /* AssortTipKtv.m in Sources */,
@@ -557,13 +596,16 @@
 				4AA0ED411ADE518B006DB4D5 /* AssortTipMagazine.m in Sources */,
 				4A6D00A31ACB9D9900D0BA86 /* UIView+LayoutMethods.m in Sources */,
 				4AB5E7B21AD66AD300A5CA51 /* MZCroppableView.m in Sources */,
+				4A02C7BD1AE76783000AD5B5 /* AssortLocalStorageManager.m in Sources */,
 				4A02C7A41AE5DB4F000AD5B5 /* BSAutoImageFilter.m in Sources */,
 				4A6E0C501ADB7E78005171B7 /* BSAssortTakeImageButton.m in Sources */,
+				4A02C7C01AE767E7000AD5B5 /* AssortLocalStorageMigrater.m in Sources */,
 				4A02C7A71AE5F0A0000AD5B5 /* ImageAnalyzer.m in Sources */,
 				4AA0ED4A1ADF7F96006DB4D5 /* AssortTipTimes.m in Sources */,
 				4A53EE601AD76A21000AABC6 /* SPGripViewBorderView.m in Sources */,
 				4A02C7AD1AE73A3C000AD5B5 /* UIColorEX.m in Sources */,
 				4A6E0C531ADB97DC005171B7 /* ImageCanvasViewController.m in Sources */,
+				4A02C7B31AE74D40000AD5B5 /* DynamicTipViewController.m in Sources */,
 				4A6E0C4C1ADB7CF4005171B7 /* BSAssortSelectImageViewController.m in Sources */,
 				4AA0ED3A1ADE02EB006DB4D5 /* AssortTipsCollectionViewCell.m in Sources */,
 				4A02C7A01AE5D9E5000AD5B5 /* ImageAutoFilterViewController.m in Sources */,

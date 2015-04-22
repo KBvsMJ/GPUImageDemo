@@ -14,6 +14,7 @@
 #import "AssortMainViewController.h"
 #import "AssortTipsMainViewController.h"
 #import "ImageAutoFilterViewController.h"
+#import "DynamicTipViewController.h"
 
 @interface MainViewController ()
 
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) UIButton *assortButton;
 @property (nonatomic, strong) UIButton *tipsButton;
 @property (nonatomic, strong) UIButton *optimizeButton;
+@property (nonatomic, strong) UIButton *dynamicTipButton;
 
 @end
 
@@ -39,6 +41,7 @@
     [self.view addSubview:self.assortButton];
     [self.view addSubview:self.tipsButton];
     [self.view addSubview:self.optimizeButton];
+    [self.view addSubview:self.dynamicTipButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -68,12 +71,22 @@
     [self.tipsButton top:10 FromView:self.multiFilterButton];
     [self.tipsButton leftEqualToView:self.multiFilterButton];
     
-    [self.optimizeButton sizeEqualToView:self.multiFilterButton];
+    [self.optimizeButton sizeEqualToView:self.tipsButton];
     [self.optimizeButton topEqualToView:self.tipsButton];
     [self.optimizeButton right:5 FromView:self.tipsButton];
+    
+    [self.dynamicTipButton sizeEqualToView:self.optimizeButton];
+    [self.dynamicTipButton topEqualToView:self.optimizeButton];
+    [self.dynamicTipButton right:5 FromView:self.optimizeButton];
 }
 
 #pragma mark - event response
+- (void)didTappedDynamicButton:(UIButton *)button
+{
+    DynamicTipViewController *viewController = [[DynamicTipViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 - (void)didTappedOptimizeButton:(UIButton *)button
 {
     ImageAutoFilterViewController *viewController = [[ImageAutoFilterViewController alloc] init];
@@ -111,6 +124,16 @@
 }
 
 #pragma mark - getters and setters
+- (UIButton *)dynamicTipButton
+{
+    if (_dynamicTipButton == nil) {
+        _dynamicTipButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_dynamicTipButton setTitle:@"动态贴纸" forState:UIControlStateNormal];
+        [_dynamicTipButton addTarget:self action:@selector(didTappedDynamicButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _dynamicTipButton;
+}
+
 - (UIButton *)optimizeButton
 {
     if (_optimizeButton == nil) {

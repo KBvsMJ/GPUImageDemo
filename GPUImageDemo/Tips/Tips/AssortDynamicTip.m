@@ -9,19 +9,50 @@
 #import "AssortDynamicTip.h"
 #import "UIView+LayoutMethods.h"
 #import "UIColorEX.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
-@interface AssortDynamicTip ()
+@interface AssortDynamicTip () <UITextFieldDelegate>
 
-@property (nonatomic, strong) NSMutableArray *textfieldList;
-@property (nonatomic, strong) NSMutableArray *imageviewList;
-@property (nonatomic, strong) NSMutableArray *labelList;
-
-@property (nonatomic, strong) NSDictionary *frameStrategy;
-@property (nonatomic, strong) NSMutableArray *frameDescriptionList;
+@property (nonatomic, strong) NSMutableDictionary *textfieldList;
+@property (nonatomic, strong) NSMutableDictionary *imageviewList;
+@property (nonatomic, strong) NSMutableDictionary *labelList;
 
 @end
 
 @implementation AssortDynamicTip
+
+- (void)layoutSubviews
+{
+    [self.textfieldList enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([key isKindOfClass:[NSDictionary class]] && [obj isKindOfClass:[UIView class]]) {
+            NSDictionary *item = (NSDictionary *)key;
+            UIView *view = (UIView *)obj;
+            [item[@"position"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                [self configPositionWithFrameDescription:obj view:view];
+            }];
+        }
+    }];
+    
+    [self.imageviewList enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([key isKindOfClass:[NSDictionary class]] && [obj isKindOfClass:[UIView class]]) {
+            NSDictionary *item = (NSDictionary *)key;
+            UIView *view = (UIView *)obj;
+            [item[@"position"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                [self configPositionWithFrameDescription:obj view:view];
+            }];
+        }
+    }];
+    
+    [self.labelList enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([key isKindOfClass:[NSDictionary class]] && [obj isKindOfClass:[UIView class]]) {
+            NSDictionary *item = (NSDictionary *)key;
+            UIView *view = (UIView *)obj;
+            [item[@"position"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                [self configPositionWithFrameDescription:obj view:view];
+            }];
+        }
+    }];
+}
 
 #pragma mark - public methods
 - (void)configWithJson:(NSString *)jsonString
@@ -29,15 +60,88 @@
     id jsonObject = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
     if ([jsonObject isKindOfClass:[NSArray class]]) {
         NSArray *descriptionList = (NSArray *)jsonObject;
+        for (NSDictionary *item in descriptionList) {
+            
+            UIView *result = nil;
+            
+            if ([item[@"itemName"] isEqualToString:@"label"]) {
+                result = [self labelWithDescription:item];
+                self.labelList[item] = result;
+            }
+            if ([item[@"itemName"] isEqualToString:@"image"]) {
+                result = [self imageWithDescription:item];
+                self.imageviewList[item] = result;
+            }
+            if ([item[@"itemName"] isEqualToString:@"textfield"]) {
+                result = [self textfieldWithDescription:item];
+                self.textfieldList[item] = result;
+            }
+            
+            if (result) {
+                [self addSubview:result];
+            }
+        }
     }
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    __block NSInteger textLength = 20;
+    
+    [self.textfieldList enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if (obj == textField) {
+            NSDictionary *description = (NSDictionary *)key;
+            textLength = [description[@"lengthLimit"] integerValue];
+            
+            *stop = YES;
+        }
+    }];
+    
+    if (textField.text.length > textLength) {
+        textField.text = [textField.text substringWithRange:NSMakeRange(0, textLength)];
+    }
+}
+
+#pragma mark - event response
+- (void)didTappedTextField:(UITextField *)textField
+{
+    [textField becomeFirstResponder];
+}
+
+#pragma mark - private methods
+
 - (void)configPositionWithFrameDescription:(NSDictionary *)frameDescription view:(UIView *)view
 {
-    NSString *methodName = self.frameStrategy[frameDescription[@"methodName"]];
-    SEL method = NSSelectorFromString(methodName);
-    if ([self respondsToSelector:method]) {
-        [self performSelector:method withObject:frameDescription withObject:view];
+    NSString *methodName = frameDescription[@"methodName"];
+    if ([methodName isEqualToString:@"Width"]) {
+        [self configWidthWithFrameDescription:frameDescription view:view];
+    }
+    
+    if ([methodName isEqualToString:@"Height"]) {
+        [self configHeightWithFrameDescription:frameDescription view:view];
+    }
+    
+    if ([methodName isEqualToString:@"TopInContainer"]) {
+        [self configTopInContainerWithFrameDescription:frameDescription view:view];
+    }
+    
+    if ([methodName isEqualToString:@"BottomInContainer"]) {
+        [self configBottomInContainerWithFrameDescription:frameDescription view:view];
+    }
+    
+    if ([methodName isEqualToString:@"LeftInContainer"]) {
+        [self configLeftInContainerWithFrameDescription:frameDescription view:view];
+    }
+    
+    if ([methodName isEqualToString:@"RightInContainer"]) {
+        [self configRightInContainerWithFrameDescription:frameDescription view:view];
     }
 }
 
@@ -46,9 +150,105 @@
 {
     NSString *text = discription[@"text"];
     NSString *textColor = discription[@"textColor"];
+    CGFloat fontSize = [discription[@"fontSize"] floatValue];
+    NSString *fontName = discription[@"fontName"];
+    NSString *textAlignment = discription[@"textAlignment"];
+    
     UILabel *label = [[UILabel alloc] init];
-    return nil;
+    label.backgroundColor = [UIColor clearColor];
+    
+    if ([text isKindOfClass:[NSString class]]) {
+        label.text = text;
+    }
+    
+    if ([textColor isKindOfClass:[NSString class]]) {
+        label.textColor = [UIColor colorWithString:textColor];
+    }
+    
+    if ([fontName isKindOfClass:[NSString class]]) {
+        if ([fontName isEqualToString:@"default"]) {
+            label.font = [UIFont systemFontOfSize:fontSize];
+        } else {
+            label.font = [UIFont fontWithName:fontName size:fontSize];
+        }
+    }
+    
+    if ([textAlignment isEqualToString:@"left"]) {
+        label.textAlignment = NSTextAlignmentLeft;
+    }
+    if ([textAlignment isEqualToString:@"right"]) {
+        label.textAlignment = NSTextAlignmentRight;
+    }
+    if ([textAlignment isEqualToString:@"center"]) {
+        label.textAlignment = NSTextAlignmentCenter;
+    }
+    
+    [label sizeToFit];
+    
+    return label;
 }
+
+- (UIImageView *)imageWithDescription:(NSDictionary *)discription
+{
+    NSString *imageUrl = discription[@"imageUrl"];
+    NSString *contentModel = discription[@"contentMode"];
+    
+    UIImageView *imageview = [[UIImageView alloc] init];
+    imageview.backgroundColor = [UIColor clearColor];
+    if ([contentModel isEqualToString:@"fill"]) {
+        imageview.contentMode = UIViewContentModeScaleToFill;
+    }
+    if ([contentModel isEqualToString:@"fit"]) {
+        imageview.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    if ([imageUrl isKindOfClass:[NSString class]]) {
+        [imageview setImageWithURL:[NSURL URLWithString:imageUrl]];
+    }
+    
+    return imageview;
+}
+
+- (UITextField *)textfieldWithDescription:(NSDictionary *)discription
+{
+    NSString *text = discription[@"text"];
+    NSString *textColor = discription[@"textColor"];
+    CGFloat fontSize = [discription[@"fontSize"] floatValue];
+    NSString *fontName = discription[@"fontName"];
+    NSString *textAlignment = discription[@"textAlignment"];
+    
+    UITextField *textfield = [[UITextField alloc] init];
+    textfield.backgroundColor = [UIColor clearColor];
+    textfield.delegate = self;
+    [textfield addTarget:self action:@selector(didTappedTextField:) forControlEvents:UIControlEventTouchUpInside];
+    textfield.text = text;
+    
+    if ([textColor isKindOfClass:[NSString class]]) {
+        textfield.textColor = [UIColor colorWithString:textColor];
+    }
+    
+    if ([textAlignment isEqualToString:@"left"]) {
+        textfield.textAlignment = NSTextAlignmentLeft;
+    }
+    if ([textAlignment isEqualToString:@"right"]) {
+        textfield.textAlignment = NSTextAlignmentRight;
+    }
+    if ([textAlignment isEqualToString:@"center"]) {
+        textfield.textAlignment = NSTextAlignmentCenter;
+    }
+    
+    if ([fontName isKindOfClass:[NSString class]]) {
+        if ([fontName isEqualToString:@"default"]) {
+            textfield.font = [UIFont systemFontOfSize:fontSize];
+        } else {
+            textfield.font = [UIFont fontWithName:fontName size:fontSize];
+        }
+    }
+    
+    [textfield sizeToFit];
+    
+    return textfield;
+}
+
 
 #pragma mark - positon methods
 - (void)configWidthWithFrameDescription:(NSDictionary *)frameDescription view:(UIView *)view
@@ -92,41 +292,26 @@
 }
      
 #pragma mark - getters and setters
-- (NSDictionary *)frameStrategy
-{
-    if (_frameStrategy == nil) {
-        _frameStrategy = @{
-                           @"Width":@"configWidthFrameDescription:view:",
-                           @"Height":@"configHeightFrameDescription:view:",
-                           @"TopInContainer":@"configTopInContainerFrameDescription:view:",
-                           @"BottomInContainer":@"configBottomInContainerFrameDescription:view:",
-                           @"LeftInContainer":@"configLeftInContainerFrameDescription:view:",
-                           @"RightInContainer":@"configRightInContainerFrameDescription:view:"
-                           };
-    }
-    return _frameStrategy;
-}
-
-- (NSMutableArray *)textfieldList
+- (NSMutableDictionary *)textfieldList
 {
     if (_textfieldList == nil) {
-        _textfieldList = [[NSMutableArray alloc] init];
+        _textfieldList = [[NSMutableDictionary alloc] init];
     }
     return _textfieldList;
 }
 
-- (NSMutableArray *)imageviewList
+- (NSMutableDictionary *)imageviewList
 {
     if (_imageviewList == nil) {
-        _imageviewList = [[NSMutableArray alloc] init];
+        _imageviewList = [[NSMutableDictionary alloc] init];
     }
     return _imageviewList;
 }
 
-- (NSMutableArray *)labelList
+- (NSMutableDictionary *)labelList
 {
     if (_labelList == nil) {
-        _labelList = [[NSMutableArray alloc] init];
+        _labelList = [[NSMutableDictionary alloc] init];
     }
     return _labelList;
 }
