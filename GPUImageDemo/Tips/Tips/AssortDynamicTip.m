@@ -10,12 +10,15 @@
 #import "UIView+LayoutMethods.h"
 #import "UIColorEX.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "AssortLocalStorageManager.h"
 
 @interface AssortDynamicTip () <UITextFieldDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *textfieldList;
 @property (nonatomic, strong) NSMutableDictionary *imageviewList;
 @property (nonatomic, strong) NSMutableDictionary *labelList;
+
+@property (nonatomic, strong) AssortLocalStorageManager *localStorageManager;
 
 @end
 
@@ -55,8 +58,9 @@
 }
 
 #pragma mark - public methods
-- (void)configWithJson:(NSString *)jsonString
+- (void)configWithTipInfo:(NSDictionary *)tipInfo
 {
+    NSString *jsonString = tipInfo[@"content"];
     id jsonObject = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
     if ([jsonObject isKindOfClass:[NSArray class]]) {
         NSArray *descriptionList = (NSArray *)jsonObject;
@@ -201,8 +205,14 @@
     if ([contentModel isEqualToString:@"fit"]) {
         imageview.contentMode = UIViewContentModeScaleAspectFit;
     }
+    
     if ([imageUrl isKindOfClass:[NSString class]]) {
-        [imageview setImageWithURL:[NSURL URLWithString:imageUrl]];
+        imageview.image = [self.localStorageManager fetchImageWithImageUrlString:imageUrl];
+        if (imageview.image == nil) {
+            [imageview setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                [self.localStorageManager saveImage:image imageUrl:imageUrl];
+            } failure:nil];
+        }
     }
     
     return imageview;
@@ -314,6 +324,14 @@
         _labelList = [[NSMutableDictionary alloc] init];
     }
     return _labelList;
+}
+
+- (AssortLocalStorageManager *)localStorageManager
+{
+    if (_localStorageManager == nil) {
+        _localStorageManager = [[AssortLocalStorageManager alloc] init];
+    }
+    return _localStorageManager;
 }
 
 

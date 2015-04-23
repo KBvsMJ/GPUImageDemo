@@ -10,6 +10,6 @@
 
 @interface AssortDynamicTip : UIView
 
-- (void)configWithJson:(NSString *)jsonString;
+- (void)configWithTipInfo:(NSDictionary *)tipInfo;
 
 @end

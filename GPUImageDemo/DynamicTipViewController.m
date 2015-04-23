@@ -44,7 +44,7 @@
 {
     if (_tip == nil) {
         _tip = [[AssortDynamicTip alloc] init];
-        [_tip configWithJson:[self.storageManager localTips][0]];
+        [_tip configWithTipInfo:[self.storageManager localTips][0]];
     }
     return _tip;
 }

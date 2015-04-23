@@ -49,6 +49,8 @@
 		4AB5E7A51AD62C3000A5CA51 /* TunePaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7A41AD62C3000A5CA51 /* TunePaneView.m */; };
 		4AB5E7B21AD66AD300A5CA51 /* MZCroppableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7AF1AD66AD300A5CA51 /* MZCroppableView.m */; };
 		4AB5E7B31AD66AD300A5CA51 /* UIBezierPath-Points.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5E7B11AD66AD300A5CA51 /* UIBezierPath-Points.m */; };
+		4AE45F391AE8A8F800EA7A5B /* NSString+MD5Extends.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE45F381AE8A8F800EA7A5B /* NSString+MD5Extends.m */; };
+		4AE45F3C1AE8AB0900EA7A5B /* AIFFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE45F3B1AE8AB0900EA7A5B /* AIFFileManager.m */; };
 		4AEEEE6C1ADC9E3B00831B6D /* AssortMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEEEE6B1ADC9E3B00831B6D /* AssortMainViewController.m */; };
 		4AEEEE6F1ADCA5D100831B6D /* AssortStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEEEE6E1ADCA5D100831B6D /* AssortStoreViewController.m */; };
 		4AEEEE721ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEEEE711ADCA8C100831B6D /* AssortStoreItemCollectionViewCell.m */; };
@@ -151,6 +153,10 @@
 		4AB5E7AF1AD66AD300A5CA51 /* MZCroppableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCroppableView.m; sourceTree = "<group>"; };
 		4AB5E7B01AD66AD300A5CA51 /* UIBezierPath-Points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath-Points.h"; sourceTree = "<group>"; };
 		4AB5E7B11AD66AD300A5CA51 /* UIBezierPath-Points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath-Points.m"; sourceTree = "<group>"; };
+		4AE45F371AE8A8F800EA7A5B /* NSString+MD5Extends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Extends.h"; sourceTree = "<group>"; };
+		4AE45F381AE8A8F800EA7A5B /* NSString+MD5Extends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Extends.m"; sourceTree = "<group>"; };
+		4AE45F3A1AE8AB0900EA7A5B /* AIFFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFFileManager.h; sourceTree = "<group>"; };
+		4AE45F3B1AE8AB0900EA7A5B /* AIFFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFFileManager.m; sourceTree = "<group>"; };
 		4AEEEE6A1ADC9E3B00831B6D /* AssortMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortMainViewController.h; sourceTree = "<group>"; };
 		4AEEEE6B1ADC9E3B00831B6D /* AssortMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssortMainViewController.m; sourceTree = "<group>"; };
 		4AEEEE6D1ADCA5D100831B6D /* AssortStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssortStoreViewController.h; sourceTree = "<group>"; };
@@ -231,6 +237,8 @@
 		4A02C7B41AE76767000AD5B5 /* LocalStorage */ = {
 			isa = PBXGroup;
 			children = (
+				4AE45F3A1AE8AB0900EA7A5B /* AIFFileManager.h */,
+				4AE45F3B1AE8AB0900EA7A5B /* AIFFileManager.m */,
 				4A02C7B51AE76767000AD5B5 /* SQLiteManager.h */,
 				4A02C7B61AE76767000AD5B5 /* SQLiteManager.m */,
 				4A02C7B71AE76767000AD5B5 /* SQLiteMigrater.h */,
@@ -380,6 +388,8 @@
 				4AB5E7AA1AD66AB500A5CA51 /* MZCroppableView */,
 				4A6D00A11ACB9D9900D0BA86 /* UIView+LayoutMethods.h */,
 				4A6D00A21ACB9D9900D0BA86 /* UIView+LayoutMethods.m */,
+				4AE45F371AE8A8F800EA7A5B /* NSString+MD5Extends.h */,
+				4AE45F381AE8A8F800EA7A5B /* NSString+MD5Extends.m */,
 				4AF2550B1ACB7EF500480BE7 /* AppDelegate.h */,
 				4AF2550C1ACB7EF500480BE7 /* AppDelegate.m */,
 				4A1D929C1ACE6E5300645FC5 /* MainViewController.h */,
@@ -583,6 +593,7 @@
 				4A1D92971ACCE27B00645FC5 /* EXIFReader.m in Sources */,
 				4AEEEE6F1ADCA5D100831B6D /* AssortStoreViewController.m in Sources */,
 				4AB5E7A21AD620E400A5CA51 /* FilterTuneViewController.m in Sources */,
+				4AE45F391AE8A8F800EA7A5B /* NSString+MD5Extends.m in Sources */,
 				4A02C7AA1AE729EF000AD5B5 /* AssortDynamicTip.m in Sources */,
 				4AA0ED341ADE01C4006DB4D5 /* AssortTipsMainViewController.m in Sources */,
 				4AB5E7921AD60DAF00A5CA51 /* ImageSeperaterViewController.m in Sources */,
@@ -613,6 +624,7 @@
 				4AA0ED371ADE02B0006DB4D5 /* AssortTipsFactory.m in Sources */,
 				4AF2550D1ACB7EF500480BE7 /* AppDelegate.m in Sources */,
 				4A6D00A61ACBCA0700D0BA86 /* MultiFilterViewController.m in Sources */,
+				4AE45F3C1AE8AB0900EA7A5B /* AIFFileManager.m in Sources */,
 				4A6E0C571ADBAC45005171B7 /* BSAssortCanvasView.m in Sources */,
 				4A53EE621AD76A21000AABC6 /* ZDStickerView.m in Sources */,
 				4A95185C1AE09D6300920CC7 /* AssortTipFashionBaby.m in Sources */,

@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface AssortLocalStorageManager : NSObject
 
 - (NSArray *)localTips;
+
 - (void)saveTipWithContent:(NSString *)contentString;
+- (void)saveImage:(UIImage *)image imageUrl:(NSString *)urlString;
+
+- (UIImage *)fetchImageWithImageUrlString:(NSString *)urlString;
+- (BOOL)isImageExistsWithImageUrl:(NSString *)imageUrl;
 
 @end

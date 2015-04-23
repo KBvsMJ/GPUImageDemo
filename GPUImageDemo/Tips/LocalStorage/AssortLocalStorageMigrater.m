@@ -67,7 +67,7 @@
         
         _migrateList = @{
             @"1.0":initMigrateObject,
-            @"2.0":migrateObject2_0
+            @"2.0":migrateObject2_0,
         };
     }
     return _migrateList;
