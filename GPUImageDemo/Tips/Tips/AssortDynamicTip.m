@@ -123,28 +123,28 @@
 
 - (void)configPositionWithFrameDescription:(NSDictionary *)frameDescription view:(UIView *)view
 {
-    NSString *methodName = frameDescription[@"methodName"];
-    if ([methodName isEqualToString:@"Width"]) {
+    NSString *methodName = frameDescription[@"locateItem"];
+    if ([methodName isEqualToString:@"width"]) {
         [self configWidthWithFrameDescription:frameDescription view:view];
     }
     
-    if ([methodName isEqualToString:@"Height"]) {
+    if ([methodName isEqualToString:@"height"]) {
         [self configHeightWithFrameDescription:frameDescription view:view];
     }
     
-    if ([methodName isEqualToString:@"TopInContainer"]) {
+    if ([methodName isEqualToString:@"topInContainer"]) {
         [self configTopInContainerWithFrameDescription:frameDescription view:view];
     }
     
-    if ([methodName isEqualToString:@"BottomInContainer"]) {
+    if ([methodName isEqualToString:@"bottomInContainer"]) {
         [self configBottomInContainerWithFrameDescription:frameDescription view:view];
     }
     
-    if ([methodName isEqualToString:@"LeftInContainer"]) {
+    if ([methodName isEqualToString:@"leftInContainer"]) {
         [self configLeftInContainerWithFrameDescription:frameDescription view:view];
     }
     
-    if ([methodName isEqualToString:@"RightInContainer"]) {
+    if ([methodName isEqualToString:@"rightInContainer"]) {
         [self configRightInContainerWithFrameDescription:frameDescription view:view];
     }
 }
@@ -263,41 +263,41 @@
 #pragma mark - positon methods
 - (void)configWidthWithFrameDescription:(NSDictionary *)frameDescription view:(UIView *)view
 {
-    CGFloat width = [frameDescription[@"Width"] floatValue];
+    CGFloat width = [frameDescription[@"value"] floatValue];
     view.width = width;
 }
 
 - (void)configHeightWithFrameDescription:(NSDictionary *)frameDescription view:(UIView *)view
 {
-    CGFloat height = [frameDescription[@"Height"] floatValue];
+    CGFloat height = [frameDescription[@"value"] floatValue];
     view.height = height;
 }
 
 - (void)configTopInContainerWithFrameDescription:(NSDictionary *)frameDescription view:(UIView *)view
 {
-    CGFloat top = [frameDescription[@"Top"] floatValue];
-    BOOL shouldResize = [frameDescription[@"ShouldResize"] boolValue];
+    CGFloat top = [frameDescription[@"value"] floatValue];
+    BOOL shouldResize = [frameDescription[@"shouldResize"] boolValue];
     [view topInContainer:top shouldResize:shouldResize];
 }
 
 - (void)configBottomInContainerWithFrameDescription:(NSDictionary *)frameDescription view:(UIView *)view
 {
-    CGFloat bottom = [frameDescription[@"Bottom"] floatValue];
-    BOOL shouldResize = [frameDescription[@"ShouldResize"] boolValue];
+    CGFloat bottom = [frameDescription[@"value"] floatValue];
+    BOOL shouldResize = [frameDescription[@"shouldResize"] boolValue];
     [view bottomInContainer:bottom shouldResize:shouldResize];
 }
 
 - (void)configLeftInContainerWithFrameDescription:(NSDictionary *)frameDescription view:(UIView *)view
 {
-    CGFloat left = [frameDescription[@"Left"] floatValue];
-    BOOL shouldResize = [frameDescription[@"ShouldResize"] boolValue];
+    CGFloat left = [frameDescription[@"value"] floatValue];
+    BOOL shouldResize = [frameDescription[@"shouldResize"] boolValue];
     [view leftInContainer:left shouldResize:shouldResize];
 }
 
 - (void)configRightInContainerWithFrameDescription:(NSDictionary *)frameDescription view:(UIView *)view
 {
-    CGFloat right = [frameDescription[@"Right"] floatValue];
-    BOOL shouldResize = [frameDescription[@"ShouldResize"] boolValue];
+    CGFloat right = [frameDescription[@"value"] floatValue];
+    BOOL shouldResize = [frameDescription[@"shouldResize"] boolValue];
     [view rightInContainer:right shouldResize:shouldResize];
 }
      

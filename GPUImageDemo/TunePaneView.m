@@ -45,6 +45,10 @@
 
 @property (nonatomic, strong) GPUImageWhiteBalanceFilter *whiteBalanceFilter;
 
+@property (nonatomic, strong) GPUImageContrastFilter *contrastFilter;
+@property (nonatomic, strong) UILabel *contrastSliderLabel;
+@property (nonatomic, strong) UISlider *contrastSlider;
+
 @end
 
 @implementation TunePaneView
@@ -77,6 +81,9 @@
         
         [self addSubview:self.whiteBalanceTemparatureSliderLabel];
         [self addSubview:self.whiteBalanceTemparatureSlider];
+        
+        [self addSubview:self.contrastSliderLabel];
+        [self addSubview:self.contrastSlider];
     }
     return self;
 }
@@ -144,6 +151,14 @@
     [self.whiteBalanceTemparatureSlider top:10 FromView:self.sharpnessSlider];
     [self.whiteBalanceTemparatureSlider right:10 FromView:self.brightnessSliderLabel];
     [self.whiteBalanceTemparatureSlider rightInContainer:10 shouldResize:YES];
+    
+    [self.contrastSlider top:10 FromView:self.whiteBalanceTemparatureSlider];
+    [self.contrastSlider right:10 FromView:self.brightnessSliderLabel];
+    [self.contrastSlider rightInContainer:10 shouldResize:YES];
+    [self.contrastSliderLabel sizeEqualToView:self.whiteBalanceTemparatureSliderLabel];
+    [self.contrastSliderLabel centerYEqualToView:self.contrastSlider];
+    [self.contrastSliderLabel leftEqualToView:self.whiteBalanceTemparatureSliderLabel];
+    
 }
 
 #pragma mark - event response
@@ -203,6 +218,13 @@
     [self processImage];
 }
 
+- (void)contrastChanged:(UISlider *)contrastSlider
+{
+    self.contrastSliderLabel.text = [NSString stringWithFormat:@"c:%f", contrastSlider.value];
+    self.contrastFilter.contrast = contrastSlider.value;
+    [self processImage];
+}
+
 #pragma mark - private methods
 - (void)processImage
 {
@@ -210,7 +232,8 @@
 
     [self.originPicture addTarget:self.brightnessFilter];
     [self.brightnessFilter addTarget:self.saturationFilter];
-    [self.saturationFilter addTarget:self.whiteBalanceFilter];
+    [self.saturationFilter addTarget:self.contrastFilter];
+    [self.contrastFilter addTarget:self.whiteBalanceFilter];
     [self.whiteBalanceFilter addTarget:self.sharpenFilter];
     [self.sharpenFilter addTarget:self.blurFilter];
 
@@ -225,6 +248,36 @@
 {
     _originImage = originImage;
     self.originPicture = [[GPUImagePicture alloc] initWithImage:originImage];
+}
+
+- (GPUImageContrastFilter *)contrastFilter
+{
+    if (_contrastFilter == nil) {
+        _contrastFilter = [[GPUImageContrastFilter alloc] init];
+    }
+    return _contrastFilter;
+}
+
+- (UISlider *)contrastSlider
+{
+    if (_contrastSlider == nil) {
+        _contrastSlider = [[UISlider alloc] init];
+        _contrastSlider.minimumValue = 0.0f;
+        _contrastSlider.maximumValue = 4.0f;
+        _contrastSlider.value = 1.0f;
+        [_contrastSlider addTarget:self action:@selector(contrastChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _contrastSlider;
+}
+
+- (UILabel *)contrastSliderLabel
+{
+    if (_contrastSliderLabel == nil) {
+        _contrastSliderLabel = [[UILabel alloc] init];
+        _contrastSliderLabel.text = @"c:1.0";
+        _contrastSliderLabel.textColor = [UIColor redColor];
+    }
+    return _contrastSliderLabel;
 }
 
 - (UISlider *)brightnessSlider

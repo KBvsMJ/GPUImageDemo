@@ -29,10 +29,10 @@
                                        @"imageUrl":@"http://www.icosky.com/icon/png/System/Candied%20Apples/Candy%20Apple%20Red%202.png",
                                        @"contentMode":@"fit",
                                        @"position":@[
-                                               @{@"methodName":@"LeftInContainer", @"Left":@"10", @"ShouldResize":@(1)},
-                                               @{@"methodName":@"TopInContainer", @"Top":@"10", @"ShouldResize":@(1)},
-                                               @{@"methodName":@"BottomInContainer", @"Top":@"10", @"ShouldResize":@(1)},
-                                               @{@"methodName":@"RightInContainer", @"Top":@"10", @"ShouldResize":@(1)}
+                                               @{@"locateItem":@"leftInContainer", @"value":@"10", @"shouldResize":@(1)},
+                                               @{@"locateItem":@"topInContainer", @"value":@"10", @"shouldResize":@(1)},
+                                               @{@"locateItem":@"bottomInContainer", @"value":@"10", @"shouldResize":@(1)},
+                                               @{@"locateItem":@"rightInContainer", @"value":@"10", @"shouldResize":@(1)}
                                                ]
                                        },
                                    @{
@@ -43,8 +43,8 @@
                                        @"fontName":@"default",
                                        @"textAlignment":@"left",
                                        @"position":@[
-                                               @{@"methodName":@"LeftInContainer", @"Left":@"10", @"ShouldResize":@(0)},
-                                               @{@"methodName":@"TopInContainer", @"Top":@"110", @"ShouldResize":@(0)}
+                                               @{@"locateItem":@"leftInContainer", @"value":@"10", @"shouldResize":@(0)},
+                                               @{@"locateItem":@"topInContainer", @"value":@"110", @"shouldResize":@(0)}
                                                ]
                                        },
                                    @{
@@ -56,8 +56,8 @@
                                        @"textAlignment":@"center",
                                        @"lengthLimit":@"10",
                                        @"position":@[
-                                               @{@"methodName":@"LeftInContainer", @"Left":@"10", @"ShouldResize":@(0)},
-                                               @{@"methodName":@"TopInContainer", @"Top":@"220", @"ShouldResize":@(0)}
+                                               @{@"locateItem":@"leftInContainer", @"Left":@"10", @"shouldResize":@(0)},
+                                               @{@"locateItem":@"topInContainer", @"Top":@"220", @"shouldResize":@(0)}
                                                ]
                                        }
                                    ];

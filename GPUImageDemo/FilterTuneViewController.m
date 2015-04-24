@@ -155,7 +155,7 @@
             [self.tunePaneView top:0 FromView:self.view];
         } else {
             self.tunePaneView.isShowing = YES;
-            [self.tunePaneView topInContainer:300 shouldResize:YES];
+            [self.tunePaneView topInContainer:260 shouldResize:YES];
         }
     }];
 }
