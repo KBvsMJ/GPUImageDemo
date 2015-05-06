@@ -20,6 +20,7 @@
 @property (nonatomic, strong) GPUImageSaturationFilter *saturationFilter;
 @property (nonatomic, strong) GPUImageWhiteBalanceFilter *whiteBalanceFilter;
 @property (nonatomic, strong) GPUImageSharpenFilter *sharpenFilter;
+@property (nonatomic, strong) GPUImageContrastFilter *contrastFilter;
 
 @end
 
@@ -39,26 +40,31 @@
     if (brightness >= 100 && brightness <= 179 && saturation >= 0 && saturation <= 29) {
         self.brightnessFilter.brightness = 0.09678525;
         self.saturationFilter.saturation = 1.30892633333333;
+        self.contrastFilter.contrast = 1.2;
     }
     
     if (brightness >= 40 && brightness < 100 && saturation >= 0 && saturation <= 29) {
         self.brightnessFilter.brightness = 0.0841906315789474;
         self.saturationFilter.saturation = 1.28635494736842;
+        self.contrastFilter.contrast = 1.3;
     }
     
     if (brightness >= 100 && brightness <= 179 && saturation > 29 && saturation <= 69) {
         self.brightnessFilter.brightness = 0.012097;
         self.saturationFilter.saturation = 1.25332047368421;
+        self.contrastFilter.contrast = 1.2;
     }
     
     if (brightness > 179 && brightness <= 240 && saturation >= 0 && saturation <= 29) {
         self.brightnessFilter.brightness = -0.0274915;
         self.saturationFilter.saturation = 1.34100875;
+        self.contrastFilter.contrast = 1.0f;
     }
     
     if (brightness > 179 && brightness <= 240 && saturation > 70 && saturation <= 100 ) {
         self.brightnessFilter.brightness = -0.24214625;
         self.saturationFilter.saturation = 1.28037075;
+        self.contrastFilter.contrast = 1.0f;
     }
     
     if (temperature > 8167 && temperature <= 9713) {
@@ -87,7 +93,8 @@
         
         [strongSelf.originPicture addTarget:strongSelf.brightnessFilter];
         [strongSelf.brightnessFilter addTarget:strongSelf.saturationFilter];
-        [strongSelf.saturationFilter addTarget:strongSelf.whiteBalanceFilter];
+        [strongSelf.saturationFilter addTarget:strongSelf.contrastFilter];
+        [strongSelf.contrastFilter addTarget:strongSelf.whiteBalanceFilter];
         [strongSelf.whiteBalanceFilter addTarget:strongSelf.sharpenFilter];
         
         [strongSelf.sharpenFilter useNextFrameForImageCapture];
@@ -142,6 +149,15 @@
         _sharpenFilter = [[GPUImageSharpenFilter alloc] init];
     }
     return _sharpenFilter;
+}
+
+- (GPUImageContrastFilter *)contrastFilter
+{
+    if (_contrastFilter == nil) {
+        _contrastFilter = [[GPUImageContrastFilter alloc] init];
+        _contrastFilter.contrast = 1.0f;
+    }
+    return _contrastFilter;
 }
 
 @end
