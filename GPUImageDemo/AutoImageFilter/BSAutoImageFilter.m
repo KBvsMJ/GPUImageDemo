@@ -35,24 +35,53 @@
     
     CGFloat brightness = [imageInfo[IABrightness] floatValue];
     CGFloat saturation = [imageInfo[IASaturation] floatValue];
-    CGFloat temperature = [imageInfo[IASaturation] floatValue];
+    CGFloat temperature = [imageInfo[IATemperature] floatValue];
     
-    if (brightness >= 100 && brightness <= 179 && saturation >= 0 && saturation <= 29) {
-        self.brightnessFilter.brightness = 0.09678525;
-        self.saturationFilter.saturation = 1.30892633333333;
-        self.contrastFilter.contrast = 1.2;
-    }
+    NSLog(@"============================================\n");
+    NSLog(@"brightness:%f \n", brightness);
+    NSLog(@"saturation:%f \n", saturation);
+    NSLog(@"temperature:%f \n", temperature);
+    NSLog(@"============================================\n");
+    
+    self.brightnessFilter.brightness = 0.0f;
+    self.saturationFilter.saturation = 1.0f;
+    self.contrastFilter.contrast = 1.0f;
     
     if (brightness >= 40 && brightness < 100 && saturation >= 0 && saturation <= 29) {
         self.brightnessFilter.brightness = 0.0841906315789474;
         self.saturationFilter.saturation = 1.28635494736842;
-        self.contrastFilter.contrast = 1.3;
+        self.contrastFilter.contrast = 1.2;
+    }
+    
+    if (brightness >= 40 && brightness < 100 && saturation > 29 && saturation <= 69) {
+        self.brightnessFilter.brightness = 0.08f;
+        self.saturationFilter.saturation = 1.0f;
+        self.contrastFilter.contrast = 1.2f;
+    }
+    
+    if (brightness >= 40 && brightness < 100 && saturation > 69 && saturation <= 100) {
+        self.brightnessFilter.brightness = 0.08419f;
+        self.saturationFilter.saturation = 1.0f;
+        self.contrastFilter.contrast = 1.1;
+    }
+    
+    
+    if (brightness >= 100 && brightness <= 179 && saturation >= 0 && saturation <= 29) {
+        self.brightnessFilter.brightness = 0.09678525;
+        self.saturationFilter.saturation = 1.0;
+        self.contrastFilter.contrast = 1.1f;
     }
     
     if (brightness >= 100 && brightness <= 179 && saturation > 29 && saturation <= 69) {
         self.brightnessFilter.brightness = 0.012097;
-        self.saturationFilter.saturation = 1.25332047368421;
+        self.saturationFilter.saturation = 0.8f;
         self.contrastFilter.contrast = 1.2;
+    }
+    
+    if (brightness >= 100 && brightness <= 179 && saturation > 69 && saturation <= 100) {
+        self.brightnessFilter.brightness = 0.08f;
+        self.saturationFilter.saturation = 1.0f;
+        self.contrastFilter.contrast = 1.1f;
     }
     
     if (brightness > 179 && brightness <= 240 && saturation >= 0 && saturation <= 29) {
@@ -61,25 +90,39 @@
         self.contrastFilter.contrast = 1.0f;
     }
     
+//    if (brightness > 179 && brightness <= 240 && saturation > 29 && saturation <= 70 ) {
+//        self.brightnessFilter.brightness = 0.0f;
+//        self.saturationFilter.saturation = 1.2;
+//        self.contrastFilter.contrast = 1.1;
+//    }
+    
     if (brightness > 179 && brightness <= 240 && saturation > 70 && saturation <= 100 ) {
         self.brightnessFilter.brightness = -0.24214625;
         self.saturationFilter.saturation = 1.28037075;
         self.contrastFilter.contrast = 1.0f;
     }
     
-    if (temperature > 8167 && temperature <= 9713) {
+    if (temperature <= 10000) {
         self.whiteBalanceFilter.temperature = 6394.95285377778;
     }
     
-    if (temperature > 9713 && temperature <= 19706) {
-        self.whiteBalanceFilter.temperature = 5952.19968580435;
+    if (temperature > 10000 && temperature <= 12000) {
+        self.whiteBalanceFilter.temperature = 5994.19968580435;
     }
     
-    if (temperature > 19706) {
-        self.whiteBalanceFilter.temperature = 6951.805664;
+    if (temperature > 12000 && temperature <= 15000) {
+        self.whiteBalanceFilter.temperature = 5694;
     }
     
-    self.sharpenFilter.sharpness = 0.793325327586207;
+    if (temperature > 15000 && temperature <= 18000) {
+        self.whiteBalanceFilter.temperature = 4650;
+    }
+    
+    if (temperature > 18000) {
+        self.whiteBalanceFilter.temperature = 4350;
+    }
+    
+    self.sharpenFilter.sharpness = 0.3;
     [self processImage];
 }
 
