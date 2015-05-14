@@ -8,6 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
+@class FunTipDataManager;
+
+@protocol FunTipDataManagerDelegate <NSObject>
+
+- (void)dataManagerDidSuccessLoadTips:(FunTipDataManager *)dataManager;
+
+@end
+
 @interface FunTipDataManager : NSObject
+
+@property (nonatomic, weak) id<FunTipDataManagerDelegate> delegate;
+@property (nonatomic, copy) NSIndexPath *mainSelectedIndexPath;
+
+- (NSInteger)mainCollectionViewCellCount;
+- (NSInteger)childCollectionViewCellCount;
+
+- (NSDictionary *)contentForMainCollectionViewCellAtIndexPath:(NSIndexPath *)indexPath;
+- (NSDictionary *)contentForChildCollectionViewCellAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)loadTipsData;
 
 @end

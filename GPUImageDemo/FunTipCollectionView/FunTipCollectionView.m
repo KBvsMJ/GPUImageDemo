@@ -11,14 +11,17 @@
 #import "AssortTipsFactory.h"
 #import "FunTipCollectionViewChildCell.h"
 #import "FunTipCollectionViewMainCell.h"
+#import "FunTipDataManager.h"
 
-@interface FunTipCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface FunTipCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate, FunTipDataManagerDelegate>
 
 @property (nonatomic, strong) UICollectionView *mainCollectionView;
 @property (nonatomic, strong) UICollectionView *childCollectionView;
 
 @property (nonatomic, strong) UIImageView *pointerImageView;
 @property (nonatomic, strong) UIImageView *childCollectionViewBackgroundImageView;
+
+@property (nonatomic, strong) FunTipDataManager *dataManager;
 
 @end
 
@@ -64,7 +67,17 @@
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 20;
+    NSInteger result = 0;
+    
+    if (collectionView == self.mainCollectionView) {
+        result = [self.dataManager mainCollectionViewCellCount];
+    }
+    
+    if (collectionView == self.childCollectionView) {
+        result = [self.dataManager childCollectionViewCellCount];
+    }
+    
+    return result;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -93,6 +106,7 @@
     if (collectionView == self.mainCollectionView) {
         FunTipCollectionViewMainCell *cell = (FunTipCollectionViewMainCell *)[collectionView cellForItemAtIndexPath:indexPath];
         if (cell.isAlbum) {
+            self.dataManager.mainSelectedIndexPath = indexPath;
             [self showChildCollectionViewForCollectionView:collectionView withCell:cell atIndexPath:indexPath];
         } else {
             [self hideChildCollectionViewForCollectionView:collectionView withCell:cell atIndexPath:indexPath];
@@ -102,6 +116,13 @@
     if (collectionView == self.childCollectionView) {
         
     }
+}
+
+#pragma mark - FunTipDataManagerDelegate
+- (void)dataManagerDidSuccessLoadTips:(FunTipDataManager *)dataManager
+{
+    [self.mainCollectionView reloadData];
+    [self.childCollectionView reloadData];
 }
 
 #pragma mark - private methods
