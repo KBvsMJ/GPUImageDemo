@@ -15,6 +15,7 @@
 #import "AssortTipsMainViewController.h"
 #import "ImageAutoFilterViewController.h"
 #import "DynamicTipViewController.h"
+#import "FunTipsViewController.h"
 
 @interface MainViewController ()
 
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) UIButton *tipsButton;
 @property (nonatomic, strong) UIButton *optimizeButton;
 @property (nonatomic, strong) UIButton *dynamicTipButton;
+@property (nonatomic, strong) UIButton *funTipsButton;
 
 @end
 
@@ -42,6 +44,7 @@
     [self.view addSubview:self.tipsButton];
     [self.view addSubview:self.optimizeButton];
     [self.view addSubview:self.dynamicTipButton];
+    [self.view addSubview:self.funTipsButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,9 +81,19 @@
     [self.dynamicTipButton sizeEqualToView:self.optimizeButton];
     [self.dynamicTipButton topEqualToView:self.optimizeButton];
     [self.dynamicTipButton right:5 FromView:self.optimizeButton];
+    
+    [self.funTipsButton sizeEqualToView:self.dynamicTipButton];
+    [self.funTipsButton topEqualToView:self.dynamicTipButton];
+    [self.funTipsButton right:5 FromView:self.dynamicTipButton];
 }
 
 #pragma mark - event response
+- (void)didTappedFunTipsButton:(UIButton *)button
+{
+    FunTipsViewController *viewController = [[FunTipsViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 - (void)didTappedDynamicButton:(UIButton *)button
 {
     DynamicTipViewController *viewController = [[DynamicTipViewController alloc] init];
@@ -124,6 +137,16 @@
 }
 
 #pragma mark - getters and setters
+- (UIButton *)funTipsButton
+{
+    if (_funTipsButton == nil) {
+        _funTipsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_funTipsButton setTitle:@"范儿贴纸" forState:UIControlStateNormal];
+        [_funTipsButton addTarget:self action:@selector(didTappedFunTipsButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _funTipsButton;
+}
+
 - (UIButton *)dynamicTipButton
 {
     if (_dynamicTipButton == nil) {
